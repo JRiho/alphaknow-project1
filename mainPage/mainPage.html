@@ -7,19 +7,21 @@
     <title>MainPage</title>
 </head>
 <style>
+    body{
+        margin: 0;
+    }
     .mainBox {
-        width: 95%;
+        width: 100%;
         height: 100vh;
         /* border: 1px solid red; */
         margin: 0 auto;
         /* display: flex; */
-
     }
 
     .left-box {
         width: 100%;
         height: 100vh;
-        border: 1px solid blue;
+        border: 2px solid #ccc;
         box-sizing: border-box;
     }
 
@@ -45,14 +47,13 @@
     } */
     #header {
         width: 100%;
-        height: 9%;
-        border: 1px solid black;
+        height: 7%;
+        border-bottom: 1px solid black;
     }
 
     #header ul {
         list-style: none;
         display: flex;
-        border: 1px solid blue;
         height: 100%;
         margin-top: auto;
         padding-left: 0;
@@ -66,22 +67,22 @@
     #icon {
         width: 100%;
         height: 100%;
-        border: 1px solid red;
+        /* border: 1px solid red; */
     }
 
     #li_search {
         width: 50%;
         margin-left: 5%;
-
+        margin-top: -0.2%;
     }
 
     #search {
         display: flex;
         width: 100%;
         height: 80%;
-        border: 1px solid green;
+        border: 2px solid #01b7b0;
         border-radius: 10px;
-        line-height: 430%;
+        line-height: 350%;
         margin-top: 1%;
     }
 
@@ -106,7 +107,7 @@
     }
 
     #search_img {
-        width: 10%;
+        width: 7%;
     }
 
     #search_img1 {
@@ -117,7 +118,7 @@
     }
 
     #li_userIcon {
-        margin-left: 30%;
+        margin-left: 32%;
     }
 
     #userIcon {
@@ -126,36 +127,38 @@
         margin-top: 9%;
     }
 
-
+    /* 메뉴보드 */
     #menuBoard {
         width: 100%;
-        height: 40px;
-        border: 1px solid purple;
+        height: 7%;
+        border-bottom: 1px solid black;
         display: flex;
+        line-height: 380%;
     }
 
 
     #menuBoard div {
         cursor: pointer;
         margin-left: 5.0%;
-        line-height: 40px;
+        /* line-height: 380%; */
     }
 
     #menuBoard div a {
         text-decoration: none;
         color: black;
     }
-
+    /* 메뉴보드 끝 */
+    /* 모니터링의 css */
     #monitering {
 
-        border: 1px solid #2b2b37;
-        width: 93.49%;
-        height: 30px;
-        line-height: 30px;
+        /* border: 1px solid #2b2b37; */
+        width: 99.8%;
+        height: 50px;
+        line-height: 330%;
         display: flex;
         position: absolute;
         display: none;
-        background-color: #2b2b37;
+        background-color: #01b7b0;
     }
 
     #monitering div {
@@ -164,9 +167,35 @@
     }
 
     #monitering div a {
-        color: #ccc;
+        color: #fff;
         text-decoration: none;
+        opacity: 0.7;
     }
+    /* 모니터링의 css  끝*/
+
+    /* 세부메뉴바의 폰트를 더 진하게 바꿈 */
+    #moniter1 a:hover{
+        color: #fff;
+        opacity: 1;
+    }
+    #moniter2 a:hover{
+        color: #fff;
+        opacity: 1;
+    }
+    #moniter3 a:hover{
+        color: #fff;
+        opacity: 1;
+    }
+    #moniter4 a:hover{
+        color: #fff;
+        opacity: 1;
+    }
+    #moniter5 a:hover{
+        color: #fff;
+        opacity: 1;
+    }
+    /* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
+
 </style>
 <script>
     window.addEventListener('load', function () {
@@ -177,8 +206,8 @@
             monitering.style.display = "flex";
             document.querySelector('#monitering').addEventListener('mouseleave', function () {
                 moniter.style.fontWeight = "400";
-                monitering.style.display = 'none';
-            })
+                monitering.style.display = 'none';        
+            }) 
         })
     })
 </script>
@@ -189,7 +218,7 @@
         <div class="left-box">
             <div id="header">
                 <ul>
-                    <li><img src="../mainPage/img/home.png" id="icon"></li>
+                    <li><img src="../mainPage/img/logo.png" id="icon"></li>
                     <li id="li_search">
                         <div id="search">
                             <div id="search_size">
@@ -219,11 +248,11 @@
 
             </div>
             <div id="monitering">
-                <div><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a></div>
-                <div><a href="#">가동률현황</a></div>
-                <div><a href="#">원가현황</a></div>
-                <div><a href="#">불량현황</a></div>
-                <div><a href="#">비가동현황</a></div>
+                <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a></div>
+                <div id="moniter2"><a href="#">가동률현황</a></div>
+                <div id="moniter3"><a href="#">원가현황</a></div>
+                <div id="moniter4"><a href="#">불량현황</a></div>
+                <div id="moniter5"><a href="#">비가동현황</a></div>
             </div>
             <div id="content">
                 1
