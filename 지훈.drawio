@@ -1,9 +1,57 @@
-<mxfile host="app.diagrams.net" modified="2024-01-28T04:38:14.594Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="pff3bKwq-cSuYBJhp-gS" version="23.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-28T06:00:30.981Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="G6Moj22ouIwY_aOPJRMD" version="23.0.2" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
-    <mxGraphModel dx="2037" dy="1133" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="-61" dy="2266" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-253" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="4410" y="200" width="1096" height="790" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-239" value="생산계획관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry x="696" y="310" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-240" value="생산부품관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-241" value="세부공정&lt;br&gt;생산계획관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry y="460" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-242" value="작업자별&lt;br&gt;일정현황" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry y="190" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-243" value="공정별&lt;br&gt;작업지시관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry y="640" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-244" value="" style="strokeWidth=4;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=-180;" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry x="402" y="75" width="294" height="639" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-246" value="" style="line;strokeWidth=4;html=1;" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry x="400" y="260" width="150" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-247" value="" style="line;strokeWidth=4;html=1;" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+          <mxGeometry x="400" y="530" width="150" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-254" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="4410" y="1350" width="1096" height="590" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-238" value="생산실적관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-254">
+          <mxGeometry x="696" y="220" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-248" value="생산계획대비&lt;br style=&quot;font-size: 51px;&quot;&gt;실적현황" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-254">
+          <mxGeometry width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-249" value="작업지시대비&lt;br style=&quot;font-size: 51px;&quot;&gt;실적현황" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-254">
+          <mxGeometry x="2" y="220" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-250" value="장비별&lt;br style=&quot;font-size: 51px;&quot;&gt;생산실적현황" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-254">
+          <mxGeometry y="440" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-251" value="" style="strokeWidth=4;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;rotation=-180;" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-254">
+          <mxGeometry x="400" y="75.5" width="294" height="434.5" as="geometry" />
+        </mxCell>
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-252" value="" style="line;strokeWidth=4;html=1;" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-254">
+          <mxGeometry x="400" y="287.75" width="150" height="10" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
