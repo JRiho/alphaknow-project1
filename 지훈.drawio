@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-28T06:22:15.933Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="CHhX9-mBaz2qZJdDA2tJ" version="23.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-01-28T06:26:38.783Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0" etag="PVwVd9DckLWEa9ZIPXc6" version="23.0.2" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="-61" dy="2266" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -10,7 +10,7 @@
         <mxCell id="iL0AFEI0iZvd9HKSOmmm-239" value="생산계획관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
           <mxGeometry x="696" y="310" width="400" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="iL0AFEI0iZvd9HKSOmmm-240" value="생산자재관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
+        <mxCell id="iL0AFEI0iZvd9HKSOmmm-240" value="생산자재&lt;br&gt;계획관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
           <mxGeometry width="400" height="150" as="geometry" />
         </mxCell>
         <mxCell id="iL0AFEI0iZvd9HKSOmmm-241" value="세부공정&lt;br&gt;생산계획관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" vertex="1" parent="iL0AFEI0iZvd9HKSOmmm-253">
