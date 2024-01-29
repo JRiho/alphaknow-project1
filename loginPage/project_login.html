@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>로그인 페이지</title>
+ </head>
+<style>
+    body {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .screen {
+        width: 1000px;
+        height: 400px;
+        text-align: center;
+        margin-top: 300px;
+    }
+
+    .login_type ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .login_type ul li {
+        display: inline-block;
+    }
+
+    .login_type ul li a {
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+        width: 180px;
+        height: 19px;
+        border: 1px solid #bfbfbf; 
+        text-align: center; 
+        line-height: 19px;
+        background-color: #dadada;
+        color: #777;
+        border-radius: 15px;
+    }
+
+    .login_type ul li a:hover {
+        background: #cfcfcf;  
+        color: #777;
+        border: 1px solid #bfbfbf;
+	}
+
+    .login_type ul li a.active {
+        background: #fff;
+        font-weight: 550;
+        color: #777;
+        border: 1px solid #dadada;
+        cursor: pointer;
+    }
+
+    .login {
+        display: inline-block;
+    }
+
+    .id, .pass {
+        width: 400px;
+        height: 35px;
+        margin-top: 40px;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom: 1px solid #dadada;
+        outline: none;
+    }
+
+    .login_but {
+        float: right;
+        margin-left: 20px;
+        margin-top: 40px;
+        border: 0px;
+        width: 120px;
+        height: 120px;
+        font-weight: bold;
+        border-radius: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: rgb(26, 188, 156);
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    input::placeholder {
+        color: #bbbbbb;
+    }
+
+    .chkbox {
+        margin-top: 50px;
+    }
+
+    .find_pass {
+        margin-left: 360px;
+        text-decoration: none;
+        color: #aaaaaa
+    }
+</style>
+ <body width="100%">
+    <div class="screen">
+        <!-- 로그인 타입 선택; id/qr -->
+        <div class="login_type">
+            <ul>
+                <li><a class="active">ID 로그인</a></li>
+                <li class="qr"><a href="">QR 로그인</a></li>
+            </ul>
+        </div>
+        <!-- 아이디 및 비밀번호 입력 -->
+        <div class="login">
+            <div>
+                <input type="text" name="userid" placeholder="아이디" class="id">
+                <!-- 로그인 버튼 -->
+                <input type="button" class="login_but" value="로그인">
+            </div>
+            <div>
+                <input type="password" name="userpass" placeholder="비밀번호" class="pass">
+            </div>
+        </div>
+        
+        <div class="chkbox">
+            <!-- id저장 -->
+            <input type="checkbox" name="save" value="id저장">ID저장
+            <!-- 비밀번호 찾기 -->
+            <a href="" class="find_pass">비밀번호 찾기</a>
+        </div>        
+            
+    
+    </div>
+ </body>
+</html>
