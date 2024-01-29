@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #main_header {
+            font-size: 30px;
+            width: 100%;
+            height: 50px;
+            background-color: #555;
+            display: flex;
+
+        }
+
+        #customer_list_title {
+            width: 50%;
+            border: 1px solid red;
+            margin-left: 10px
+        }
+
+        #customer_list_search {
+            width: 50%;
+            border: 1px solid blue;
+            display: flex;
+            align-items: center;
+            /*수직정렬*/
+            justify-content: right;
+            /*수평정렬*/
+            margin-right: 10px;
+
+        }
+
+        .customer_list_search_img {
+            width: 30px;
+            
+        }
+
+        .customer_list_search_text {
+            width: 200px;
+            height: 30px;
+        }
+
+        #main_content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        #customer_board {
+            border: 1px solid black;
+        }
+
+        /* 거래처등록팝업 */
+        #customer_new_register {
+            display: none;
+            width: 60%;
+            height: 40%;
+            border : 1px solid red;
+        }
+        #main-footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            
+
+
+        document.getElementById("new_register").addEventListener("click", function(){
+        let customer_new_register = document.getElementById("customer_new_register");
+        customer_new_register.style.display = "block";
+    
+
+         document.getElementById("close").addEventListener("click", function(){
+        let customer_new_register = document.getElementById("customer_new_register");
+        customer_new_register.style.display = "none";
+        });
+               
+
+                // 새로운 행 생성
+                let new_row = document.createElement("tr");
+                // 각 열 데이터 추가
+                let checkbox_cell = document.createElement("td");
+                checkbox_cell.innerHTML = "<input type = 'checkbox'>";
+                new_row.appendChild(checkbox_cell);
+
+                let no_cell = document.createElement("td");
+                // No. 현재 테이블의 행 개수 +1
+                no_cell.textContent = document.getElementById("customer_board").rows.length;
+                new_row.appendChild(no_cell);
+
+                //  table의 tbody에 새로운 행 추가
+                document.getElementById("customer_board").getElementsByTagName("tbody")[0].appendChild(new_row);
+         });
+    }
+
+
+    </script>
+</head>
+
+<body>
+    <div class="mainBox">
+        <div class="left-box">
+            <div id="header">
+                <ul>
+                    <li><img src="https://cdn.discordapp.com/attachments/1200318999112720424/1201064896067027005/logo.png?ex=65c875d9&is=65b600d9&hm=55487b27a7ecacb2ffd64c59fe79a41e913f7edeedd13408b63d946d9881f2ef&"
+                            id="icon"></li>
+                    <li id="li_search">
+                        <div id="search">
+                            <div id="search_size">
+                                <input type="text" id="search_txt" value="" placeholder="검색어를 입력해 주세요">
+                            </div>
+                            <div id="search_img">
+                                <img src="C:/project_alphaknow/mainPage/img/search.avif" id="search_img1">
+                            </div>
+                        </div>
+                    </li>
+                    <li id="li_userIcon">
+                        <img src="https://cdn.discordapp.com/attachments/1200318999112720424/1201065133032603728/images.png?ex=65c87612&is=65b60112&hm=95076b8a0faabe229206bc26c9526afd452159f8d6f562ba9f7cad7a0d01bfb0&"
+                            id="userIcon">
+                    </li>
+                </ul>
+            </div>
+            <div id="menuBoard">
+                <div><a href="mainPage.html">마이페이지</a></div>
+                <div id="moniter">
+                    모니터링
+                </div>
+                <div>공정기준정보</div>
+                <div>생산계획관리</div>
+                <div>생산실적관리</div>
+                <div>예측분석관리</div>
+                <div>재고관리</div>
+                <div>입고관리</div>
+
+            </div>
+            <div id="monitering">
+                <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
+                </div>
+                <div id="moniter2"><a href="#">가동률현황</a></div>
+                <div id="moniter3"><a href="#">원가현황</a></div>
+                <div id="moniter4"><a href="#">불량현황</a></div>
+                <div id="moniter5"><a href="#">비가동현황</a></div>
+            </div>
+            <div id="content">
+                <!--메뉴헤더
+                serach에 검색으로 거래처 검색 기능 구현-->
+                <div id="main_header">
+                    <div id="customer_list_title"> 거래처 리스트 </div>
+                    <div id="customer_list_search">
+                        <input type="text" class="customer_list_search_text" value="" placeholder="입력 후 enter">
+                        <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&"
+                            class="customer_list_search_img">
+                    </div>
+                </div>
+                <div id="main_content">
+                    <table id="customer_board" border="1">
+                        <colgroup>
+                            <col style = "width:50px">
+                            <col style = "width:87px">
+                            <col style = "width:150px">
+                            <col style = "width:150px">
+                            <col style = "width:180px">
+                            <col style = "width:180px">
+                            <col style = "width:70px">
+                            <col style = "width:200px">
+
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>No.</th>
+                                <th>거래처코드</th>
+                                <th>대표자명</th>
+                                <th>전화</th>
+                                <th>담당자 번호</th>
+                                <th>사용구분</th>
+                                <th>업체주소</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <!-- 게시물 추가 예정 -->
+                        </tbody>
+
+                    </table>
+
+                </div>
+                <div id="main-footer">
+                    <!-- 신규둥록 및 수정버튼-->
+                    <button id="new_register">신규등록</button>
+                    <button id="edit">수정하기</button>
+
+                    <!-- 거래처 등록 -->
+                    <div id="customer_new_register"> 
+                        <sapn>거래처등록</sapn>
+                        <p>
+                            <table id = "new_customer">
+                                <tr>
+                                    <td>거래처코드</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>상호(이름)</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>대표자명</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>업태</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>전화</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>Fax</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td> 주소1 우편번호	</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td> 주소1	</td>
+                                    <td><input type = "text"></td>
+                                </tr>
+                                <tr>
+                                    <td>거래처 분류</td>
+                                    <td><input type = "radio" name = "sort">구매</td>
+                                    <td><input type = "radio" name = "sort">판매</td>
+                                </tr>
+                                <tr>
+                                    <td> 사용구분</td>
+                                    <td><input type = "radio" name = "use">yes</td>
+                                    <td><input type = "radio" name = "use">no</td>
+                                </tr>
+
+                            </table>
+                        </p>
+                        <button id="save">저장</button>
+                        <button id="reset">다시쓰기</button><!--type submit 으로 수정-->
+                        <button id="use">사용중단/재사용</button>
+                        <button id="close">닫기</button>
+                </div>
+
+                    </div>
+                   
+
+            </div>
+            <!-- <div class="right-box">
+            <div><p>즐겨찾기 추가</p></div>
+            <div id="bookmark">
+                <img src="../mainPage/img/plus.png" id="bookmark_img">
+            </div>
+        </div> -->
+        </div>
+</body>
+
+</html>

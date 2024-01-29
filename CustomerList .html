@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href="styles.css">
+    <style>
+    #menu_header{
+        width:100%;
+        height : 50px;
+        background-color:#555;
+    }
+    #customer_list{
+        display : flex;
+        width:50%;
+        border : 1px solid red;
+
+       
+    }
+    #customer_list_search{
+        width : 50%;
+        /* display : flex; */
+        margin-left : 500%;  
+
+    }
+
+    </style>
+
+</head>
+<body>
+    <div class="mainBox">
+        <div class="left-box">
+            <div id="header">
+                <ul>
+                    <li><img src="C:/project_alphaknow/mainPage/img/logo.png" id="icon"></li>
+                    <li id="li_search">
+                        <div id="search">
+                            <div id="search_size">
+                                <input type="text" id="search_txt" value="" placeholder="검색어를 입력해 주세요">
+                            </div>
+                            <div id="search_img">
+                                <img src="C:/project_alphaknow/mainPage/img/search.avif" id="search_img1">
+                            </div>
+                        </div>
+                    </li>
+                    <li id="li_userIcon">
+                        <img src="C:/project_alphaknow/mainPage/img/images.png" id="userIcon">
+                    </li>
+                </ul>
+            </div>
+            <div id="menuBoard">
+                <div><a href="mainPage.html">마이페이지</a></div>
+                <div id="moniter">
+                    모니터링
+                </div>
+                <div>공정기준정보</div>
+                <div>생산계획관리</div>
+                <div>생산실적관리</div>
+                <div>예측분석관리</div>
+                <div>재고관리</div>
+                <div>입고관리</div>
+
+            </div>
+            <div id="monitering">
+                <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a></div>
+                <div id="moniter2"><a href="#">가동률현황</a></div>
+                <div id="moniter3"><a href="#">원가현황</a></div>
+                <div id="moniter4"><a href="#">불량현황</a></div>
+                <div id="moniter5"><a href="#">비가동현황</a></div>
+            </div>
+            <div id="content">
+                <div id = "menu_header">
+                <div id="customer_list">
+                    거래처 리스트
+                    <div>
+                        <input type="text" id="customer_list_search" value="" placeholder="입력 후 enter">                     
+                    </div>
+                    <div id="search_img">
+                        <img src="C:/project_alphaknow/mainPage/img/search.avif" id="search_img1">
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="right-box">
+            <div><p>즐겨찾기 추가</p></div>
+            <div id="bookmark">
+                <img src="../mainPage/img/plus.png" id="bookmark_img">
+            </div>
+        </div> -->
+    </div>
+</body>
+</html>
