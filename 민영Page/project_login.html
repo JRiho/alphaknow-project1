@@ -101,6 +101,34 @@
         text-decoration: none;
         color: #aaaaaa
     }
+
+    .id_container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .id_container img {
+        position: absolute;
+        top: 70%;
+        left: -10%;
+        width: 40px;
+        height: 40px;
+        transform: translateY(-50%);
+    }
+
+    .pass_container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .pass_container img {
+        position: absolute;
+        top: 70%;
+        left: -10%;
+        width: 40px;
+        height: 40px;
+        transform: translateY(-50%);
+    }
 </style>
  <body width="100%">
     <div class="screen">
@@ -114,11 +142,15 @@
         <!-- 아이디 및 비밀번호 입력 -->
         <div class="login">
             <div>
-                <input type="text" name="userid" placeholder="아이디" class="id">
+                <div class="id_container">
+                    <img src="img/id_icon.png" ondragstart="return false;">
+                    <input type="text" name="userid" placeholder="아이디" class="id">
+                </div>
                 <!-- 로그인 버튼 -->
                 <input type="button" class="login_but" value="로그인">
             </div>
-            <div>
+            <div class="pass_container">
+                <img src="img/pass_icon.png" ondragstart="return false;">
                 <input type="password" name="userpass" placeholder="비밀번호" class="pass">
             </div>
         </div>

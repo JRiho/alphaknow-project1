@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .side {
+        width: 20%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .vertical_line {
+        width: 2px; 
+        height: 100%; 
+        background-color: #777; 
+        position: fixed; 
+        top: 0;
+        left: 20%;
+    }
+
+    .profile_img {
+        display: inline-block;
+        width: 120px;
+        height: 150px;
+        margin-top: 20px;
+    }
+
+    .logout {
+        text-decoration: none;
+        color: #7a7a7a;
+        border: 2px solid #7a7a7a;
+        padding: 4px;
+    }
+  
+    .side_menu {
+        margin-top: 50px;
+    }
+
+    .side_menu ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .side_menu ul li {
+        display: inline-block;
+    }
+
+    .side_menu ul li a {
+        text-decoration: none;
+        display: block;
+        font-size: 20px;
+        width: 180px;
+        text-align: left; 
+        color: #777;
+        margin-top: 30px;
+        font-weight: bold;
+    }
+
+    .side_menu ul li a:hover {
+        color: rgb(27, 197, 163);
+	}
+
+    .side_menu ul li a.active {
+        color: rgb(26, 188, 156);
+        cursor: pointer;
+    }
+
+    .main {
+        width: 80%;
+        height: 100%;
+    }
+
+    .menu ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu ul li {
+        display: inline-block;
+    }
+
+    .menu ul li a {
+        text-decoration: none;
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        width: 170px;
+        height: 40px;
+        border: 0; 
+        text-align: center; 
+        line-height: 40px;
+        background-color: rgb(190, 190, 190);
+        color: #fff;
+        border-radius: 50px;
+        margin-top: 30px;
+        margin-left: 20px;
+    }
+
+    .menu ul li a:hover {
+        background: rgb(170, 170, 170);  
+        color: #fff;
+        border: 0;
+	}
+
+    .menu ul li a.att {
+        background: rgb(26, 188, 156);
+        color: #fff;
+        border: 0;
+        cursor: pointer;
+    }
+
+    .date {
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .arrow1 {
+        max-height: 100%; 
+        transform: scaleX(-1);
+        width: 30px;
+        height: 30px;
+    }
+
+    .arrow2 {
+        max-height: 100%; 
+        width: 30px;
+        height: 30px;
+    }
+
+    .but {
+        float: right;
+        margin-right: 30px;
+    }
+
+    .stat {
+        width: 94%;
+        height: 150px;
+        border: 2px solid #b9b9b9;
+        margin-left: 30px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <div class="side">
+        <div class="side_profile">
+            <img src="img/profile_icon.png" class="profile_img">
+            <div><font size="5"><b>이민영</b></font></div>
+            <div>생산1팀/매니저</div>
+            <div>010-5811-9717</div>
+            <div style="margin-top: 20px"><a href="" class="logout">로그아웃</a></div>
+        </div>
+        
+        <div class="vertical_line"></div>
+
+        <div class="side_menu">
+            <ul>
+                <li><a class="active">일정관리</a></li>
+                <li class="EDSM"><a href="">전자결재</a></li>
+                <li class="board"><a href="">건의게시판</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="menu">
+            <ul>
+                <li><a class="calendar" href="">캘린더</a></li>
+                <li><a class="att" href="">근태현황</a></li>
+            </ul>
+        </div>
+
+        <div class="date">
+            <img src="img/arrow_icon.png"
+            class="arrow1">
+            <font size="6"><b>2024.02</b></font>
+            <img src="img/arrow_icon.png"
+            class="arrow2">
+        </div>
+
+        <div style="margin-left: 30px; display: inline-block">
+            <font size="4"><b>기본 그룹</b></font> &nbsp;09:00 ~ 18:00
+        </div>
+        <div class="but">
+            <input type="button" value="연장근무신청">
+            <input type="button" value="목록 다운로드">
+        </div>
+
+        <div class="stat">
+            이번주 누적
+        </div>
+    </div>
+</body>
+</html>
