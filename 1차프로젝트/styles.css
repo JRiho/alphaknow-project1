@@ -1,12 +1,12 @@
-body{
+body {
     margin: 1;
 }
+
 .mainBox {
     width: 100%;
     height: 100vh;
     border: 1px solid black;
     margin: 0 auto;
-    /* display: flex; */
     box-sizing: border-box;
     position: relative;
 }
@@ -18,26 +18,7 @@ body{
     box-sizing: border-box;
 }
 
-/*
-.right-box {
-    width: 10%;
-    height: auto;
-    border: 1px solid orange;
-    box-sizing: border-box;
-}
 
-.right-box div p{
-    text-align: center;
-    font-size: 15px;
-}
-
-#bookmark{
-    margin-left: 20%;
-}
-
-#bookmark_img{
-    width: 80%;
-} */
 #header {
     width: 100%;
     height: 8%;
@@ -52,9 +33,8 @@ body{
     padding-left: 0;
 }
 
-#li_icon{
-    width:20%;
-    /* border: 1px solid red; */
+#li_icon {
+    width: 20%;
 }
 
 #icon {
@@ -71,9 +51,9 @@ body{
     display: flex;
     width: 100%;
     height: 80%;
-    border: 2px solid rgb(26,188,156);
+    border: 2px solid rgb(26, 188, 156);
     border-radius: 10px;
-    line-height: 350%;
+    line-height: 380%;
     margin-top: 0.5%;
 
 }
@@ -88,8 +68,8 @@ body{
 }
 
 #search_txt {
-    width: 100%;
-    height: 90%;
+    width: 95%;
+    height: 80%;
     font-size: 25px;
     /* outline: none: removal of outine of (input type="text") */
     outline: none;
@@ -100,13 +80,13 @@ body{
 
 #search_img {
     width: 6%;
+    margin-top: 1.2%;
+    margin-right: 1.5%;
 }
 
 #search_img1 {
     width: 100%;
     cursor: pointer;
-    margin-left: -18%;
-    margin-top: 2%;
 }
 
 #li_userIcon {
@@ -116,7 +96,7 @@ body{
 #userIcon {
     width: 13%;
     height: 95%;
-    margin-left:70%;
+    margin-left: 70%;
 }
 
 /* 메뉴보드 */
@@ -130,33 +110,33 @@ body{
 
 #menuBoard div {
     cursor: pointer;
-    width:12.5%;
+    width: 12.5%;
     text-align: center;
     line-height: 350%;
     /* margin-top: 1.2%; */
     border-right: 1px solid black;
     height: 100%;
 }
-#menuBoard #store{
-    border:none;
+
+#menuBoard #store {
+    border: none;
 }
 
 #menuBoard div a {
     text-decoration: none;
     color: black;
 }
+
 /* 메뉴보드 끝 */
-/* 모니터링의 css */
+/* 메뉴세부사항 css */
 #monitering {
 
-    /* border: 1px solid #2b2b37; */
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
@@ -165,7 +145,7 @@ body{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #monitering div a {
@@ -173,40 +153,40 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#moniter1 a:hover{
+#moniter1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#moniter2 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#moniter3 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#moniter4 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#moniter5 a:hover{
-    color: #fff;
-    opacity: 1;
-}
- /* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
- #criteria {
 
-    /* border: 1px solid #2b2b37; */
+#moniter2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#criteria {
+
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
@@ -215,7 +195,7 @@ body{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #criteria div a {
@@ -223,39 +203,40 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#standard1 a:hover{
+#standard1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#standard2 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#standard3 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#standard4 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#standard5 a:hover{
-    color: #fff;
-    opacity: 1;
-}
- #planning {
 
-    /* border: 1px solid #2b2b37; */
+#standard2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning {
+
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
@@ -264,7 +245,7 @@ body{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #planning div a {
@@ -272,48 +253,49 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#planning1 a:hover{
+#planning1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#planning2 a:hover{
+
+#planning2 a:hover {
     color: #fff;
     opacity: 1;
 }
-#planning3 a:hover{
+
+#planning3 a:hover {
     color: #fff;
     opacity: 1;
 }
-#planning4 a:hover{
+
+#planning4 a:hover {
     color: #fff;
     opacity: 1;
 }
-#planning5 a:hover{
+
+#planning5 a:hover {
     color: #fff;
     opacity: 1;
 }
+
 #performing {
 
-    /* border: 1px solid #2b2b37; */
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
 #performing div {
-    width: 20%;
+    width: 33%;
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #performing div a {
@@ -321,39 +303,30 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#perform1 a:hover{
+#perform1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#perform2 a:hover{
+
+#perform2 a:hover {
     color: #fff;
     opacity: 1;
 }
-#perform3 a:hover{
+
+#perform3 a:hover {
     color: #fff;
     opacity: 1;
 }
-#perform4 a:hover{
-    color: #fff;
-    opacity: 1;
-}
-#perform5 a:hover{
-    color: #fff;
-    opacity: 1;
-}
+
 #predicting {
 
-    /* border: 1px solid #2b2b37; */
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
@@ -362,7 +335,7 @@ body{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #predicting div a {
@@ -370,39 +343,40 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#predicting1 a:hover{
+#predicting1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#predicting2 a:hover{
+
+#predicting2 a:hover {
     color: #fff;
     opacity: 1;
 }
-#predicting3 a:hover{
+
+#predicting3 a:hover {
     color: #fff;
     opacity: 1;
 }
-#predicting4 a:hover{
+
+#predicting4 a:hover {
     color: #fff;
     opacity: 1;
 }
-#predicting5 a:hover{
+
+#predicting5 a:hover {
     color: #fff;
     opacity: 1;
 }
+
 #invent {
 
-    /* border: 1px solid #2b2b37; */
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
@@ -411,7 +385,7 @@ body{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #invent div a {
@@ -419,31 +393,29 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#invent1 a:hover{
+#invent1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#invent2 a:hover{
+
+#invent2 a:hover {
     color: #fff;
     opacity: 1;
 }
-#invent3 a:hover{
+
+#invent3 a:hover {
     color: #fff;
     opacity: 1;
 }
+
 #storing {
-
-    /* border: 1px solid #2b2b37; */
     width: 100%;
-    /* height: 5.7%; */
     line-height: 330%;
     display: flex;
     position: absolute;
     display: none;
-    background-color:  rgb(26,188,156);
+    background-color: rgb(26, 188, 156);
 
 }
 
@@ -452,7 +424,7 @@ body{
     text-align: center;
     cursor: pointer;
     overflow: hidden;
-    
+
 }
 
 #storing div a {
@@ -460,25 +432,146 @@ body{
     text-decoration: none;
     opacity: 0.7;
 }
-/* 모니터링의 css  끝*/
 
-/* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-#storing1 a:hover{
+#storing1 a:hover {
     color: #fff;
     opacity: 1;
 }
-#investoring2nt2 a:hover{
+
+#investoring2nt2 a:hover {
     color: #fff;
     opacity: 1;
 }
-#storing3 a:hover{
+
+#storing3 a:hover {
     color: #fff;
     opacity: 1;
 }
-#storing4 a:hover{
+
+#storing4 a:hover {
     color: #fff;
     opacity: 1;
 }
- /* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
+
+/* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
 
 /* 여기서부터 메뉴바 하단부 코딩(세부메뉴 코딩) */
+#content {
+    display: flex;
+}
+
+#toDo {
+    width: 30%;
+    border: 1px solid black;
+    height: 30vh;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+#toDoList {
+    width: 45%;
+    border: 1px solid black;
+    height: 51vh;
+    margin-top: 9%;
+    margin-left: 23%;
+    position: absolute;
+    display: none;
+    /* background-color:rgb(26,188,156); */
+    color: black;
+    border: 1px solid black;
+}
+
+#text {
+    width: 100%;
+    height: 45vh;
+    /* border: 1px solid red; */
+    overflow-y: hidden;
+    background-color: lightblue;
+    border-bottom: 1px solid black;
+
+}
+
+#toDoList a {
+    color: black;
+    list-style: none;
+}
+
+#taskInput {
+    width: 72%;
+}
+
+#taskList li {
+    list-style: none;
+}
+
+
+#toDo button {
+    border-radius: 10px;
+    border: 1px solid greenyellow;
+    cursor: pointer;
+
+}
+
+#btn {
+    display: flex;
+    width: 25.3%;
+    margin: 0 auto;
+    margin-top: 0.3%;
+}
+
+#plus {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(26, 188, 156);
+    width: 4%;
+    text-align: center;
+    margin-top: 2%;
+    border: 1px solid black;
+    border-left: none;
+    height: 11vh;
+}
+
+#plus_img {
+    width: 100%;
+    height: 5vh;
+    cursor: pointer;
+}
+
+#plus_img:hover {
+    width: 100%;
+    height: 6vh;
+    /* margin-left: 39%; */
+    margin-top: -5%;
+}
+
+#frame {
+    /* border: 1px solid red; */
+    width: 30%;
+    height: 40%;
+    margin-top: 5%;
+    margin-left: 2%;
+    position: relative;
+}
+#iframe{
+    width: 100%;
+    height: 100%;
+}
+#iframe_div{
+    margin-left: 10%;
+}
+#iframe_ul li{
+    list-style: none;
+    display: inline-block;
+    border:1px solid black;
+    border-radius: 15px;
+    width: 1.5%;
+    height: 2vh;
+    text-align: center;
+    line-height: 2vh;
+    cursor: pointer;
+}
+
+#calendar_div{
+    border: 1px solid red;
+    width: 40%;
+}

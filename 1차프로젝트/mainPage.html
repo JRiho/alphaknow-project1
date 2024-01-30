@@ -6,240 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MainPage</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
 </head>
-<script>
-  ///////////////////////메뉴판 코딩/////////////////////////////////////////////////
-    window.addEventListener('load', function () {
-        let moniter = document.querySelector('#moniter');
-        let monitering = document.querySelector('#monitering');
-
-        let standard = document.querySelector('#standard');
-        let criteria = document.querySelector('#criteria');
-
-        let plan = document.querySelector('#plan');
-        let planning = document.querySelector('#planning');
-
-        let performance = document.querySelector('#performance');
-        let performing = document.querySelector('#performing');
-
-        let prediction = document.querySelector('#prediction');
-        let predicting = document.querySelector('#predicting');
-
-        let inventory = document.querySelector('#inventory');
-        let invent = document.querySelector('#invent');
-       
-        let store = document.querySelector('#store');
-        let storing = document.querySelector('#storing');
-
-
-        document.querySelector('#moniter').addEventListener('mouseenter', function () {
-            moniter.style.fontWeight = "bold";
-            monitering.style.display = "flex";
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#monitering').addEventListener('mouseleave', function () {
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-        })
-        document.querySelector('#standard').addEventListener('mouseenter', function () {
-            standard.style.fontWeight = "bold";
-            criteria.style.display = "flex";
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#criteria').addEventListener('mouseleave', function () {
-            standard.style.fontWeight = "400";
-            criteria.style.display = 'none';
-        })
-        document.querySelector('#plan').addEventListener('mouseenter', function () {
-            plan.style.fontWeight = "bold";
-            planning.style.display = "flex";
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#planning').addEventListener('mouseleave', function () {
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-        })
-        document.querySelector('#performance').addEventListener('mouseenter', function () {
-            performance.style.fontWeight = "bold";
-            performing.style.display = "flex";
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#performing').addEventListener('mouseleave', function () {
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-        })
-        document.querySelector('#prediction').addEventListener('mouseenter', function () {
-            prediction.style.fontWeight = "bold";
-            predicting.style.display = "flex";
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#predicting').addEventListener('mouseleave', function () {
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-        })
-        document.querySelector('#inventory').addEventListener('mouseenter', function () {
-            inventory.style.fontWeight = "bold";
-            invent.style.display = "flex";
-
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#invent').addEventListener('mouseleave', function () {
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-        })
-        document.querySelector('#store').addEventListener('mouseenter', function () {
-            store.style.fontWeight = "bold";
-            storing.style.display = "flex";
-
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-        })
-        document.querySelector('#storing').addEventListener('mouseleave', function () {
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-        document.querySelector('#header').addEventListener('mouseenter',function(){
-            prediction.style.fontWeight = "400";
-            predicting.style.display = 'none';
-
-            moniter.style.fontWeight = "400";
-            monitering.style.display = 'none';
-
-            criteria.style.display = 'none';
-            standard.style.fontWeight = "400";
-
-            plan.style.fontWeight = "400";
-            planning.style.display = 'none';
-
-            performance.style.fontWeight = "400";
-            performing.style.display = 'none';
-
-            inventory.style.fontWeight = "400";
-            invent.style.display = 'none';
-
-            store.style.fontWeight = "400";
-            storing.style.display = 'none';
-        })
-    })
-  ///////////////////////////////////////////////////////////////////////////////////////////////////////
-</script>
-
 
 <body>
     <div class="mainBox">
@@ -289,7 +57,8 @@
 
         </div>
         <div id="monitering">
-            <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a></div>
+            <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
+            </div>
             <div id="moniter2"><a href="#">가동률현황</a></div>
             <div id="moniter3"><a href="#">원가현황</a></div>
             <div id="moniter4"><a href="#">불량현황</a></div>
@@ -303,17 +72,15 @@
             <div id="standard5"><a href="#">기초코드</a></div>
         </div>
         <div id="planning">
-            <div id="planning1"><a href="#">생산부품관리</a></div>
-            <div id="planning2"><a href="#">세부공정생산 계획관리</a></div>
+            <div id="planning1"><a href="#">생산자재관리</a></div>
             <div id="planning3"><a href="#">작업자별 일정현황</a></div>
+            <div id="planning2"><a href="#">세부공정생산 계획관리</a></div>
             <div id="planning4"><a href="#">공정별 작업지시 관리/출력</a></div>
         </div>
         <div id="performing">
-            <div id="perform1"><a href="#">생산계획 수립/현황</a></div>
-            <div id="perform2"><a href="#">작업지시 설계/현황</a></div>
-            <div id="perform3"><a href="#">생산계획대비 실적현황</a></div>
-            <div id="perform4"><a href="#">작업지시대비 실적현황</a></div>
-            <div id="perform5"><a href="#">장비별 생산실적현황</a></div>
+            <div id="perform1"><a href="#">생산계획대비 실적현황</a></div>
+            <div id="perform2"><a href="#">작업지시대비 실적현황</a></div>
+            <div id="perform3"><a href="#">장비별 생산실적현황</a></div>
         </div>
         <div id="predicting">
             <div id="predicting1"><a href="#">장비 수명 기준 불량 집계</a></div>
@@ -334,16 +101,55 @@
         </div>
 
         <div id="content">
+            <div id="toDo">
+                To do List:
+                <div>
+                    <ul id="taskList">
+                    </ul>
+                </div>
+            </div>
+            <div id="plus">
+                추가하기
+                <div><img src="../img/plus.png" id="plus_img"></div>
+            </div>
 
+
+            <div id="toDoList">
+                <div id="text">
+                </div>
+                <div>
+                    <a>To-do list 추가하기:</a>
+                    <input type="text" id="taskInput" value="">
+
+                </div>
+                <div id="btn">
+                    <div><button type="submit" id="btn_submit">등록</button></div>
+                    <div><button type="button" id="btn_cancel">취소</button></div>
+                    <div><button type="button" id="btn_out">나가기</button></div>
+                </div>
+            </div>
+            <div id="calendar_div">
+                <section>
+                    
+                </section>
+            </div>
+        </div>
+
+        <!-- iframe 영역 -->
+        <div id="frame">
+            <iframe id="iframe"></iframe>
+        </div>
+        <div id="iframe_div">
+            <ul id="iframe_ul">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+            </ul>
         </div>
     </div>
-    <!-- <div class="right-box">
-            <div><p>즐겨찾기 추가</p></div>
-            <div id="bookmark">
-                <img src="../mainPage/img/plus.png" id="bookmark_img">
-            </div>
-        </div> -->
-    <!-- </div> -->
+
 </body>
 
 </html>

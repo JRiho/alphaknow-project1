@@ -4,86 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MainPage</title>
+    <title>Monitering(equipment)</title>
 </head>
 <style>
-    body{
-        margin: 0;
-    }
     .mainBox {
-        width: 100%;
-        height: 100vh;
-        /* border: 1px solid red; */
+        width: 95%;
+        height: 800px;
+        border: 1px solid red;
         margin: 0 auto;
-        /* display: flex; */
+        display: flex;
     }
 
     .left-box {
-        width: 100%;
-        height: 100vh;
-        border: 2px solid #ccc;
+        width: 90%;
+        height: 800px;
+        border: 1px solid blue;
         box-sizing: border-box;
     }
 
-    /*
     .right-box {
         width: 10%;
-        height: auto;
+        height: 800px;
         border: 1px solid orange;
         box-sizing: border-box;
     }
 
-    .right-box div p{
-        text-align: center;
-        font-size: 15px;
-    }
-
-    #bookmark{
-        margin-left: 20%;
-    }
-
-    #bookmark_img{
-        width: 80%;
-    } */
     #header {
         width: 100%;
-        height: 7%;
-        border-bottom: 1px solid black;
+        height: 80px;
+        border: 1px solid black;
     }
 
     #header ul {
         list-style: none;
         display: flex;
+        border: 1px solid blue;
         height: 100%;
         margin-top: auto;
         padding-left: 0;
     }
 
     #header ul li {
-        /* border: 1px solid red; */
-        height: 100%;
+        margin-top: 0.7%;
     }
 
     #icon {
-        width: 100%;
-        height: 100%;
-        /* border: 1px solid red; */
+        width: 60px;
+        height: 60px;
+        border: 1px solid red;
     }
 
     #li_search {
         width: 50%;
         margin-left: 5%;
-        margin-top: -0.2%;
     }
 
     #search {
         display: flex;
         width: 100%;
-        height: 80%;
-        border: 2px solid #01b7b0;
+        height: 60px;
+        border: 1px solid green;
         border-radius: 10px;
-        line-height: 350%;
-        margin-top: 1%;
+        line-height: 65px;
     }
 
 
@@ -98,6 +80,7 @@
     #search_txt {
         width: 90%;
         margin: 0 auto;
+        height: 50px;
         font-size: 25px;
         /* outline: none: removal of outine of (input type="text") */
         outline: none;
@@ -107,58 +90,57 @@
     }
 
     #search_img {
-        width: 7%;
+        width: 10%;
     }
 
     #search_img1 {
         width: 100%;
         cursor: pointer;
         margin-left: -18%;
-        margin-top: 12%;
+        margin-top: 2%;
     }
 
     #li_userIcon {
-        margin-left: 32%;
+        margin-left: 33%;
     }
 
     #userIcon {
         width: 100%;
-        height: 80%;
-        margin-top: 9%;
+        height: 70px;
+        margin-top: -5%;
     }
 
-    /* 메뉴보드 */
+
     #menuBoard {
         width: 100%;
-        height: 7%;
-        border-bottom: 1px solid black;
+        height: 40px;
+        border: 1px solid purple;
         display: flex;
-        line-height: 380%;
     }
 
 
     #menuBoard div {
         cursor: pointer;
         margin-left: 5.0%;
-        /* line-height: 380%; */
+        line-height: 40px;
     }
 
     #menuBoard div a {
         text-decoration: none;
         color: black;
     }
-    /* 메뉴보드 끝 */
-    /* 모니터링의 css */
+
+
     #monitering {
 
-        /* border: 1px solid #2b2b37; */
-        width: 99.8%;
-        height: 50px;
-        line-height: 330%;
+        border: 1px solid #2b2b37;
+        width: 84.1%;
+        height: 30px;
+        line-height: 30px;
         display: flex;
         position: absolute;
         display: none;
-        background-color: #01b7b0;
+        background-color: #2b2b37;
     }
 
     #monitering div {
@@ -167,35 +149,24 @@
     }
 
     #monitering div a {
-        color: #fff;
+        color: #ccc;
         text-decoration: none;
-        opacity: 0.7;
     }
-    /* 모니터링의 css  끝*/
 
-    /* 세부메뉴바의 폰트를 더 진하게 바꿈 */
-    #moniter1 a:hover{
-        color: #fff;
-        opacity: 1;
+    /* 1번 장비 */
+    #equipment1 {
+        border: 1px solid red;
+        width: 30%;
+        height: 300px;
     }
-    #moniter2 a:hover{
-        color: #fff;
-        opacity: 1;
-    }
-    #moniter3 a:hover{
-        color: #fff;
-        opacity: 1;
-    }
-    #moniter4 a:hover{
-        color: #fff;
-        opacity: 1;
-    }
-    #moniter5 a:hover{
-        color: #fff;
-        opacity: 1;
-    }
-    /* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
 
+    #img1 {
+        width: 100%;
+        height: 50%;
+        border: 1px solid black;
+    }
+
+    /* 1번 장비 끝 */
 </style>
 <script>
     window.addEventListener('load', function () {
@@ -206,19 +177,19 @@
             monitering.style.display = "flex";
             document.querySelector('#monitering').addEventListener('mouseleave', function () {
                 moniter.style.fontWeight = "400";
-                monitering.style.display = 'none';        
-            }) 
+                monitering.style.display = 'none';
+
+            })
         })
     })
 </script>
-
 
 <body>
     <div class="mainBox">
         <div class="left-box">
             <div id="header">
                 <ul>
-                    <li><img src="../mainPage/img/logo.png" id="icon"></li>
+                    <li><img src="img/home.png" id="icon"></li>
                     <li id="li_search">
                         <div id="search">
                             <div id="search_size">
@@ -235,7 +206,7 @@
                 </ul>
             </div>
             <div id="menuBoard">
-                <div><a href="mainPage.html">마이페이지</a></div>
+                <div><a href="../mainPage.html">마이페이지</a></div>
                 <div id="moniter">
                     모니터링
                 </div>
@@ -248,22 +219,29 @@
 
             </div>
             <div id="monitering">
-                <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a></div>
-                <div id="moniter2"><a href="#">가동률현황</a></div>
-                <div id="moniter3"><a href="#">원가현황</a></div>
-                <div id="moniter4"><a href="#">불량현황</a></div>
-                <div id="moniter5"><a href="#">비가동현황</a></div>
+                <div><a href="monitering(equipment).html">모니터링(장비)</a></div>
+                <div><a href="#">원가현황</a></div>
+                <div><a href="#">불량현황</a></div>
+                <div><a href="#">가동률현황</a></div>
+                <div><a href="#">비가동현황</a></div>
             </div>
             <div id="content">
-                1
+                <div id="equipment1">
+                    <div id="img1">사진</div>
+                    <div>가동률</div>
+                    <div></div>
+                </div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+
             </div>
         </div>
-        <!-- <div class="right-box">
-            <div><p>즐겨찾기 추가</p></div>
-            <div id="bookmark">
-                <img src="../mainPage/img/plus.png" id="bookmark_img">
-            </div>
-        </div> -->
+        <div class="right-box">
+
+        </div>
     </div>
 </body>
 
