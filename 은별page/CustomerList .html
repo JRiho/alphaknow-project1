@@ -9,10 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CustomerList</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- 팝업창 드래그 -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <!-- ajax <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-
+    <!-- 우편번호검색 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <style>
         /* 메인 헤더영역 사이즈 조절 및 콘텐츠 조절 */
         #main_header {
@@ -158,32 +159,8 @@
  
          /* footer */
         /* 페이지 넘버 */
-        #blank{
-            height: 50px;
-        }
-        .pageNumber{
-            text-align: center;
-            line-height: 60px;
-            background-color: #e2e5e3;
-            height : 70px;
-        }
-        .pageNumber a{
-            text-decoration: none;        
-            width : 30px;
-            height : 30px;        
-            padding : 10px;       
-        }
-        .pageNumber a:hover{
-            border : 1px solid blue;
-        }
+      
 
-        .pagenumberbox{
-           width : 600px;
-           text-align: center;
-           margin-top:5%;
-
-        }
-        
     </style>
 
     <script>
@@ -236,22 +213,75 @@
 
 
     });
+    // ajax로 사업자 번호 가져오기(데이터가져오기)
+   
+        document.getElementById("search_business_number").addEventListener("click", function(){
+        let num = document.getElementById('customer_code').value; //사업자번호
+        const data = {
+            "b_no": [num]
+        };
+        $.ajax({
+            url: "https://api.odcloud.kr/api/nts-businessman/v1/status?serviceKey=y4hEQwtYcmCk21BLxY%2FxX0dkfcHAqPKVY3d2dpTr08wACC8A9oYVAYV%2FI6BYT86j1Sm4BtNyjs1mt60wpbqR1g%3D%3D",  // serviceKey 값을 xxxxxx에 입력
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "JSON",
+            contentType: "application/json",
+            accept: "application/json",
+            success: function(result) {
 
+                // 운영중인 회사만 불러옴 b_stt_cd 01  : 계속사업자
+                let valid = result.data[0]['b_stt_cd'];
+
+                if (valid=='01'){
+                    alert("사업자 인증에 성공했습니다.");
+                }else {
+                    alert("사업자 번호를 다시 확인해주세요.");
+                }
+
+                },
+            error: function(result) {
+                alert("에러가 발생했습니다.");
+            }
+        });
+    
 
        });
-    // 팝업 이동 jquery
+       });
+        // 팝업 이동 jquery
         $( function() {
             $( "#customer_new_register" ).draggable();
         });
-    
-    // 페이지 박스 생성 함수
-    for(let i = 1; i <= 2; i++){
-        out.print(i+" ");
-    }
-  
-    // ajax로 사업자 번호 가져오기(데이터가져오기)
-            
-    
+
+
+        // 우편번호검색
+        window.addEventListener('load', function() {
+        document.getElementById("find_addr").addEventListener("click", function(){
+            function find_addr(){
+	        new daum.Postcode({
+            oncomplete: function(data) {        	
+        	console.log(data);        	
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var road_addr = data.roadAddress; // 도로명 주소 변수
+            var jibun_addr = data.jibunAddress; // 지번 주소 변수
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('member_post').value = data.zonecode;
+            if(road_addr !== ''){
+                document.getElementById("member_addr").value = road_addr;
+            } 
+            else if(jibun_addr !== ''){
+                document.getElementById("member_addr").value = jibun_addr;
+            }
+        }
+    }).open();
+}
+        });
+    });
+</script>
+
+    //페이지 넘버
+   
     </script>
 </head>
 
@@ -271,7 +301,7 @@
                                 <input type="text" id="search_txt" value="" placeholder="검색어를 입력해 주세요">
                             </div>
                             <div id="search_img">
-                                <img src="C:/project_alphaknow/mainPage/img/search.avif" id="search_img1">
+                                <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&" id="search_img1">
                             </div>
                         </div>
                     </li>
@@ -404,7 +434,7 @@
                                 <tr>
                                     <td> 주소1 우편번호	</td>
                                     <td colspan="2">
-                                        <button type = "button">주소검색</button>
+                                        <button type = "button" id="find_addr">주소검색</button>
                                         <input type = "text" class="text">
                                     </td>
                                 </tr>
@@ -433,18 +463,7 @@
                     </div>
                     <div id = "footer">
                         <!-- 페이지 넘버 -->
-                        <div id = "pagebox">
-                            <ul id = "pagination">
-                                <li><a href="#" class = "first"> 처음페이지</a></li>
-                                <li><a href="#" class = "arraw_left"> <<< 처음페이지</a></li>
-                                <li><a href="#" class = "num"> 처음페이지</a></li>
-                                <li><a href="#" class = "num"> 처음페이지</a></li>
-                                <li><a href="#" class = "num"> 처음페이지</a></li>
-                                <li><a href="#" class = "num"> 처음페이지</a></li>
-                                <li><a href="#" class = "num"> 처음페이지</a></li>
-                                <li><a href="#" class = "num"> 처음페이지</a></li>
-                            </ul>
-                        </div>
+                        <div id="pagination"></div>
 
                     </div>
                    
