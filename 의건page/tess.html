@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manufacturing Process Management</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+  th { background-color: #f2f2f2; }
+  .modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4); padding-top: 60px; }
+  .modal-content { background-color: #fefefe; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 80%; }
+  .close { color: #aaa; float: right; font-size: 28px; font-weight: bold; }
+  .close:hover, .close:focus { color: black; text-decoration: none; cursor: pointer; }
+  @media screen and (max-width: 600px) {
+    .modal-content { width: 95%; }
+  }
+</style>
+</head>
+<body>
+
+<table id="processTable">
+  <tr>
+    <th>순서</th>
+    <th>코드</th>
+    <th>에러</th>
+    <th>공정약칭</th>
+    <th>공정별칭</th>
+    <th>공정구분</th>
+    <th>기준</th>
+    <th>ST</th>
+    <th>가성</th>
+    <th>진성</th>
+    <th>반복</th>
+  </tr>
+  <!-- Table rows will be added here dynamically -->
+</table>
+
+<button id="addProcessBtn">추가</button>
+
+<div id="addProcessModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form id="addProcessForm">
+      <input type="text" name="sequence" placeholder="순서" required>
+      <input type="text" name="code" placeholder="코드" required>
+      <input type="text" name="error" placeholder="에러" required>
+      <input type="text" name="processAbbr" placeholder="공정약칭" required>
+      <input type="text" name="processAlias" placeholder="공정별칭" required>
+      <input type="text" name="processClass" placeholder="공정구분" required>
+      <input type="text" name="standard" placeholder="기준" required>
+      <input type="text" name="st" placeholder="ST" required>
+      <input type="text" name="actual" placeholder="가성" required>
+      <input type="text" name="genuine" placeholder="진성" required>
+      <input type="text" name="repeat" placeholder="반복" required>
+      <button type="submit">제출</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById('addProcessBtn').addEventListener('click', function() {
+    document.getElementById('addProcessModal').style.display = 'block';
+  });
+
+  document.getElementsByClassName('close')[0].addEventListener('click', function() {
+    document.getElementById('addProcessModal').style.display = 'none';
+  });
+
+  document.getElementById('addProcessForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    var table = document.getElementById('processTable');
+    var row = table.insertRow(-1);
+    var formData = new FormData(event.target);
+    var index = 0;
+    formData.forEach(function(value, key) {
+      var cell = row.insertCell(index++);
+      cell.innerHTML = value;
+    });
+    document.getElementById('addProcessModal').style.display = 'none';
+    event.target.reset();
+  });
+
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('addProcessModal')) {
+      document.getElementById('addProcessModal').style.display = 'none';
+    }
+  };
+</script>
+
+</body>
+</html>
