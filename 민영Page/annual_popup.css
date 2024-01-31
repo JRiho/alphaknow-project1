@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-  }
+}
 
 #ann_leave_app {
     display: none;
@@ -58,7 +58,7 @@ th {
     margin-left: 20px;
 }
 
-#ann_leave_app input[type="text"] {
+.table1 input[type="text"] {
     width: 220px;
     border: none;
     outline: none;
