@@ -66,6 +66,7 @@
 
     .side_menu ul li a:hover {
         color: rgb(27, 197, 163);
+        cursor: pointer;
 	}
 
     .side_menu ul li a.active {
@@ -122,9 +123,14 @@
     }
 
     .date {
+        position: relative;
         align-items: center;
         text-align: center;
         margin-top: 30px;
+    }
+
+    .date img {
+        position: absolute;
     }
 
     .arrow1 {
@@ -132,12 +138,16 @@
         transform: scaleX(-1);
         width: 30px;
         height: 30px;
+        left: 40%;
+        top: 20%;
     }
 
     .arrow2 {
         max-height: 100%; 
         width: 30px;
         height: 30px;
+        right: 40%;
+        top: 20%;
     }
 
     .cal {
@@ -189,8 +199,8 @@
         <div class="side_menu">
             <ul>
                 <li><a class="active">일정관리</a></li>
-                <li class="EDSM"><a href="">전자결재</a></li>
-                <li class="board"><a href="">건의게시판</a></li>
+                <li><a class="side_EDSM" href="">전자결재</a></li>
+                <li><a class="side_board" href="">건의게시판</a></li>
             </ul>
         </div>
     </div>
