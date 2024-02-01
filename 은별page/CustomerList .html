@@ -1,7 +1,4 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,11 +11,15 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- 우편번호검색 -->
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <style>
+        body{
+            font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
+            /* font-size: 1em; */
+        }
         /* 메인 헤더영역 사이즈 조절 및 콘텐츠 조절 */
         #main_header {
-            font-size: 1.6em;
+            font-size: 2em;
             width: 100%;
             /* height: 90%; */
             background-color: #e9e3e3;
@@ -75,8 +76,6 @@
         border: 1px solid rgba(170, 165, 165, 0.826);
         }
 
-
-        
         
         /* 거래처 등록 팝업 위치 fixed 및 크기등 조절 */
         #customer_new_register {
@@ -138,7 +137,7 @@
 
         /*  팝업 테이블 선 없애기 */
         #new_customer td, tr{
-            font-size: 0.9em;
+            font-size: 1em;
             border-right: none;
             border-left: none;
             border-top: none;
@@ -207,10 +206,6 @@
         let useable = document.querySelector('input[name="use"]:checked').value;
         code_cell = new_row.insertCell(6);
         code_cell.textContent = useable;
-        
-
-        // let customer_new_register = document.getElementById("customer_new_register");
-        // customer_new_register.style.display = "none";
 
 
     });
@@ -257,28 +252,26 @@
         // 우편번호검색
         window.addEventListener('load', function() {
         document.getElementById("find_addr").addEventListener("click", function(){
-            function find_addr(){
-	        new daum.Postcode({
-            oncomplete: function(data) {        	
-        	console.log(data);        	
-            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-            var road_addr = data.roadAddress; // 도로명 주소 변수
-            var jibun_addr = data.jibunAddress; // 지번 주소 변수
-            // 우편번호와 주소 정보를 해당 필드에 넣는다.
-            document.getElementById('member_post').value = data.zonecode;
-            if(road_addr !== ''){
-                document.getElementById("member_addr").value = road_addr;
-            } 
-            else if(jibun_addr !== ''){
-                document.getElementById("member_addr").value = jibun_addr;
-            }
-        }
-    }).open();
-}
+                    new daum.Postcode({
+                        oncomplete: function(data) {        	
+                            console.log(data);        	
+                            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                            var road_addr = data.roadAddress; // 도로명 주소 변수
+                            var jibun_addr = data.jibunAddress; // 지번 주소 변수
+                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                            document.getElementById('member_post').value = data.zonecode;
+                            if(road_addr !== ''){
+                                document.getElementById("member_addr").value = road_addr;
+                            } 
+                            else if(jibun_addr !== ''){
+                                document.getElementById("member_addr").value = jibun_addr;
+                            }
+                        }
+                    }).open();
+            });
         });
-    });
 </script>
 
     //페이지 넘버
@@ -289,60 +282,95 @@
 <body>
     <!-- 전체를 감싸는 wrap -->
   
-    <div class="mainBox">
-        <!-- 헤더부터 메인 전까지 -->
-        <div class="left-box">
-            <div id="header">
-                <ul>
-                    <li><img src="https://cdn.discordapp.com/attachments/1200318999112720424/1201064896067027005/logo.png?ex=65c875d9&is=65b600d9&hm=55487b27a7ecacb2ffd64c59fe79a41e913f7edeedd13408b63d946d9881f2ef&"
-                            id="icon"></li>
-                    <li id="li_search">
-                        <div id="search">
-                            <div id="search_size">
-                                <input type="text" id="search_txt" value="" placeholder="검색어를 입력해 주세요">
-                            </div>
-                            <div id="search_img">
-                                <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&" id="search_img1">
-                            </div>
+    <div class="main_box">
+        <!-- <div class="left-box"> -->
+        <div id="header">
+            <ul>
+                <li id="li_icon">
+                    <a href="mainPage.html"><img src="../img/logo.png" id="icon"></a>
+                </li>
+                <li id="li_search">
+                    <div id="search">
+                        <div id="search_size">
+                            <input type="text" id="search_txt" value="" placeholder="검색어를 입력해 주세요">
                         </div>
-                    </li>
-                    <li id="li_userIcon">
-                        <img src="https://cdn.discordapp.com/attachments/1200318999112720424/1201065133032603728/images.png?ex=65c87612&is=65b60112&hm=95076b8a0faabe229206bc26c9526afd452159f8d6f562ba9f7cad7a0d01bfb0&"
-                            id="userIcon">
-                    </li>
-                </ul>
+                        <div id="search_img">
+                            <img src="../img/search.avif" id="search_img1">
+                        </div>
+                    </div>
+                </li>
+                <li id="li_user_icon">
+                    <img src="../img/images.png" id="user_icon">
+                </li>
+            </ul>
+        </div>
+        <div id="menuBoard">
+            <div><a href="#">마이페이지</a></div>
+            <div id="moniter">
+                모니터링
             </div>
-            <div id="menuBoard">
-                <div><a href="mainPage.html">마이페이지</a></div>
-                <div id="moniter">
-                    모니터링
-                </div>
-                <div>공정기준정보</div>
-                <div>생산계획관리</div>
-                <div>생산실적관리</div>
-                <div>예측분석관리</div>
-                <div>재고관리</div>
-                <div>입고관리</div>
+            <div id="standard">
+                공정기준정보
+            </div>
+            <div id="plan">
+                생산계획관리
+            </div>
+            <div id="performance">
+                생산실적관리
+            </div>
+            <div id="prediction">
+                예측분석관리
 
             </div>
-            <div id="monitering">
-                <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
-                </div>
-                <div id="moniter2"><a href="#">가동률현황</a></div>
-                <div id="moniter3"><a href="#">원가현황</a></div>
-                <div id="moniter4"><a href="#">불량현황</a></div>
-                <div id="moniter5"><a href="#">비가동현황</a></div>
+            <div id="inventory">재고관리</div>
+            <div id="store">
+                입고관리
             </div>
-            <div id="content">
-         
-                <div id="main_header">
-                    <div id="customer_list_title"> 거래처 리스트 </div>
-                    <div id="customer_list_search">
-                        <input type="text" class="customer_list_search_text" value="" placeholder="입력 후 enter">
-                        <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&"
-                            class="customer_list_search_img" alt="검색">
-                    </div>
-                </div>
+
+        </div>
+        <div id="monitering">
+            <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
+            </div>
+            <div id="moniter2"><a href="#">가동률현황</a></div>
+            <div id="moniter3"><a href="#">원가현황</a></div>
+            <div id="moniter4"><a href="#">불량현황</a></div>
+            <div id="moniter5"><a href="#">비가동현황</a></div>
+        </div>
+        <div id="criteria">
+            <div id="standard1"><a href="#">공정단계</a></div>
+            <div id="standard2"><a href="#">작업지시서</a></div>
+            <div id="standard3"><a href="#">장비정보관리</a></div>
+            <div id="standard4"><a href="#">부품정보관리</a></div>
+            <div id="standard5"><a href="#">기초코드</a></div>
+        </div>
+        <div id="planning">
+            <div id="planning1"><a href="#">생산자재관리</a></div>
+            <div id="planning3"><a href="#">작업자별 일정현황</a></div>
+            <div id="planning2"><a href="#">세부공정생산 계획관리</a></div>
+            <div id="planning4"><a href="#">공정별 작업지시 관리/출력</a></div>
+        </div>
+        <div id="performing">
+            <div id="perform1"><a href="#">생산계획대비 실적현황</a></div>
+            <div id="perform2"><a href="#">작업지시대비 실적현황</a></div>
+            <div id="perform3"><a href="#">장비별 생산실적현황</a></div>
+        </div>
+        <div id="predicting">
+            <div id="predicting1"><a href="#">장비 수명 기준 불량 집계</a></div>
+            <div id="predicting2"><a href="#">제조시간 예측분석</a></div>
+            <div id="predicting3"><a href="#">장비점검주기</a></div>
+            <div id="predicting4"><a href="#">원가관리</a></div>
+        </div>
+        <div id="invent">
+            <div id="invent1"><a href="#">재고현황</a></div>
+            <div id="invent2"><a href="#">출하조회/입력</a></div>
+            <div id="invent3"><a href="#">출하지시서 조회/입력</a></div>
+        </div>
+        <div id="storing">
+            <div id="storing1"><a href="#">구매조회/입력</a></div>
+            <div id="storing2"><a href="#">품목등록</a></div>
+            <div id="storing3"><a href="#">품목별단가조회 및 변경</a></div>
+            <div id="storing4"><a href="#">거래처 관리/등록</a></div>
+        </div>
                 <!-- 메인시작 -->
                 <div id="main_content">
                     <table id="customer_board">
@@ -394,8 +422,8 @@
                                 
                             <table id = "new_customer">
                                 <colgroup>
-                                <col style = "width : 20%"/>
-                                <col style = "width : 80%"/>
+                                <col style = "width : 30%"/>
+                                <col style = "width : 70%"/>
                                 </colgroup>
                                 <tr>
                                     <td>거래처코드</td>
@@ -436,7 +464,7 @@
                                     <td> 주소1 우편번호	</td>
                                     <td colspan="2">
                                         <button type = "button" id="find_addr">주소검색</button>
-                                        <input type = "text" class="text">
+                                        <input type = "text" class="text" id="member_post">
                                     </td>
                                 </tr>
                                 <tr>
