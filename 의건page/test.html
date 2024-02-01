@@ -1,36 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Page</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<body>
-    <div class="day">
-        <ul id="list">
-            <!-- 항목이 여기에 동적으로 추가됩니다. -->
-        </ul>
+<body class="bg-gray-200 p-4">
+  <div class="flex justify-between items-center bg-white p-2 rounded-md shadow">
+    <div class="flex space-x-2">
+      <!-- Column 1 -->
+      <div class="flex flex-col space-y-1">
+        <button class="bg-gray-300 text-gray-700 py-1 px-4 rounded">검색1</button>
+        <input type="text" placeholder="검색어입력" class="border border-gray-300 py-1 px-2 rounded text-gray-700">
+        <select class="border border-gray-300 py-1 px-2 rounded text-gray-700">
+          <option>항목1</option>
+        </select>
+      </div>
+      <!-- Column 2 -->
+      <div class="flex flex-col space-y-1">
+        <button class="bg-gray-300 text-gray-700 py-1 px-4 rounded">검색2</button>
+        <input type="text" placeholder="검색어입력" class="border border-gray-300 py-1 px-2 rounded text-gray-700">
+        <select class="border border-gray-300 py-1 px-2 rounded text-gray-700">
+          <option>항목2</option>
+        </select>
+      </div>
+      <!-- Column 3 -->
+      <div class="flex flex-col space-y-1">
+        <button class="bg-gray-300 text-gray-700 py-1 px-4 rounded">검색3</button>
+        <input type="text" placeholder="검색어입력" class="border border-gray-300 py-1 px-2 rounded text-gray-700">
+        <select class="border border-gray-300 py-1 px-2 rounded text-gray-700">
+          <option>항목3</option>
+        </select>
+      </div>
     </div>
-    <script>
-        let listproduce = [];
-        let produce = [
-            ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457723464060988/DALLE_2024-02-01_12.36.30_-_1._PCB_Loading__An_image_showing_the_process_of_aligning_PCB_boards_and_loading_them_into_an_automatic_feeder._The_scene_includes_a_worker_placing_a_P.png?ex=65cd8705&is=65bb1205&hm=7ce4a29083c4279d12c2071151c6975db6dfbbbefc5993f77a91d4f974c3e43e&", "PCB Loading", "yourPage1.html"],
-            ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722839367751/DALLE_2024-02-01_12.36.32_-_2._Solder_Printing__An_image_depicting_the_application_of_solder_paste_onto_a_PCB_through_a_stencil._The_scene_shows_a_stencil_machine_over_a_PCB_boar.png?ex=65cd8705&is=65bb1205&hm=01607640c3b8265d111df014ada08ae6053c84aa57e879d5f24272225ae0556b&", "Solder Printing", "yourPage2.html"],
-            // 다른 항목들도 이런 식으로 추가합니다...
-        ];
-        listproduce.push(...produce);
-    
-        let list = document.querySelector("#list");
-    
-        listproduce.forEach(function(item) {
-            let li = document.createElement('li');
-            let a = document.createElement('a');
-            a.href = item[2]; // 이동할 페이지의 URL
-            a.innerHTML = `<img src="${item[0]}"><br><span>${item[1]}</span>`;
-            li.appendChild(a);
-            list.appendChild(li);
-        });
-    </script>
-    
+    <div class="flex items-center space-x-2">
+      <!-- Notification Icon -->
+      <div class="relative">
+        <i class="fas fa-bell text-gray-700 text-xl"></i>
+        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">1</span>
+      </div>
+      <!-- User Icon -->
+      <i class="fas fa-user text-gray-700 text-xl"></i>
+    </div>
+  </div>
 </body>
 </html>
