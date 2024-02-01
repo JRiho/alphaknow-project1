@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
+<style>
+
+</style>
 
 <body>
-    <div class="mainBox">
+    <div class="main_box">
         <!-- <div class="left-box"> -->
         <div id="header">
             <ul>
@@ -27,12 +30,12 @@
                         </div>
                     </div>
                 </li>
-                <li id="li_userIcon">
-                    <img src="../img/images.png" id="userIcon">
+                <li id="li_user_icon">
+                    <img src="../img/images.png" id="user_icon">
                 </li>
             </ul>
         </div>
-        <div id="menuBoard">
+        <div id="menu_board">
             <div><a href="#">마이페이지</a></div>
             <div id="moniter">
                 모니터링
@@ -43,6 +46,7 @@
             <div id="plan">
                 생산계획관리
             </div>
+
             <div id="performance">
                 생산실적관리
             </div>
@@ -54,10 +58,9 @@
             <div id="store">
                 입고관리
             </div>
-
         </div>
         <div id="monitering">
-            <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
+            <div id="moniter1"><a href="equipment.html">모니터링(장비)</a>
             </div>
             <div id="moniter2"><a href="#">가동률현황</a></div>
             <div id="moniter3"><a href="#">원가현황</a></div>
@@ -101,55 +104,82 @@
         </div>
 
         <div id="content">
-            <div id="toDo">
-                To do List:
-                <div>
-                    <ul id="taskList">
-                    </ul>
+            <div id="content_box1">
+                <div id="to_do">
+                    To do List:
+                    <div>
+                        <ul id="task_list">
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div id="plus">
-                추가하기
-                <div><img src="../img/plus.png" id="plus_img"></div>
+                <div id="plus">
+                    <div><img src="../img/plus.png" id="plus_img" title="내용 추가하기"></div>
+                </div>
+
+                <div id="to_do_list">
+
+                    <div id="text">
+                        <input type="textarea" id="task_input" value="">
+                    </div>
+                    <div id="btn">
+                        <div><button type="submit" id="btn_submit">등록</button></div>
+                        <div><button type="button" id="btn_cancel">취소</button></div>
+                        <div><button type="button" id="btn_out">나가기</button></div>
+                    </div>
+                </div>
+                <div id="calendar_div">
+                    <div class="head">
+                        <div class="year_selector">
+                            <span calss="selected_year"></span>
+                            <div class="year_dropdown">
+
+                            </div>
+                        </div>
+                        <div class="year_month"></div>
+                        <div class="nav">
+                            <button class="go_prev">&lt;</button>
+                            <button class="go_next">&gt;</button>
+                            <button class="go_today">오늘</button>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="days">
+                            <div class="day">일</div>
+                            <div class="day">월</div>
+                            <div class="day">화</div>
+                            <div class="day">수</div>
+                            <div class="day">목</div>
+                            <div class="day">금</div>
+                            <div class="day">토</div>
+                        </div>
+                        <div class="dates"></div>
+                    </div>
+                </div>
             </div>
 
 
-            <div id="toDoList">
-                <div id="text">
+            <div id="content_box2">
+                <!-- iframe 영역 -->
+                <div id="frame">
+                    <iframe id="iframe" src="../equipment.html" frameborder=0 framespacing=0 marginheight=0
+                        marginwidth=0 scrolling=no vspace=0>
+                        1
+                    </iframe>
+                    <div id="iframe_div">
+                        <div id="iframe_div_child">
+                            <ul id="iframe_ul">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <a>To-do list 추가하기:</a>
-                    <input type="text" id="taskInput" value="">
 
-                </div>
-                <div id="btn">
-                    <div><button type="submit" id="btn_submit">등록</button></div>
-                    <div><button type="button" id="btn_cancel">취소</button></div>
-                    <div><button type="button" id="btn_out">나가기</button></div>
-                </div>
-            </div>
-            <div id="calendar_div">
-                <section>
-                    
-                </section>
             </div>
         </div>
-
-        <!-- iframe 영역 -->
-        <div id="frame">
-            <iframe id="iframe"></iframe>
-        </div>
-        <div id="iframe_div">
-            <ul id="iframe_ul">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-            </ul>
-        </div>
-    </div>
-
 </body>
 
 </html>

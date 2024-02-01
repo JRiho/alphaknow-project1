@@ -1,27 +1,30 @@
 body {
     margin: 1;
+    min-height: 100vh;
+    /* font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif; */
+
 }
 
-.mainBox {
-    width: 95%;
-    height: 100vh;
+.main_box {
+    width: 100%;
+    height: auto;
     border: 1px solid black;
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
 }
 
-.left-box {
+/* .left-box {
     width: 100%;
     height: 100vh;
     border: 1px solid black;
     box-sizing: border-box;
-}
+} */
 
 
 #header {
     width: 100%;
-    height: 8%;
+    height: 7vh;
     border-bottom: 1px solid black;
 }
 
@@ -54,7 +57,7 @@ body {
     border: 2px solid rgb(26, 188, 156);
     border-radius: 10px;
     line-height: 380%;
-    margin-top: 0.5%;
+    margin-top: 1%;
 
 }
 
@@ -89,18 +92,18 @@ body {
     cursor: pointer;
 }
 
-#li_userIcon {
+#li_user_icon {
     width: 30%;
 }
 
-#userIcon {
+#user_icon {
     width: 13%;
     height: 95%;
     margin-left: 70%;
 }
 
 /* 메뉴보드 */
-#menuBoard {
+#menu_board {
     width: 100%;
     height: 6%;
     border-bottom: 1px solid black;
@@ -108,7 +111,7 @@ body {
 }
 
 
-#menuBoard div {
+#menu_board div {
     cursor: pointer;
     width: 12.5%;
     text-align: center;
@@ -118,11 +121,11 @@ body {
     height: 100%;
 }
 
-#menuBoard #store {
+#menu_board #store {
     border: none;
 }
 
-#menuBoard div a {
+#menu_board div a {
     text-decoration: none;
     color: black;
 }
@@ -455,30 +458,43 @@ body {
 
 /* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
 
+/* @media 600px */
+@media screen and(max-width:600px) {}
+
+/*  */
 /* 여기서부터 메뉴바 하단부 코딩(세부메뉴 코딩) */
-#content {
+#content_box1 {
+    /* border: 1px solid red; */
+    height: auto;
     display: flex;
+
 }
 
-#toDo {
-    width: 30%;
-    border: 1px solid black;
-    height: 30vh;
+#to_do {
+    width: 40%;
+    border: 1px solid #ccc;
+    height: 40vh;
     margin-top: 2%;
     margin-left: 2%;
+    color: #000;
+    background-color: #8aff8a;
+    overflow: auto;
 }
 
-#toDoList {
+#to_do_list {
     width: 45%;
-    border: 1px solid black;
-    height: 51vh;
+    border: 1px solid #ccc;
+    height: 50vh;
     margin-top: 9%;
-    margin-left: 23%;
+    margin-left: 25%;
     position: absolute;
     display: none;
     /* background-color:rgb(26,188,156); */
     color: black;
     border: 1px solid black;
+    z-index: 2;
+    background-color: #fff;
+
 }
 
 #text {
@@ -486,26 +502,38 @@ body {
     height: 45vh;
     /* border: 1px solid red; */
     overflow-y: hidden;
-    background-color: lightblue;
     border-bottom: 1px solid black;
-
+    /* z-index: 2; */
+    color: black;
+    word-break:break-all;
 }
 
-#toDoList a {
+
+#to_do_list a {
     color: black;
     list-style: none;
 }
 
-#taskInput {
-    width: 72%;
+#task_input {
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    outline: none;
+    border:0;
+    font-size:30px;
+    overflow: auto;
+    word-break:break-all;
 }
 
-#taskList li {
+#task_list li {
     list-style: none;
 }
 
+#task {
+    z-index: 2;
+}
 
-#toDo button {
+#to_do button {
     border-radius: 10px;
     border: 1px solid greenyellow;
     cursor: pointer;
@@ -514,9 +542,11 @@ body {
 
 #btn {
     display: flex;
-    width: 25.3%;
+    width: 25.23%;
+    /* border: 1px solid red; */
     margin: 0 auto;
-    margin-top: 0.3%;
+    height: 5vh;
+    line-height: 5vh;
 }
 
 #plus {
@@ -526,9 +556,9 @@ body {
     width: 4%;
     text-align: center;
     margin-top: 2%;
-    border: 1px solid black;
+    border: 2px solid #ccc;
     border-left: none;
-    height: 11vh;
+    height: 5vh;
 }
 
 #plus_img {
@@ -544,34 +574,273 @@ body {
     margin-top: -5%;
 }
 
-#frame {
+#weather_div {
+    border: 1px solid black;
+    width: 50%;
+    height: 30vh;
+}
+
+
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+#content_box2 {
     /* border: 1px solid red; */
-    width: 30%;
-    height: 40%;
-    margin-top: 5%;
+    height: 50vh;
+    display: flex;
+}
+
+/* iframe 부분 */
+
+#frame {
+    border: 1px solid black;
+    width: 40%;
+    height: 70%;
+    margin-top: 3%;
     margin-left: 2%;
     position: relative;
 }
-#iframe{
+
+#iframe {
     width: 100%;
-    height: 100%;
+    height: 85%;
 }
-#iframe_div{
-    margin-left: 10%;
+
+#iframe_div {
+    border-top: 1px solid black;
+    height: 4.2vh;
+    margin: 0;
 }
-#iframe_ul li{
+
+#iframe_ul {
+    margin-left: 27%;
+    margin-top: 2%;
+}
+
+#iframe_ul li {
     list-style: none;
     display: inline-block;
-    border:1px solid black;
+    border: 1px solid black;
     border-radius: 15px;
-    width: 1.5%;
+    width: 5%;
     height: 2vh;
     text-align: center;
     line-height: 2vh;
     cursor: pointer;
+    margin-top: -10%;
+    padding: 1%;
 }
 
-#calendar_div{
-    border: 1px solid red;
-    width: 40%;
+/* 달력부분 */
+/* Calendar Section */
+#calendar_div {
+    /* border: 1px solid black; */
+    width: 50%;
+    /* Adjusted to take full width of the container */
+    height: 80%;
+    /* Adjusted to take full height of the container */
+    margin: 0;
+    /* Removed margins for better fit */
+    display: flex;
+    flex-direction: column;
+    /* Changed to column for better layout control */
+    margin-top: 2%;
+    margin-left: 2%;
 }
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.year_month {
+    font-size: 20px;
+}
+
+.nav {
+    display: flex;
+    /* border: 1px solid #333333; */
+    /* border-radius: 5px; */
+    margin-top: 1%;
+    margin-bottom: 1%;
+    width: 25%;
+    margin-right: 5%;
+}
+
+.nav button {
+    width: 30%;
+    height: 30px;
+    border: none;
+    font-size: 12px;
+    line-height: 30px;
+    /* Adjusted for vertical centering */
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.go_today {
+    width: 50px;
+    border-left: 1px solid #333333;
+    border-right: 1px solid #333333;
+    margin-left: 10%;
+
+}
+
+.days {
+    display: flex;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.day {
+    width: calc(100% / 7);
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+.dates {
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 1;
+    /* Allows dates to take up remaining space */
+    overflow-y: auto;
+    /* Adds scroll for overflow */
+    border-top: 1px solid #333333;
+    border-right: 1px solid #333333;
+    /* margin-top:1%; */
+
+}
+
+.date {
+    width: calc(100% / 7);
+    padding: 15px;
+    text-align: right;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #333333;
+    box-sizing: border-box;
+}
+
+.day:nth-child(1),
+.date:nth-child(7n + 1) {
+    color: #d13e3e;
+}
+
+.other {
+    opacity: 0.3;
+}
+
+.today {
+    position: relative;
+    color: #ffffff;
+
+}
+
+.today:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-color: #ff5959;
+    border-radius: 50%;
+    content: '';
+}
+
+
+/* 모니터링 장비쪽 css */
+#info,
+#equip1,
+#equip2
+ {
+    width: 100%;
+    height: calc(60vh/2);
+    border: 1px solid red;
+    margin-top: 5%;
+    /* margin 상쇄 */
+    margin-bottom: 5%;
+}
+
+#info{
+    display: none;
+}
+
+.main_box::-webkit-scrollbar {
+    display: none;
+}
+
+#full_frame{
+    width: calc(97%/4);
+    border: 1px solid black;
+    height: 20vh;
+    margin-top: 1.5%;
+}
+#top_frame{
+    width: 100%;
+    /* height: calc(20vh*(90/100)); */
+    display: flex;
+    
+}
+
+#img_frame{
+    width: 40%;
+    height: 17.5vh;
+    border-right: 1px solid black;
+    border-bottom:1px solid black;
+}
+#info_frame{
+    width: 60%;
+    height: 17.5vh;
+}
+#project, #job, #work,#tool{
+    height: 4.3vh;
+    border-bottom: 1px solid black;
+} 
+#bottom_frame{
+    width: 100%;
+    height: 3vh;
+    display: flex;
+    /* border: 1px solid red; */
+}
+#power{
+    width: 40%;
+    border-right: 1px solid black;
+    /* height: 100%; */
+    text-align: center;
+    height: 80%;
+}
+#time{
+    width: 60%;
+    height: 80%;
+}
+
