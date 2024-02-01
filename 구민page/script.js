@@ -1,3 +1,5 @@
+/////////////////////////////공동 javascript /////////////////////////////////////////////////////
+
 window.addEventListener('load', function () {
     let moniter = document.querySelector('#moniter');
     let monitering = document.querySelector('#monitering');
@@ -226,8 +228,10 @@ window.addEventListener('load', function () {
         storing.style.display = 'none';
     })
 })
-///////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////공동 javascript 끝/////////////////////////////////////////////////////
 
+
+/////////////////////////////메인페이지 시작///////////////////////////////////////////////////////////
 window.addEventListener('load', function () {
     document.querySelector('#plus_img').addEventListener('click', function () {
         document.querySelector('#to_do_list').style.display = 'block';
@@ -239,7 +243,7 @@ window.addEventListener('load', function () {
     })
 
     document.querySelector('#btn_cancel').addEventListener('click', function () {
-        document.getElementById('taskInput').value = '';
+        document.getElementById('task_input').value = '';
     })
     document.querySelector('#btn_out').addEventListener('click', function () {
         document.querySelector('#to_do_list').style.display = 'none';
@@ -273,11 +277,12 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteButton.onclick = function () {
             listItem.remove();
         };
-
         listItem.appendChild(deleteButton);
         taskList.appendChild(listItem);
+
     }
 });
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////    
 window.addEventListener('load', function () {
 
@@ -389,6 +394,28 @@ window.addEventListener('load', function () {
     })
 });
 
+///////////////////////////////메인페이지 끝/////////////////////////////////////////////////////////////////////////////
 
+//media 전용//
+// window.addEventListener('load', function () {
+// if (matchMedia("screen and (min-width: 335px) and (min-height:413.91px)").matches) {
+//     document.querySelector('#header').style.cssText = "width: 335px; height: 50px";
+//     document.querySelector('.main_box').style.cssText = "width: 335px;";
+//     menu_board = document.querySelector('#menu_board');
+//     menu_board.style.cssText = "display:block;";
+//     for (let i = 0; i < menu_board.children.length; i++) {
+//         menu_board.children[i].style.cssText = "width:100%; border-bottom:1px solid black";
+//     }
+// document.querySelector('#content_box1').style.cssText ="display:block; height:auto;"
+// document.querySelector('#to_do').style.display ="inline-block; width:100%;";
+// document.querySelector('#plus').style.display ="inline-block";
+// document.querySelector('#content_box2').style.cssText ="display:block; height:auto;"
+// document.querySelector('#calendar_div').style.cssText ="display:none";
 
+//     }
+// })
 
+////////////////////모니터링(장비) javascript////////////////////////////////////////////////////////////////////////////
+window.addEventListener('load', function () {
+
+});

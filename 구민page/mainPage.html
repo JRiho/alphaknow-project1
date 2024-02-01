@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
+<style>
+
+</style>
 
 <body>
     <div class="main_box">
@@ -32,7 +35,7 @@
                 </li>
             </ul>
         </div>
-        <div id="menuBoard">
+        <div id="menu_board">
             <div><a href="#">마이페이지</a></div>
             <div id="moniter">
                 모니터링
@@ -43,6 +46,7 @@
             <div id="plan">
                 생산계획관리
             </div>
+
             <div id="performance">
                 생산실적관리
             </div>
@@ -54,10 +58,9 @@
             <div id="store">
                 입고관리
             </div>
-
         </div>
         <div id="monitering">
-            <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
+            <div id="moniter1"><a href="equipment.html">모니터링(장비)</a>
             </div>
             <div id="moniter2"><a href="#">가동률현황</a></div>
             <div id="moniter3"><a href="#">원가현황</a></div>
@@ -110,56 +113,18 @@
                     </div>
                 </div>
                 <div id="plus">
-                    추가하기
-                    <div><img src="../img/plus.png" id="plus_img"></div>
+                    <div><img src="../img/plus.png" id="plus_img" title="내용 추가하기"></div>
                 </div>
-                <div id="weather_div">
-                    <h1>현재 서울의 날씨</h1>
-                    <div id="weatherinfo">
-                        <p id="temperature"></p>
-                        <p id="weather"></p>
-                        <p id="wind"></p>
-                        <img id="weatherImage" src="" alt="날씨 이미지" />
-                    </div>
-                </div>
-
 
                 <div id="to_do_list">
 
                     <div id="text">
-                        <ul id="task_list">
-                        </ul>
-                    </div>
-                    <div id="">
-                        <a>To-do list 추가하기:</a>
-                        <input type="text" id="task_input" value="">
+                        <input type="textarea" id="task_input" value="">
                     </div>
                     <div id="btn">
                         <div><button type="submit" id="btn_submit">등록</button></div>
                         <div><button type="button" id="btn_cancel">취소</button></div>
                         <div><button type="button" id="btn_out">나가기</button></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="content_box2">
-                <!-- iframe 영역 -->
-                <div id="frame">
-                    <iframe id="iframe" src="" frameborder=0 framespacing=0 marginheight=0 marginwidth=0 scrolling=no
-                        vspace=0>
-                        1
-                    </iframe>
-                    <div id="iframe_div">
-                        <div id="iframe_div_child">
-                            <ul id="iframe_ul">
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
                 <div id="calendar_div">
@@ -191,8 +156,30 @@
                     </div>
                 </div>
             </div>
+
+
+            <div id="content_box2">
+                <!-- iframe 영역 -->
+                <div id="frame">
+                    <iframe id="iframe" src="../equipment.html" frameborder=0 framespacing=0 marginheight=0
+                        marginwidth=0 scrolling=no vspace=0>
+                        1
+                    </iframe>
+                    <div id="iframe_div">
+                        <div id="iframe_div_child">
+                            <ul id="iframe_ul">
+                                <li>1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
 </body>
 
 </html>
