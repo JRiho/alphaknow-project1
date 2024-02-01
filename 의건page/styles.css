@@ -1,0 +1,582 @@
+body {
+    margin: 1;
+    font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
+    font-size : 1em;
+}
+
+.mainBox {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.left-box {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+
+#header {
+    width: 100%;
+    height: 8%;
+    border-bottom: 1px solid black;
+}
+
+#header ul {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    margin-top: auto;
+    padding-left: 0;
+}
+
+#li_icon {
+    width: 20%;
+}
+
+#icon {
+    width: 40%;
+    height: 100%;
+}
+
+#li_search {
+    width: 50%;
+
+}
+
+#search {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    border: 2px solid rgb(26, 188, 156);
+    border-radius: 10px;
+    line-height: 380%;
+    margin-top: 0.5%;
+
+}
+
+
+#search_size {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    display: inline-block;
+
+}
+
+#search_txt {
+    width: 95%;
+    height: 80%;
+    font-size: 25px;
+    /* outline: none: removal of outine of (input type="text") */
+    outline: none;
+    /* border-width: removal border of (input type="text") */
+    border-width: 0;
+    border-radius: 15px;
+}
+
+#search_img {
+    width: 6%;
+    margin-top: 1.2%;
+    margin-right: 1.5%;
+}
+
+#search_img1 {
+    width: 100%;
+    cursor: pointer;
+}
+
+#li_userIcon {
+    width: 30%;
+}
+
+#userIcon {
+    width: 13%;
+    height: 95%;
+    margin-left: 70%;
+}
+
+/* 메뉴보드 */
+#menuBoard {
+    width: 100%;
+    height: 6%;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+
+#menuBoard div {
+    cursor: pointer;
+    width: 12.5%;
+    text-align: center;
+    line-height: 350%;
+    /* margin-top: 1.2%; */
+    border-right: 1px solid black;
+    height: 100%;
+}
+
+#menuBoard #store {
+    border: none;
+}
+
+#menuBoard div a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 메뉴보드 끝 */
+/* 메뉴세부사항 css */
+#monitering {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#monitering div {
+    width: 20%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#monitering div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#moniter1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#criteria {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#criteria div {
+    width: 20%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#criteria div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#standard1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#planning div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#planning div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#planning1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#performing {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#performing div {
+    width: 33%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#performing div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#perform1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#perform2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#perform3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#predicting div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#predicting div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#predicting1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#invent {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#invent div {
+    width: 33%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#invent div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#invent1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#invent2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#invent3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+
+}
+
+#storing div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#storing div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#storing1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#investoring2nt2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+/* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
+
+/* 여기서부터 메뉴바 하단부 코딩(세부메뉴 코딩) */
+#content {
+    display: flex;
+}
+
+#toDo {
+    width: 30%;
+    border: 1px solid black;
+    height: 30vh;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+#toDoList {
+    width: 45%;
+    border: 1px solid black;
+    height: 51vh;
+    margin-top: 9%;
+    margin-left: 23%;
+    position: absolute;
+    display: none;
+    /* background-color:rgb(26,188,156); */
+    color: black;
+    border: 1px solid black;
+}
+
+#text {
+    width: 100%;
+    height: 45vh;
+    /* border: 1px solid red; */
+    overflow-y: hidden;
+    background-color: lightblue;
+    border-bottom: 1px solid black;
+
+}
+
+#toDoList a {
+    color: black;
+    list-style: none;
+}
+
+#taskInput {
+    width: 72%;
+}
+
+#taskList li {
+    list-style: none;
+}
+
+
+#toDo button {
+    border-radius: 10px;
+    border: 1px solid greenyellow;
+    cursor: pointer;
+
+}
+
+#btn {
+    display: flex;
+    width: 25.3%;
+    margin: 0 auto;
+    margin-top: 0.3%;
+}
+
+#plus {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(26, 188, 156);
+    width: 4%;
+    text-align: center;
+    margin-top: 2%;
+    border: 1px solid black;
+    border-left: none;
+    height: 11vh;
+}
+
+#plus_img {
+    width: 100%;
+    height: 5vh;
+    cursor: pointer;
+}
+
+#plus_img:hover {
+    width: 100%;
+    height: 6vh;
+    /* margin-left: 39%; */
+    margin-top: -5%;
+}
+
+#frame {
+    /* border: 1px solid red; */
+    width: 30%;
+    height: 40%;
+    margin-top: 5%;
+    margin-left: 2%;
+    position: relative;
+}
+
+#iframe {
+    width: 100%;
+    height: 100%;
+}
+
+#iframe_div {
+    margin-left: 10%;
+}
+
+#iframe_ul li {
+    list-style: none;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 1.5%;
+    height: 2vh;
+    text-align: center;
+    line-height: 2vh;
+    cursor: pointer;
+}
+
+#calendar_div {
+    border: 1px solid red;
+    width: 40%;
+}
