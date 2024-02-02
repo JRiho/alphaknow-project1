@@ -5,10 +5,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="EDSM.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="annual_popup.css">
 
 </head>
+
+<style>
+    .menu ul li a.ann {
+        background: rgb(26, 188, 156);
+        color: #fff;
+        border: 0;
+        cursor: pointer;
+    }
+
+    #currentDate {
+        text-align: center;
+        font-size: 33px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .info {
+        position: relative;
+        width: 94%;
+        height: 100px;
+        border: 2px solid #b9b9b9;
+        margin-left: 30px;
+        margin-top: 30px;
+        border-radius: 10px;
+    }
+
+    .info img {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+
+    .info span {
+        position: absolute;
+        margin-top: 4%;
+        margin-left: 12%;
+        font-size: 20px;
+    }
+
+    .line1 {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 30%;
+        border-right: 2px solid #b9b9b9;
+    }
+
+    .total_ann,
+    .used_ann,
+    .left_ann {
+        position: absolute;
+        width: 10%;
+        text-align: center;
+        margin-top: 13px;
+    }
+
+    .total_ann {
+        margin-left: 40%;
+    }
+
+    .used_ann {
+        margin-left: 60%;
+    }
+
+    .left_ann {
+        margin-left: 80%;
+    }
+
+    .info p {
+        font-size: 35px;
+        color: rgb(26, 188, 156);
+        margin-top: 10px;
+    }
+
+    .line2 {
+        position: absolute;
+        height: 70%;
+        top: 15%;
+        left: 54%;
+        border-right: 2px solid #b9b9b9;
+    }
+
+    .line3 {
+        position: absolute;
+        height: 70%;
+        top: 15%;
+        left: 75%;
+        border-right: 2px solid #b9b9b9;
+    }
+
+    .ann_date {
+        width: 50%;
+        margin: 3%;
+    }
+
+    .ann_date p {
+        font-size: 20px;
+        color: #777;
+    }
+
+    .ann_date input {
+        width: 120px;
+        height: 22px;
+    }
+
+    .his {
+        margin: 3%;
+    }
+
+    .used_his table {
+        width: 100%;
+        height: 150px;
+        text-align: center;
+        border-top: 2px solid #777;
+        border-bottom: 2px solid #777;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .used_his th {
+        border-bottom: 2px solid #777;
+    }
+
+    .his2 {
+        margin: 3%;
+    }
+
+    .create_his table {
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        border-top: 2px solid #777;
+        border-bottom: 2px solid #777;
+        border-collapse: separate;
+        border-spacing: 0;
+    }
+
+    .create_his th {
+        border-bottom: 2px solid #777;
+    }
+</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -53,8 +196,8 @@
 
         <div class="side_menu">
             <ul>
-                <li><a class="side_cal">일정관리</a></li>
-                <li><a class="active" href="">전자결재</a></li>
+                <li><a class="side_cal" href="project_calendar.html">일정관리</a></li>
+                <li><a class="active">전자결재</a></li>
                 <li><a class="side_board" href="">건의게시판</a></li>
             </ul>
         </div>

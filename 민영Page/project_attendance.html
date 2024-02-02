@@ -1,120 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="overtime.css">
 </head>
 <style>
-    body {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .side {
-        width: 20%;
-        height: 100%;
-        text-align: center;
-    }
-
-    .vertical_line {
-        width: 2px; 
-        height: 100%; 
-        background-color: #777; 
-        position: fixed; 
-        top: 0;
-        left: 20%;
-    }
-
-    .profile_img {
-        display: inline-block;
-        width: 120px;
-        height: 150px;
-        margin-top: 20px;
-    }
-
-    .logout {
-        text-decoration: none;
-        color: #7a7a7a;
-        border: 2px solid #7a7a7a;
-        padding: 4px;
-    }
-  
-    .side_menu {
-        margin-top: 50px;
-    }
-
-    .side_menu ul {
-        margin: 0;
-        padding: 0;
-    }
-
-    .side_menu ul li {
-        display: inline-block;
-    }
-
-    .side_menu ul li a {
-        text-decoration: none;
-        display: block;
-        font-size: 20px;
-        width: 180px;
-        text-align: left;
-        color: #777;
-        margin-top: 30px;
-        font-weight: bold;
-    }
-
-    .side_menu ul li a:hover {
-        color: rgb(27, 197, 163);
-        cursor: pointer;
-	}
-
-    .side_menu ul li a.active {
-        color: rgb(26, 188, 156);
-        cursor: pointer;
-    }
-
-    .main {
-        width: 80%;
-        height: 100%;
-    }
-
-    .menu ul {
-        margin: 0;
-        padding: 0;
-    }
-
-    .menu {
-        margin-left: 20px;
-    }
-
-    .menu ul li {
-        display: inline-block;
-    }
-
-    .menu ul li a {
-        text-decoration: none;
-        display: block;
-        font-size: 20px;
-        font-weight: bold;
-        width: 170px;
-        height: 40px;
-        border: 0; 
-        text-align: center; 
-        line-height: 40px;
-        background-color: rgb(190, 190, 190);
-        color: #fff;
-        border-radius: 50px;
-        margin-top: 30px;
-        margin-left: 20px;
-    }
-
-    .menu ul li a:hover {
-        background: rgb(170, 170, 170);  
-        color: #fff;
-        border: 0;
-	}
-
     .menu ul li a.att {
         background: rgb(26, 188, 156);
         color: #fff;
@@ -134,7 +28,7 @@
     }
 
     .arrow1 {
-        max-height: 100%; 
+        max-height: 100%;
         transform: scaleX(-1);
         width: 30px;
         height: 30px;
@@ -143,7 +37,7 @@
     }
 
     .arrow2 {
-        max-height: 100%; 
+        max-height: 100%;
         width: 30px;
         height: 30px;
         right: 40%;
@@ -167,7 +61,7 @@
 
     .stat p {
         font-size: 35px;
-        color:rgb(26, 188, 156);
+        color: rgb(26, 188, 156);
         margin-top: 20px;
     }
 
@@ -199,8 +93,8 @@
 
     .line1 {
         position: absolute;
-        width: 2px; 
-        height: 67%; 
+        width: 2px;
+        height: 67%;
         background-color: #b9b9b9;
         left: 20%;
         bottom: 16%;
@@ -208,8 +102,8 @@
 
     .line2 {
         position: absolute;
-        width: 2px; 
-        height: 67%; 
+        width: 2px;
+        height: 67%;
         background-color: #b9b9b9;
         left: 57%;
         bottom: 16%;
@@ -237,22 +131,38 @@
         font-size: 20px;
     }
 </style>
+
+<script>
+    window.addEventListener('load', function () {
+        let overtime_app = document.getElementById("overtime_app");
+        document.getElementById("overtime_application").addEventListener("click", function () {
+            overtime_app.style.display = "block";
+        });
+
+        document.getElementById("close").addEventListener("click", function () {
+            overtime_app.style.display = "none";
+        });
+    });
+</script>
+
 <body>
     <div class="side">
         <div class="side_profile">
             <img src="img/profile_icon.png" class="profile_img">
-            <div><font size="5"><b>이민영</b></font></div>
+            <div>
+                <font size="5"><b>이민영</b></font>
+            </div>
             <div>생산1팀/매니저</div>
             <div>010-5811-9717</div>
             <div style="margin-top: 20px"><a href="" class="logout">로그아웃</a></div>
         </div>
-        
+
         <div class="vertical_line"></div>
 
         <div class="side_menu">
             <ul>
-                <li><a class="side_cal">일정관리</a></li>
-                <li><a class="active" href="">전자결재</a></li>
+                <li><a class="active">일정관리</a></li>
+                <li><a class="EDSM" href="project_EDSM.html">전자결재</a></li>
                 <li><a class="side_board" href="">건의게시판</a></li>
             </ul>
         </div>
@@ -268,18 +178,18 @@
         </div>
 
         <div class="date">
-            <img src="img/arrow_icon.png"
-            class="arrow1">
-            <span><font size="6"><b>2024.02</b></font></span>
-            <img src="img/arrow_icon.png"
-            class="arrow2">
+            <img src="img/arrow_icon.png" class="arrow1">
+            <span>
+                <font size="6"><b>2024.02</b></font>
+            </span>
+            <img src="img/arrow_icon.png" class="arrow2">
         </div>
 
         <div style="margin-left: 30px; display: inline-block">
             <font size="4"><b>기본 그룹</b></font> &nbsp;09:00 ~ 18:00
         </div>
         <div class="but">
-            <input type="button" value="연장근무신청">
+            <input type="button" value="연장근무신청" id="overtime_application">
             <input type="button" value="목록 다운로드">
         </div>
 
@@ -288,7 +198,7 @@
                 이번주 누적
                 <p>40h 0m</p>
             </div>
-            
+
             <div class="line1"></div>
 
             <div class="week_over">
@@ -318,35 +228,158 @@
             <div>
                 <span>1주차</span>
                 <img src="img/arrow_icon.png" width="20px" height="20px">
-                <p><font color="#777">초과 근무시간 5h 30m</font></p>
+                <p>
+                    <font color="#777">초과 근무시간 5h 30m</font>
+                </p>
                 <p>누적 근무시간 40h 0m</p>
             </div>
             <div>
                 <span>2주차</span>
                 <img src="img/arrow_icon.png" width="20px" height="20px">
-                <p><font color="#777">초과 근무시간 0h 0m</font></p>
+                <p>
+                    <font color="#777">초과 근무시간 0h 0m</font>
+                </p>
                 <p>누적 근무시간 0h 0m</p>
             </div>
             <div>
                 <span>3주차</span>
                 <img src="img/arrow_icon.png" width="20px" height="20px">
-                <p><font color="#777">초과 근무시간 0h 0m</font></p>
+                <p>
+                    <font color="#777">초과 근무시간 0h 0m</font>
+                </p>
                 <p>누적 근무시간 0h 0m</p>
             </div>
             <div>
                 <span>4주차</span>
                 <img src="img/arrow_icon.png" width="20px" height="20px">
-                <p><font color="#777">초과 근무시간 0h 0m</font></p>
+                <p>
+                    <font color="#777">초과 근무시간 0h 0m</font>
+                </p>
                 <p>누적 근무시간 0h 0m</p>
             </div>
             <div>
                 <span>5주차</span>
                 <img src="img/arrow_icon.png" width="20px" height="20px">
-                <p><font color="#777">초과 근무시간 0h 0m</font></p>
+                <p>
+                    <font color="#777">초과 근무시간 0h 0m</font>
+                </p>
                 <p>누적 근무시간 0h 0m</p>
             </div>
         </div>
 
     </div>
+
+    <div id="overtime_app">
+        <div id="head">
+            <h2 style="position: relative;">연장근무신청서</h2>
+
+            <div>
+                <button type="button" id="close">
+                    <img src="img/close_icon.png" style="width: 50px; height: 50px;">
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <table class="table1" border="1px solid">
+                <tr>
+                    <th>기안자</th>
+                    <td width="70%">
+                        <input type="text" id="ann_name">
+                    </td>
+                </tr>
+                <tr>
+                    <th>기안부서</th>
+                    <td><input type="text" id="ann_dept"></td>
+                </tr>
+                <tr>
+                    <th>기안일</th>
+                    <td><input type="text" id="ann_date"></td>
+                </tr>
+                <tr>
+                    <th>문서번호</th>
+                    <td><input type="text" id="ann_docu"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="top">
+            <table class="table2" border="1px solid">
+                <tr>
+                    <th rowspan="3" width="30px">승인</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr height="60%">
+                    <td width="42%">김팀장</td>
+                    <td>관리자</td>
+                </tr>
+                <tr height="20%">
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <table class="table3" border="1px solid">
+                <tr>
+                    <th rowspan="3" width="30px">신청</th>
+                    <td></td>
+                </tr>
+                <tr height="60%">
+                    <td>
+                        <img src="img/approved_icon.png" style="width: 80px; height: 70px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <table class="table4" border="1px solid">
+                <tr>
+                    <td colspan="5">신청 내역</td>
+                </tr>
+                <tr>
+                    <th width="12%">근무구분</th>
+                    <th width="12%">근무일시</th>
+                    <th width="26%">근무시간</th>
+                    <th colspan="2">작업내용</th>
+                </tr>
+                <tr height="40%">
+                    <td><textarea class="text1"></textarea></td>
+                    <td><textarea class="text1"></textarea></td>
+                    <td><textarea class="text2"></textarea></td>
+                    <td colspan="2"><textarea class="text3"></textarea></td>
+                </tr>
+                <tr>
+                    <th>주 근무시간</th>
+                    <th colspan="2">0h 0m 0s(초과: 0h 0m 0s)</th>
+                    <th>월 근무시간</th>
+                    <th>0h 0m 0s(초과: 0h 0m 0s)</th>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <table class="table5" border="1px solid">
+                <tr>
+                    <td colspan="4">이전 승인요청 내역</td>
+                </tr>
+                <tr>
+                    <th width="12%">상태</th>
+                    <th width="12%">근무구분</th>
+                    <th width="12%">근무일시</th>
+                    <th>작업내용</th>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <button type="button" id="save">신청하기</button>
+        </div>
+    </div>
 </body>
+
 </html>
