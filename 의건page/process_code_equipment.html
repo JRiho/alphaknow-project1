@@ -7,39 +7,47 @@
   <title>Document</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <style>
-    #process_code {
-      display: flex;
-      flex-direction: column;
+    body {
+      font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
+      font-size: 1em;
     }
 
-    .top_section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .equipment_table {
+      width: 70%;
+      border-collapse: collapse;
     }
 
-    .title_select_container {
-      display: flex;
-      /* 제목과 select 상자를 가로로 나란히 배치 */
-      align-items: center;
-      /* 세로 중앙 정렬 */
-      gap: 10px;
-      /* 제목과 select 상자 사이의 간격 */
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
     }
 
-    #process_code_button {
-      display: flex;
-      gap: 20px;
-      /* 버튼 사이의 간격 */
+    td {
+      text-align: left;
     }
 
-    #process_code_count {
-      /* 필요한 경우 추가 스타일링 */
+    input[type="text"],
+    select {
+      width: 95%;
+      padding: 5px;
+      margin: 4px 0;
+      box-sizing: border-box;
     }
 
 
-    #process_board {
+
+
+
+
+
+
+
+    #equipment_board {
       width: 95%;
       border-collapse: collapse;
       text-align: center;
@@ -73,7 +81,7 @@
     .change_button {
       padding: 10px 20px;
       /* 버튼 내부 여백 설정 */
-      background-color: #1abc9c;
+      background-color: #6495ED;
       /* 밝은 파란색 배경 */
       border: none;
       /* 테두리 제거 */
@@ -94,6 +102,24 @@
       /* 마우스 오버 시 배경색 진한 파란색으로 변경 */
     }
   </style>
+  <script>
+    $(function () {
+      $("#datepicker1").datepicker({
+        dateFormat: "yy-mm-dd", // 날짜 형식 설정
+        changeMonth: true, // 월 변경 가능
+        changeYear: true, // 연도 변경 가능
+        showButtonPanel: true // 오늘 날짜로 이동 및 달력 닫기 버튼 표시
+      });
+    });
+    $(function () {
+      $("#datepicker2").datepicker({
+        dateFormat: "yy-mm-dd", // 날짜 형식 설정
+        changeMonth: true, // 월 변경 가능
+        changeYear: true, // 연도 변경 가능
+        showButtonPanel: true // 오늘 날짜로 이동 및 달력 닫기 버튼 표시
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -186,165 +212,124 @@
       <div id="storing3"><a href="#">품목별단가조회 및 변경</a></div>
       <div id="storing4"><a href="#">거래처 관리/등록</a></div>
     </div>
-    <div id="process_code">
-      <div class="top_section">
-        <div class="title_select_container">
-          <h1>공정코드관리</h1>
-          <select>
-            <option>선택1</option>
-            <option>선택2</option>
-          </select>
-        </div>
-        <div id="process_code_button">
-          <button type="button" class="change_button">추가</button>
-          <button type="button">수정</button>
-          <button type="button">삭제</button>
-        </div>
-      </div>
-      <div id="process_code_count">
-        공정수 :
-        <input type="text">
-        총 ST :
-        <input type="text">
-      </div>
+    <div>
+      <h1>공정기준 - 장비정보관리</h1>
+      <table class="equipment_table">
+        <tr>
+          <td><span>장비명:</span></td>
+          <td><input type="text"></td>
+          <td><span>관리번호:</span></td>
+          <td><input type="text"></td>
+          <td><span>제조사:</span></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td><span>구입업체명:</span></td>
+          <td><input type="text"></td>
+          <td><span>수리업체명:</span></td>
+          <td><input type="text"></td>
+          <td><span>관리지정:</span></td>
+          <td><input type="text"></td>
+        </tr>
+        <tr>
+          <td><span>위치:</span></td>
+          <td><input type="text"></td>
+          <td><span>용도:</span></td>
+          <td><input type="text"></td>
+          <td><span>사용여부:</span></td>
+          <td>
+            <select>
+              <option>True</option>
+              <option>False</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><span>구매일:</span></td>
+          <td colspan="2"><input type="text" id="datepicker1"></td>
+          <td><span>이력등록일:</span></td>
+          <td colspan="2"><input type="text" id="datepicker2"></td>
+        </tr>
+      </table>
     </div>
 
+
     <div id="main_content">
-      <table id="process_board">
+      <table id="equipment_board">
         <!-- 테이블 너비 조절 -->
         <colgroup>
-          <col style="width:4.29%" />
-          <col style="width:4.29%" />
-          <col style="width:4.29%" />
-          <col style="width:15%" />
-          <col style="width:15%" />
-          <col style="width:30%" />
-          <col style="width:4.29%" />
-          <col style="width:10%" />
-          <col style="width:4.29%" />
-          <col style="width:4.29%" />
-          <col style="width:4.29%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
+          <col style="width:8.3%" />
         </colgroup>
         <thead>
           <tr>
-            <th>순서</th>
-            <th>코드</th>
-            <th>에러코드</th>
-            <th>공정약칭</th>
-            <th>공정별칭</th>
-            <th>공정구분</th>
-            <th>기준</th>
-            <th>ST(표준작업시간)</th>
-            <th>가성</th>
-            <th>진성</th>
-            <th>반복</th>
+            <th>고유번호</th>
+            <th>장비명</th>
+            <th>관리번호</th>
+            <th>제조사</th>
+            <th>구입업체명</th>
+            <th>수리업체명</th>
+            <th>관리자</th>
+            <th>위치</th>
+            <th>용도</th>
+            <th>사용여부</th>
+            <th>구매일</th>
+            <th>이력등록일</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
           <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
           </tr>
         </tbody>
 
