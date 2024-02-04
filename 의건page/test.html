@@ -3,47 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Page</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<title>Date Range Picker</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#datePicker {
+    text-align: center;
+}
+
+input[type="date"] {
+    margin: 10px;
+}
+</style>
+
 </head>
-<body class="bg-gray-200 p-4">
-  <div class="flex justify-between items-center bg-white p-2 rounded-md shadow">
-    <div class="flex space-x-2">
-      <!-- Column 1 -->
-      <div class="flex flex-col space-y-1">
-        <button class="bg-gray-300 text-gray-700 py-1 px-4 rounded">검색1</button>
-        <input type="text" placeholder="검색어입력" class="border border-gray-300 py-1 px-2 rounded text-gray-700">
-        <select class="border border-gray-300 py-1 px-2 rounded text-gray-700">
-          <option>항목1</option>
-        </select>
-      </div>
-      <!-- Column 2 -->
-      <div class="flex flex-col space-y-1">
-        <button class="bg-gray-300 text-gray-700 py-1 px-4 rounded">검색2</button>
-        <input type="text" placeholder="검색어입력" class="border border-gray-300 py-1 px-2 rounded text-gray-700">
-        <select class="border border-gray-300 py-1 px-2 rounded text-gray-700">
-          <option>항목2</option>
-        </select>
-      </div>
-      <!-- Column 3 -->
-      <div class="flex flex-col space-y-1">
-        <button class="bg-gray-300 text-gray-700 py-1 px-4 rounded">검색3</button>
-        <input type="text" placeholder="검색어입력" class="border border-gray-300 py-1 px-2 rounded text-gray-700">
-        <select class="border border-gray-300 py-1 px-2 rounded text-gray-700">
-          <option>항목3</option>
-        </select>
-      </div>
-    </div>
-    <div class="flex items-center space-x-2">
-      <!-- Notification Icon -->
-      <div class="relative">
-        <i class="fas fa-bell text-gray-700 text-xl"></i>
-        <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">1</span>
-      </div>
-      <!-- User Icon -->
-      <i class="fas fa-user text-gray-700 text-xl"></i>
-    </div>
-  </div>
+<body>
+<div id="datePicker">
+    <label for="startDate">시작 날짜:</label>
+    <input type="date" id="startDate">
+    
+    <label for="endDate">종료 날짜:</label>
+    <input type="date" id="endDate">
+
+    <input type="text" id="selectedDates" readonly>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const startDate = document.getElementById('startDate');
+    const endDate = document.getElementById('endDate');
+    const selectedDates = document.getElementById('selectedDates'); // 수정되지 않음
+
+    function updateDateDisplay() {
+        if (startDate.value && endDate.value) {
+            selectedDates.value = `선택된 날짜: ${startDate.value} 부터 ${endDate.value} 까지`; // 수정된 부분
+        }
+    }
+
+    startDate.addEventListener('change', updateDateDisplay);
+    endDate.addEventListener('change', updateDateDisplay);
+});
+
+</script> 
 </body>
 </html>
