@@ -1,8 +1,8 @@
-#ann_leave_app {
+#overtime_app {
     display: none;
     position: fixed;
     width: 80%;
-    height: 800px;
+    height: 700px;
     text-align: center;
     border: 1px solid;
     background-color: #fff;
@@ -45,8 +45,16 @@ th {
 .table4 {
     position: absolute;
     width: 96%;
-    height: 450px;
+    height: 220px;
     margin-top: 180px;
+    margin-left: 20px;
+}
+
+.table5 {
+    position: absolute;
+    width: 96%;
+    height: 80px;
+    margin-top: 450px;
     margin-left: 20px;
 }
 
@@ -56,25 +64,38 @@ th {
     outline: none;
 }
 
-.table4 input[type="text"] {
-    width: 800px;
+.table4 .text1 {
+    width: 100px;
+    height: 60px;
     border: none;
     outline: none;
-    text-align: left;
+    text-align: center;
+    resize: none;
 }
 
-#ann_reason {
-    width: 800px;
-    height: 100px;
+.table4 .text2 {
+    width: 200px;
+    height: 60px;
     border: none;
     outline: none;
+    text-align: center;
+    resize: none;
+}
+
+.table4 .text3 {
+    width: 500px;
+    height: 60px;
+    border: none;
+    outline: none;
+    text-align: center;
+    resize: none;
 }
 
 #save {
-    margin-top: 66%;
+    margin-top: 56%;
 }
 
-#close {
+.close {
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -88,7 +109,7 @@ th {
     border: none;
 }
 
-#close img {
+.close img {
     max-width: 100%;
     max-height: 100%;
 }

@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="overtime.css">
+    <link rel="stylesheet" href="overtime_popup.css">
+    <link rel="stylesheet" href="attend_popup1.css">
 </head>
 <style>
     .menu ul li a.att {
-        background: rgb(26, 188, 156);
+        background: #1abd9c;
         color: #fff;
         border: 0;
         cursor: pointer;
@@ -119,9 +120,12 @@
         font-size: 20px;
     }
 
-    .week_stat img {
+    .week_stat button {
         position: absolute;
-        bottom: 3px;
+        margin-top: 0.3%;
+        border: 0;
+        background-color: white;
+        cursor: pointer;
     }
 
     .week_stat p {
@@ -139,9 +143,24 @@
             overtime_app.style.display = "block";
         });
 
-        document.getElementById("close").addEventListener("click", function () {
+        document.querySelector("#overtime_app .close").addEventListener("click", function () {
             overtime_app.style.display = "none";
         });
+
+        let attend_popup_1 = document.getElementById("attend_popup_1");
+        document.getElementById("week1_popup").addEventListener("click", function () {
+            attend_popup_1.style.display = "block";
+        });
+
+        document.querySelector("#attend_popup_1 .close").addEventListener("click", function () {
+            attend_popup_1.style.display = "none";
+        });
+    });
+</script>
+
+<script>
+    window.addEventListener('load', function () {
+        
     });
 </script>
 
@@ -163,7 +182,7 @@
             <ul>
                 <li><a class="active">일정관리</a></li>
                 <li><a class="EDSM" href="project_EDSM.html">전자결재</a></li>
-                <li><a class="side_board" href="">건의게시판</a></li>
+                <li><a class="side_board" href="project_board.html">건의게시판</a></li>
             </ul>
         </div>
     </div>
@@ -196,14 +215,14 @@
         <div class="stat">
             <div class="week_accum">
                 이번주 누적
-                <p>40h 0m</p>
+                <p>45h 0m</p>
             </div>
 
             <div class="line1"></div>
 
             <div class="week_over">
                 이번주 초과
-                <p>0h 30m</p>
+                <p>0h 0m</p>
             </div>
 
             <div class="week_over">
@@ -215,27 +234,31 @@
 
             <div class="month">
                 이번달 누적
-                <p>40h 0m</p>
+                <p>45h 0m</p>
             </div>
 
             <div class="month">
                 이번달 연장
-                <p>5h 30m</p>
+                <p>5h 0m</p>
             </div>
         </div>
 
         <div class="week_stat">
             <div>
                 <span>1주차</span>
-                <img src="img/arrow_icon.png" width="20px" height="20px">
+                <button type="button" id="week1_popup">
+                    <img src="img/arrow_icon.png" width="20px" height="20px">
+                </button>
                 <p>
-                    <font color="#777">초과 근무시간 5h 30m</font>
+                    <font color="#777">초과 근무시간 5h 00m</font>
                 </p>
-                <p>누적 근무시간 40h 0m</p>
+                <p>누적 근무시간 45h 0m</p>
             </div>
             <div>
                 <span>2주차</span>
-                <img src="img/arrow_icon.png" width="20px" height="20px">
+                <button type="button" class="week2_popup">
+                    <img src="img/arrow_icon.png" width="20px" height="20px">
+                </button>
                 <p>
                     <font color="#777">초과 근무시간 0h 0m</font>
                 </p>
@@ -243,7 +266,9 @@
             </div>
             <div>
                 <span>3주차</span>
-                <img src="img/arrow_icon.png" width="20px" height="20px">
+                <button type="button" class="week2_popup">
+                    <img src="img/arrow_icon.png" width="20px" height="20px">
+                </button>
                 <p>
                     <font color="#777">초과 근무시간 0h 0m</font>
                 </p>
@@ -251,7 +276,9 @@
             </div>
             <div>
                 <span>4주차</span>
-                <img src="img/arrow_icon.png" width="20px" height="20px">
+                <button type="button" class="week2_popup">
+                    <img src="img/arrow_icon.png" width="20px" height="20px">
+                </button>
                 <p>
                     <font color="#777">초과 근무시간 0h 0m</font>
                 </p>
@@ -259,7 +286,9 @@
             </div>
             <div>
                 <span>5주차</span>
-                <img src="img/arrow_icon.png" width="20px" height="20px">
+                <button type="button" class="week2_popup">
+                    <img src="img/arrow_icon.png" width="20px" height="20px">
+                </button>
                 <p>
                     <font color="#777">초과 근무시간 0h 0m</font>
                 </p>
@@ -274,7 +303,7 @@
             <h2 style="position: relative;">연장근무신청서</h2>
 
             <div>
-                <button type="button" id="close">
+                <button type="button" class="close">
                     <img src="img/close_icon.png" style="width: 50px; height: 50px;">
                 </button>
             </div>
@@ -285,20 +314,20 @@
                 <tr>
                     <th>기안자</th>
                     <td width="70%">
-                        <input type="text" id="ann_name">
+                        <input type="text" id="overtime_name">
                     </td>
                 </tr>
                 <tr>
                     <th>기안부서</th>
-                    <td><input type="text" id="ann_dept"></td>
+                    <td><input type="text" id="overtime_dept"></td>
                 </tr>
                 <tr>
                     <th>기안일</th>
-                    <td><input type="text" id="ann_date"></td>
+                    <td><input type="text" id="overtime_date"></td>
                 </tr>
                 <tr>
                     <th>문서번호</th>
-                    <td><input type="text" id="ann_docu"></td>
+                    <td><input type="text" id="overtime_doc"></td>
                 </tr>
             </table>
         </div>
@@ -380,6 +409,74 @@
             <button type="button" id="save">신청하기</button>
         </div>
     </div>
+
+    <div id="attend_popup_1">
+        <h2>1주차</h2>
+
+        <div>
+            <button type="button" class="close">
+                <img src="img/close_icon.png" style="width: 40px; height: 40px;">
+            </button>
+        </div>
+
+        <div>
+            <table class="attend_day">
+                <tr height="20%">
+                    <th class="bor" style="color: red;">일</th>
+                    <th class="bor">월</th>
+                    <th class="bor">화</th>
+                    <th class="bor">수</th>
+                    <th class="bor">목</th>
+                    <th class="bor">금</th>
+                    <th style="color: blue;">토</th>
+                </tr>
+
+                <tr>
+                    <td class="bor">
+                        0h 0m <br>
+                        연장: 0h 0m
+                    </td>
+                    <td class="bor">
+                        9h 0m <br>
+                        기본: 8h 0m <br>
+                        연장: 1h 0m <br>
+                        야간: 0h 0m <br>
+                    </td>
+                    <td class="bor">
+                        10h 0m <br>
+                        기본: 8h 0m <br>
+                        연장: 2h 0m <br>
+                        야간: 0h 0m <br>
+                    </td>
+                    <td class="bor">
+                        8h 0m <br>
+                        기본: 8h 0m <br>
+                        연장: 0h 0m <br>
+                        야간: 0h 0m <br>
+                    </td>
+                    <td class="bor">
+                        10h 0m <br>
+                        기본: 8h 0m <br>
+                        연장: 2h 0m <br>
+                        야간: 0h 0m <br>
+                    </td>
+                    <td class="bor">
+                        8h 0m <br>
+                        기본: 8h 0m <br>
+                        연장: 0h 0m <br>
+                        야간: 0h 0m <br>
+                    </td>
+                    <td>
+                        0h 0m <br>
+                        기본: 0h 0m <br>
+                        연장: 0h 0m <br>
+                        야간: 0h 0m <br>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </body>
 
 </html>
