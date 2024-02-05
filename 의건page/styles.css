@@ -6,11 +6,12 @@ body {
 
 .mainBox {
     width: 95%;
-    height: 100vh;
+    max-height:100%;
     border: 1px solid black;
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
+   
 }
 
 .left-box {

@@ -4,19 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>공정도 관리</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
     <style>
-        a{
-            text-decoration-line:none;
+        a {
+            text-decoration-line: none;
         }
-        .center{
+
+        .center {
             text-align: center;
             font-weight: bold;
         }
+
         .day {
-            border: 1px solid red;
             width: 100%;
             margin: 0 auto;
         }
@@ -31,6 +32,7 @@
         }
 
         ul li {
+
             list-style: none;
             flex: 1 1 22%;
             /* flex-basis를 22%로 설정하여 한 줄에 최대 4개의 항목이 오도록 설정 */
@@ -38,6 +40,16 @@
             /* 항목 사이의 간격 유지 */
             box-sizing: border-box;
             /* padding과 border가 너비에 포함되도록 설정 */
+            text-align: center;
+        }
+
+        ul li span {
+            display: inline-block;
+            /* span 요소가 텍스트를 중앙 정렬하도록 설정 */
+            width: 100%;
+            /* span 요소의 너비를 li의 너비와 동일하게 설정 */
+            font-weight: bold;
+            font-size: 1em;
         }
 
         ul li img {
@@ -45,14 +57,6 @@
             /* 이미지가 li의 너비에 맞춰지도록 설정 */
             height: auto;
             /* 이미지 비율 유지 */
-        }
-
-        #main_content {
-            width: 100%;
-            background-color: #e9e3e3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
 
         button {
@@ -68,7 +72,7 @@
         .change_button {
             padding: 10px 20px;
             /* 버튼 내부 여백 설정 */
-            background-color: #6495ED;
+            background-color: #1abc9c;
             /* 밝은 파란색 배경 */
             border: none;
             /* 테두리 제거 */
@@ -85,9 +89,18 @@
         }
 
         .change_button:hover {
-            background-color: #4169E1;
+            background-color: #15967D;
             /* 마우스 오버 시 배경색 진한 파란색으로 변경 */
         }
+
+
+        /* @media (max-width: 600px) {
+            ul li {
+                flex-basis:100%;
+                <!-- 모바일 화면에서는 항목을 한 줄에 하나씩 표시 -->
+            }
+        }  
+        */
     </style>
 </head>
 
@@ -182,37 +195,38 @@
             <div id="storing4"><a href="#">거래처 관리/등록</a></div>
         </div>
         <div class="day">
-        <ul id="list">
-            <!-- 항목이 여기에 동적으로 추가됩니다. -->
-        </ul>
+            <ul id="list">
+                <!-- 항목이 여기에 동적으로 추가됩니다. -->
+            </ul>
+        </div>
+
     </div>
     <script>
         let listproduce = [];
         let produce = [
-               //  html 추가하기
-            ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457723464060988/DALLE_2024-02-01_12.36.30_-_1._PCB_Loading__An_image_showing_the_process_of_aligning_PCB_boards_and_loading_them_into_an_automatic_feeder._The_scene_includes_a_worker_placing_a_P.png?ex=65cd8705&is=65bb1205&hm=7ce4a29083c4279d12c2071151c6975db6dfbbbefc5993f77a91d4f974c3e43e&", 
-                "PCB Loading", "yourPage1.html"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722839367751/DALLE_2024-02-01_12.36.32_-_2._Solder_Printing__An_image_depicting_the_application_of_solder_paste_onto_a_PCB_through_a_stencil._The_scene_shows_a_stencil_machine_over_a_PCB_boar.png?ex=65cd8705&is=65bb1205&hm=01607640c3b8265d111df014ada08ae6053c84aa57e879d5f24272225ae0556b&", 
-                "Solder Printing", "yourPage2.html"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722218356796/DALLE_2024-02-01_12.36.33_-_3._SPI_Solder_Paste_Inspection__An_image_showing_a_specialized_SPI_machine_inspecting_the_applied_solder_paste_on_a_PCB_for_height_shape_and_thick.png?ex=65cd8705&is=65bb1205&hm=9ceb2687fd3ea5a3876aeb15030fa1b52cfc8a818b7b351f4c93523f3780a1f2&",
-             "SPI(납 도포도 검사기)","#"] 
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721753047141/DALLE_2024-02-01_12.36.35_-_4._Chip_Mounter__An_image_illustrating_an_electronic_component_being_precisely_placed_onto_a_PCB_by_a_chip_mounter._The_scene_shows_a_chip_mounter_mac.png?ex=65cd8705&is=65bb1205&hm=82b1a57a95bc92c5fcceba128e1f1794e0ca3db93c818ae91ab77f1ae276a9d0&", 
-            "Chip Mounter(칩마운터)","#"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721153134592/DALLE_2024-02-01_12.36.36_-_5._Reflow_Soldering__An_image_showing_a_PCB_board_passing_through_a_reflow_oven_where_the_solder_is_melted_to_permanently_attach_the_components_to_the.png?ex=65cd8705&is=65bb1205&hm=b092f853674a05251b341932a9b9e411caa5add14c6f0da638793ee2063c8859&", 
-            "Reflow Soldering","#"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457720213471232/DALLE_2024-02-01_12.36.37_-_6._AOI_Automated_Optical_Inspection__An_image_depicting_an_AOI_machine_scanning_a_PCB_for_any_soldering_or_component_placement_defects._The_scene_sh.png?ex=65cd8705&is=65bb1205&hm=e94424f24215f10483e243b0db431a3e25702a114dec2caaa3f76c60d80994fb&", 
-            "AOI","#"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457719467147294/DALLE_2024-02-01_12.36.39_-_7._Unloading__An_image_showing_the_final_PCBs_being_moved_from_the_production_line_to_a_designated_storage_area._The_scene_includes_a_conveyor_belt_or.png?ex=65cd8704&is=65bb1204&hm=9b3370c488f362c96b664930b741c66c6c5e5bbb305bc7966398591013c0a813&", 
-            "PCB Unloding" ,"#"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457718774956063/DALLE_2024-02-01_12.36.40_-_8._Manual_Inspection__An_image_depicting_a_worker_visually_inspecting_a_PCB_for_soldering_quality_component_alignment_and_placement._The_scene_shows.png?ex=65cd8704&is=65bb1204&hm=cc3afa287fde7d2737c714e4766cccce30f35a0c1a9eba67f38dbc19ff67fc56&", 
-            "작업자 검사","#"]
-        
+            //  html 추가하기
+            ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457723464060988/DALLE_2024-02-01_12.36.30_-_1._PCB_Loading__An_image_showing_the_process_of_aligning_PCB_boards_and_loading_them_into_an_automatic_feeder._The_scene_includes_a_worker_placing_a_P.png?ex=65cd8705&is=65bb1205&hm=7ce4a29083c4279d12c2071151c6975db6dfbbbefc5993f77a91d4f974c3e43e&",
+                "PCB Loading", "process_pcbloading.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722839367751/DALLE_2024-02-01_12.36.32_-_2._Solder_Printing__An_image_depicting_the_application_of_solder_paste_onto_a_PCB_through_a_stencil._The_scene_shows_a_stencil_machine_over_a_PCB_boar.png?ex=65cd8705&is=65bb1205&hm=01607640c3b8265d111df014ada08ae6053c84aa57e879d5f24272225ae0556b&",
+                "Solder Printing", "process_solderprinting.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722218356796/DALLE_2024-02-01_12.36.33_-_3._SPI_Solder_Paste_Inspection__An_image_showing_a_specialized_SPI_machine_inspecting_the_applied_solder_paste_on_a_PCB_for_height_shape_and_thick.png?ex=65cd8705&is=65bb1205&hm=9ceb2687fd3ea5a3876aeb15030fa1b52cfc8a818b7b351f4c93523f3780a1f2&",
+                "SPI(납 도포도 검사기)", "process_spi.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721753047141/DALLE_2024-02-01_12.36.35_-_4._Chip_Mounter__An_image_illustrating_an_electronic_component_being_precisely_placed_onto_a_PCB_by_a_chip_mounter._The_scene_shows_a_chip_mounter_mac.png?ex=65cd8705&is=65bb1205&hm=82b1a57a95bc92c5fcceba128e1f1794e0ca3db93c818ae91ab77f1ae276a9d0&",
+                "Chip Mounter(칩마운터)", "process_chipmounter.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721153134592/DALLE_2024-02-01_12.36.36_-_5._Reflow_Soldering__An_image_showing_a_PCB_board_passing_through_a_reflow_oven_where_the_solder_is_melted_to_permanently_attach_the_components_to_the.png?ex=65cd8705&is=65bb1205&hm=b092f853674a05251b341932a9b9e411caa5add14c6f0da638793ee2063c8859&",
+                "Reflow Soldering", "process_reflowsoldering.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457720213471232/DALLE_2024-02-01_12.36.37_-_6._AOI_Automated_Optical_Inspection__An_image_depicting_an_AOI_machine_scanning_a_PCB_for_any_soldering_or_component_placement_defects._The_scene_sh.png?ex=65cd8705&is=65bb1205&hm=e94424f24215f10483e243b0db431a3e25702a114dec2caaa3f76c60d80994fb&",
+                "AOI", "process_aoi.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457719467147294/DALLE_2024-02-01_12.36.39_-_7._Unloading__An_image_showing_the_final_PCBs_being_moved_from_the_production_line_to_a_designated_storage_area._The_scene_includes_a_conveyor_belt_or.png?ex=65cd8704&is=65bb1204&hm=9b3370c488f362c96b664930b741c66c6c5e5bbb305bc7966398591013c0a813&",
+                "PCB Unloding", "process_pcbloading.html"]
+            , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457718774956063/DALLE_2024-02-01_12.36.40_-_8._Manual_Inspection__An_image_depicting_a_worker_visually_inspecting_a_PCB_for_soldering_quality_component_alignment_and_placement._The_scene_shows.png?ex=65cd8704&is=65bb1204&hm=cc3afa287fde7d2737c714e4766cccce30f35a0c1a9eba67f38dbc19ff67fc56&",
+                "작업자 검사", "process_workerinspection.html"]
         ];
         listproduce.push(...produce);
-    
+
         let list = document.querySelector("#list");
-    
-        listproduce.forEach(function(item) {
+
+        listproduce.forEach(function (item) {
             let li = document.createElement('li');
             let a = document.createElement('a');
             a.href = item[2]; // 이동할 페이지의 URL
@@ -221,8 +235,6 @@
             list.appendChild(li);
         });
     </script>
-    </div>
-
 </body>
 
 </html>
