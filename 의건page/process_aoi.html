@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0; max-width: 90%; max-height: 90%; }
-        .tg td{border-color:black;border-style:solid;border-width:1px;
-          overflow:hidden;padding:10px 5px;word-break:normal;}
-        .tg th{border-color:black;border-style:solid;border-width:1px;
-          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-        .tg .tg_title{border-color:inherit;font-size:2em;text-align:center;vertical-align:top; font-weight: bold;}
-        .tg .tg_header{border-color:inherit;font-size:1em;text-align:center;vertical-align:middle; font-weight: bold;}
-        .tg .tg_body{border-color:inherit;text-align:left;vertical-align:top}
-        .tg .tg_img{text-align: center; vertical-align: middle; }
-        h1{text-align: center;}
-        body {display: flex;justify-content: center;align-items: center; margin: 0; 
-            font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif; font-size: 1em; text-align: center;}
-        /* 미디어 적용*/
-        @media (max-width: 600px) {
-        .tg .tg_title, .tg .tg_header, .tg .tg_body {
-            font-size: 0.8em; /* 글씨 크기를 줄입니다 */
+    <title>AOI</title>
+    <link rel="stylesheet" href="process_style.css">
+    <script>
+        function goBack() {
+            window.history.back(); // 브라우저의 이전 페이지로 이동
         }
-        .tg {
-            max-width: 100%; /* 테이블의 최대 너비를 확장합니다 */
-            max-height: auto; /* 테이블의 최대 높이를 조정합니다 */
-        }
-        .tg td, .tg th {
-            padding: 5px; /* 셀 내부의 패딩을 줄입니다 */
-        }
-    }
-    </style>
+    </script>
 </head>
 <body>
+    <div class="button-container">
+    <button onclick="goBack()" class="change_button">뒤로 가기</button>
+    </div>
     <table class="tg">
         <colgroup>
             <col style="width:8.3%" />
@@ -81,9 +63,16 @@
         </tr>
         <tr>
             <td class="tg_img" colspan="7" rowspan="14">
-            <img src="https://cdn.discordapp.com/attachments/1202457622167425074/1202457718774956063/DALLE_2024-02-01_12.36.40_-_8._Manual_Inspection__An_image_depicting_a_worker_visually_inspecting_a_PCB_for_soldering_quality_component_alignment_and_placement._The_scene_shows.png?ex=65cd8704&is=65bb1204&hm=cc3afa287fde7d2737c714e4766cccce30f35a0c1a9eba67f38dbc19ff67fc56&" 
+            <img src="https://cdn.discordapp.com/attachments/1202457622167425074/1202457720213471232/DALLE_2024-02-01_12.36.37_-_6._AOI_Automated_Optical_Inspection__An_image_depicting_an_AOI_machine_scanning_a_PCB_for_any_soldering_or_component_placement_defects._The_scene_sh.png?ex=65cd8705&is=65bb1205&hm=e94424f24215f10483e243b0db431a3e25702a114dec2caaa3f76c60d80994fb&" 
             alt="사진임." style="width:80%;"></td>
-            <td class="tg_body" colspan="5" rowspan="14"></td>
+            <td class="tg_body" colspan="5" rowspan="14">
+                <p class="text_bolder_in_process">작업 순서 :</p>
+                <p>1.AOI 장비로 PCB를 스캔하여 불량 부분을 검출합니다.</p>
+                <p>2.검사 결과를 분석하여 불량 여부를 판단합니다.</p>
+                <p>주의사항 : </p>
+                <p>1.AOI 장비의 정확도 유지를 위해 정기적인 유지 보수가 필요합니다.</p>
+                <p>2.검사 결과 분석 시 정확한 판단이 이루어져야 합니다.</p>
+            </td>
         </tr>
         <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
         <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>

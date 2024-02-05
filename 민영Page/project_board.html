@@ -7,26 +7,41 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <style>
-    .menu ul li a.doc_box {
-        background: rgb(26, 188, 156);
+    .menu ul li a.boardTitle {
+        background: #1abd9c;
         color: #fff;
         border: 0;
         cursor: pointer;
     }
 
-    .listDown {
+    #board_notice {
+        width: 90%;
+        height: 5%;
+        background-color: #dadada;
+        border-radius: 10px;
+        text-align: center;
+        align-items: center;
+        margin-left: 5%;
+        margin-top: 3%;
+        font-size: 1em;
+        line-height: 5vh;
+    }
+
+    .boardWrite {
         position: relative;
         align-items: center;
     }
 
-    .listDown span {
+    .boardWrite span {
         position: absolute;
         margin-top: 6%;
         margin-left: 1%;
+        font-weight: bold;
     }
 
-    #listDown_but {
+    #boardWrite_but {
         align-items: center;
         justify-content: center;
         width: 40px;
@@ -39,28 +54,12 @@
         margin-left: 4%;
     }
 
-    #listDown_but img {
+    #boardWrite_but img {
         max-width: 100%;
         max-height: 100%;
     }
 
-    .doc_opt {
-        margin-top: 3%;
-        margin-left: 4%;
-    }
-
-    .doc_opt button {
-        font-size: 16px;
-        cursor: pointer;
-        background-color: white;
-        border: none;
-    }
-
-    .doc_opt button:hover {
-        font-weight: bold;
-    }
-
-    #approval_doc {
+    #boardList {
         width: 100%;
         margin-top: 1%;
         border-top: 2px solid #777;
@@ -86,8 +85,8 @@
         <div class="side_menu">
             <ul>
                 <li><a class="side_cal" href="project_calendar.html">일정관리</a></li>
-                <li><a class="active">전자결재</a></li>
-                <li><a class="side_board" href="project_board.html">건의게시판</a></li>
+                <li><a class="EDSM" href="project_EDSM.html">전자결재</a></li>
+                <li><a class="active">건의게시판</a></li>
             </ul>
         </div>
     </div>
@@ -96,38 +95,34 @@
 
         <div class="menu">
             <ul>
-                <li><a class="ann" href="project_EDSM.html">연차내역/신청</a></li>
-                <li><a class="doc_box" href="">결재함</a></li>
+                <li><a class="boardTitle">건의게시판</a></li>
             </ul>
         </div>
 
-        <div class="listDown">
-            <button type="button" id="listDown_but">
-                <img src="img/download_icon.png">
-            </button>
-            <span>목록 다운로드</span>
+        <div id="board_notice">
+            <marquee>운영자 : 건의게시판입니다.</marquee>
         </div>
 
-        <div class="doc_opt">
-            <button type="button">전체</button>
-            <button type="button">진행</button>
-            <button type="button">완료</button>
-            <button type="button">반려</button>
+        <div class="boardWrite">
+            <button type="button" id="boardWrite_but">
+                <img src="img/boardWrite_icon.png">
+            </button>
+            <span>새글쓰기</span>
         </div>
 
         <div>
-            <table id="approval_doc">
+            <table id="boardList">
                 <thead>
                     <tr>
                         <td align="center" width="5%">
                             <input type="checkbox">
                         </td>
-                        <td width="15%">기안일</td>
-                        <td width="15%">결재양식</td>
+                        <td width="10%">번호</td>
                         <td>제목</td>
-                        <td width="5%">첨부</td>
-                        <td width="10%">문서번호</td>
-                        <td width="10%">결재상태</td>
+                        <td width="10%">첨부</td>
+                        <td width="10%">작성자</td>
+                        <td width="20%">작성일</td>
+                        <td width="10%">조회</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -135,8 +130,8 @@
                 </tbody>
             </table>
         </div>
-    </div>
 
+    </div>
 </body>
 
 </html>
