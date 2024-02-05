@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <title>로그인 페이지</title>
- </head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 페이지</title>
+</head>
 <style>
     body {
         margin: 0;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
     }
 
     .screen {
@@ -17,6 +19,10 @@
         height: 400px;
         text-align: center;
         margin-top: 300px;
+    }
+
+    .login_type {
+        position: relative;
     }
 
     .login_type ul {
@@ -28,40 +34,54 @@
         display: inline-block;
     }
 
-    .login_type ul li a {
+    .inactive:hover {
+        background: #cfcfcf;
+        color: #777;
+        border: 1px solid #bfbfbf;
+        cursor: pointer;
+    }
+
+    .active {
         text-decoration: none;
         display: block;
         font-size: 12px;
         width: 180px;
         height: 19px;
-        border: 1px solid #bfbfbf; 
-        text-align: center; 
+        background: #fff;
+        font-weight: 550;
+        color: #777;
+        border: 1px solid #dadada;
+        cursor: pointer;
+        text-align: center;
+        line-height: 19px;
+        border-radius: 15px;
+    }
+
+    .inactive {
+        text-decoration: none;
+        display: block;
+        font-size: 12px;
+        width: 180px;
+        height: 19px;
+        border: 1px solid #bfbfbf;
+        text-align: center;
         line-height: 19px;
         background-color: #dadada;
         color: #777;
         border-radius: 15px;
     }
 
-    .login_type ul li a:hover {
-        background: #cfcfcf;  
-        color: #777;
-        border: 1px solid #bfbfbf;
-	}
-
-    .login_type ul li a.active {
-        background: #fff;
-        font-weight: 550;
-        color: #777;
-        border: 1px solid #dadada;
-        cursor: pointer;
+    #id_login {
+        display: block;
     }
 
     .login {
         display: inline-block;
     }
 
-    .id, .pass {
-        width: 400px;
+    #id,
+    #pass {
+        width: 300px;
         height: 35px;
         margin-top: 40px;
         border-top: 0px;
@@ -69,11 +89,12 @@
         border-right: 0px;
         border-bottom: 1px solid #dadada;
         outline: none;
+        text-indent: 40px;
     }
 
     .login_but {
         float: right;
-        margin-left: 20px;
+        margin-left: 50px;
         margin-top: 40px;
         border: 0px;
         width: 120px;
@@ -90,6 +111,7 @@
 
     input::placeholder {
         color: #bbbbbb;
+        text-indent: 40px;
     }
 
     .chkbox {
@@ -97,7 +119,7 @@
     }
 
     .find_pass {
-        margin-left: 360px;
+        margin-left: 30%;
         text-decoration: none;
         color: #aaaaaa
     }
@@ -110,7 +132,6 @@
     .id_container img {
         position: absolute;
         top: 70%;
-        left: -10%;
         width: 40px;
         height: 40px;
         transform: translateY(-50%);
@@ -124,45 +145,117 @@
     .pass_container img {
         position: absolute;
         top: 70%;
-        left: -10%;
         width: 40px;
         height: 40px;
         transform: translateY(-50%);
     }
+
+    #qr_login {
+        display: none;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    #qr_login img {
+        background-color: #fff;
+        width: 300px;
+        height: 300px;
+    }
 </style>
- <body width="100%">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let loginType_id = document.getElementById('loginType_id');
+        let loginType_qr = document.getElementById('loginType_qr');
+        let id_login = document.getElementById('id_login');
+        let qr_login = document.getElementById('qr_login');
+
+        loginType_id.classList.add('active');
+
+        loginType_id.addEventListener('click', function () {
+            if (!loginType_id.classList.contains('active')) {
+                loginType_id.classList.remove('inactive');
+                loginType_id.classList.add('active');
+                loginType_qr.classList.remove('active');
+                loginType_qr.classList.add('inactive');
+            }
+
+            id_login.style.display = 'block';
+            qr_login.style.display = 'none';
+        });
+
+        loginType_qr.addEventListener('click', function () {
+            if (!loginType_qr.classList.contains('active')) {
+                loginType_qr.classList.remove('inactive');
+                loginType_qr.classList.add('active');
+                loginType_id.classList.remove('active');
+                loginType_id.classList.add('inactive');
+            }
+
+            qr_login.style.display = 'block';
+            id_login.style.display = 'none';
+        });
+    });
+
+    function login() {
+        let id = document.getElementById('id').value;
+        let pass = document.getElementById('pass').value;
+
+        let adminAccount = { id: 'admin', pass: '0000' };
+        let userAccount = { id: 'user', pass: '1234' };
+
+        if (id == adminAccount.id && pass == adminAccount.pass) {
+            window.location.href = '../팀프깃/구민page/지능화된 생상관리 솔루션 프로젝트/mainPage.html'
+            alert('어서오세요 관리자님');
+        } else if (id == userAccount.id && pass == userAccount.pass) {
+            window.location.href = 'mainPage.html'
+            alert('어서오세요 user님')
+        } else {
+            alert('아이디와 비밀번호를 확인해주세요.');
+        }
+    }
+</script>
+
+<body width="100%">
     <div class="screen">
         <!-- 로그인 타입 선택; id/qr -->
         <div class="login_type">
             <ul>
-                <li><a class="active">ID 로그인</a></li>
-                <li class="qr"><a href="">QR 로그인</a></li>
+                <li><a id="loginType_id" class="active">ID 로그인</a></li>
+                <li><a id="loginType_qr" class="inactive">QR 로그인</a></li>
             </ul>
         </div>
-        <!-- 아이디 및 비밀번호 입력 -->
-        <div class="login">
-            <div>
-                <div class="id_container">
-                    <img src="img/id_icon.png" ondragstart="return false;">
-                    <input type="text" name="userid" placeholder="아이디" class="id">
+        <div id="id_login">
+            <!-- 아이디 및 비밀번호 입력 -->
+            <div class="login">
+                <div>
+                    <div class="id_container">
+                        <img src="img/id_icon.png" ondragstart="return false;">
+                        <input type="text" name="userid" placeholder="아이디" id="id">
+                    </div>
+                    <!-- 로그인 버튼 -->
+                    <input type="button" id="login" class="login_but" value="로그인" onclick="login()">
                 </div>
-                <!-- 로그인 버튼 -->
-                <input type="button" class="login_but" value="로그인">
+                <div class="pass_container">
+                    <img src="img/pass_icon.png" ondragstart="return false;">
+                    <input type="password" name="userpass" placeholder="비밀번호" id="pass">
+                </div>
             </div>
-            <div class="pass_container">
-                <img src="img/pass_icon.png" ondragstart="return false;">
-                <input type="password" name="userpass" placeholder="비밀번호" class="pass">
+
+            <div class="chkbox">
+                <!-- id저장 -->
+                <input type="checkbox" name="save" value="id저장">ID저장
+                <!-- 비밀번호 찾기 -->
+                <a href="" class="find_pass">비밀번호 찾기</a>
             </div>
         </div>
-        
-        <div class="chkbox">
-            <!-- id저장 -->
-            <input type="checkbox" name="save" value="id저장">ID저장
-            <!-- 비밀번호 찾기 -->
-            <a href="" class="find_pass">비밀번호 찾기</a>
-        </div>        
-            
-    
+
+        <div id="qr_login">
+            <img src="img/qrcode.png">
+            <p>QR코드를 스캔해주세요.</p>
+        </div>
+
     </div>
- </body>
+</body>
+
 </html>
