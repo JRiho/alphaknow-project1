@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생산계획대비실적현황</title>
+</head>
+<style>
+    /* 전체 마진, 폰트 */
+    body {
+        margin: 0px;
+        font-size: 12px;
+    }
+
+    /* 생산계획대비실적현황 헤더 */
+    header {
+        border-top: 2px solid gray;
+        border-bottom: 2px solid gray;
+
+        margin-top: 10px;
+        padding: 5px;
+
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    /* 윗칸 div */
+    .updiv {
+        /* border: 1px dotted black; */
+        width: 97%;
+        height: 380px;
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-top: 15px;
+    }
+
+    /* selbox_div */
+    #selbox_div {
+        /* border: 1px dotted black; */
+        margin-bottom: 5px;
+    }
+
+    /* selbox */
+    #pcb_year,
+    #pcb_type,
+    #pcb_chart {
+        height: 25px;
+    }
+
+    /* 차트, 월 표시 전체 div */
+    #chartInfo {
+        /* border: 1px dotted black; */
+        border: 1px solid #cccccc;
+
+        display: flex;
+
+        height: 93.5%;
+    }
+
+    /* 차트 표 왼쪽 부분 1~100% 라인 */
+    #chart_num {
+        /* border: 1px dotted black; */
+
+        height: 90%;
+        width: 1.5%;
+
+        display: flex;
+        overflow-x: visible;
+
+        flex-direction: column;
+        justify-content: space-between
+    }
+
+    /* 라인 자체 */
+    .line {
+        /* border-bottom: 1px solid black; */
+        border-bottom: 1px solid #cccccc;
+        width: 6500%;
+
+        /* 그래프 뒤로 라인 나오게 하기 */
+        z-index: -1;
+        /* 우측으로 밀기 */
+        margin-left: 300%;
+        /* 라인 = 바 맞추기 */
+        margin-bottom: 1px;
+    }
+
+    /* 라인 앞 숫자 div */
+    #chart_line {
+        /* border: 1px dotted black; */
+        height: 90%;
+        width: 1.5%;
+
+        display: flex;
+
+        flex-direction: column;
+        justify-content: space-between
+    }
+
+    /* 라인 앞 숫자 자체 */
+    .line_label {
+        /* border: 1px solid black; */
+        margin-left: -10px;
+        font-size: 10px;
+    }
+
+    /* 라인 제외 바차트, 월표시 묶음 */
+    #bar_month_wrap {
+        /* border: 1px dotted black; */
+        width: 100%;
+    }
+
+    /* 바 차트 컨테이너 div */
+    #bar_container {
+        /* border: 1px dotted black; */
+        border: 1px solid #cccccc;
+        width: 100% -1px;
+        height: 90%;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+    }
+
+    /* 월 컨테이너 div */
+    #month_container {
+        /* border: 1px dotted black; */
+        width: 100%;
+        height: 10%;
+
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* 바 자체 */
+    .bar {
+        border: 1px solid black;
+        background-color: lightblue;
+        width: 30px;
+        /* height: 10%; */
+
+        /* 초기 높이를 0으로 설정 */
+        height: 0;
+        /* growHeight 애니메이션 추가 */
+        /* forwards 를 통해 애니메이션이 끝난 후 높이 유지 */
+        animation: growHeight 0.7s ease-out forwards;
+    }
+
+    /* .bar 애니메이션 효과 */
+    @keyframes growHeight {
+        to {
+            height: 30%;
+            /* 최종 높이: 10% */
+        }
+    }
+
+    /* ////////////////////////////////////////////////// */
+    /* 월 칸 테두리 */
+    .month {
+        /* border-top: 1px solid black;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black; */
+        border-top: 1px solid #cccccc;
+        border-left: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        background-color: #eaeaea;
+        width: 100%;
+        height: 93%;
+
+        text-align: center;
+        line-height: 35px;
+    }
+
+    /* 월 칸 테두리 (우측) */
+    #month12 {
+        /* border-right: 1px solid black; */
+        border-right: 1px solid #cccccc;
+    }
+
+    /* ////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 중앙구분선 */
+    #center_line {
+        border-top: 1px solid #cccccc;
+
+        margin-top: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+    /* 아랫칸 div */
+    .downdiv {
+        /* border: 1px dotted black; */
+        width: 97%;
+        height: 300px;
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-top: 15px;
+    }
+
+    /* selbox_div */
+    #selbox_div {
+        /* border: 1px dotted black; */
+        margin-bottom: 5px;
+    }
+
+    /* selbox */
+    #pcb_month {
+        height: 25px;
+    }
+
+    /* week_info_div */
+    #week_info {
+        /* border: 1px dotted black; */
+        width: 100% -1px;
+        height: 90%;
+    }
+
+    /* weeks_div */
+    #weeks {
+        display: flex;
+    }
+
+    /* 각 주차들 박스 전체 */
+    .week {
+        cursor: pointer;
+
+        /* border: 1px dotted black; */
+        border: 1px solid #cccccc;
+        padding: 5px 10px;
+
+        background-color: #eaeaea;
+    }
+
+    /* info_div */
+    #info {
+        /* border: 1px dotted red; */
+        /* border: 1px dotted red; */
+        width: 100%;
+        height: 90%;
+    }
+
+    /* info_table 테두리 */
+    #info_table,
+    #info_table_thead tr,
+    #info_table_thead th,
+    #info_table_tbody tr,
+    #info_table_tbody td {
+        /* border: 1px solid black; */
+        border: 1px solid #cccccc;
+        border-collapse: collapse;
+    }
+
+    /* 테이블 전체 넓이 */
+    #info_table {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    #info_table_thead th {
+        height: 35px;
+        background-color: #eaeaea;
+    }
+</style>
+
+<script>
+    // 바 차트 수치 표기 이벤트 추가
+    window.addEventListener("load", function () {
+
+        // 라인 10개 (개당 10% 총 100%) 생성
+        for (let i = 10; i >= 0; i--) {
+            let div = document.createElement('div');
+            document.querySelector("#chart_num").appendChild(div);
+
+            // 라인 10개 숫자 생성
+            let label = document.createElement('div');
+            document.querySelector("#chart_line").appendChild(label);
+
+            div.setAttribute("id", `line${i}`);
+            div.setAttribute("class", "line");
+
+            label.textContent = `${i * 10}%`; // 레이블 내용 설정
+            label.setAttribute("class", "line_label");
+
+        }
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+    // 테이블 생성 이벤트
+    window.addEventListener("load", function () {
+        let thead = document.querySelector("#info_table_thead");
+
+        let rowCount1 = 1;
+        let colCount1 = 6;
+
+        for (let i = 1; i <= rowCount1; i++) {
+            let tr = document.createElement('tr');
+            thead.appendChild(tr);
+            for (let j = 1; j <= colCount1; j++) {
+                let th = document.createElement('th');
+                tr.appendChild(th);
+                th.setAttribute("id", `table1_1_${j}`);
+            }
+        }
+
+        let tbody = document.querySelector("#info_table_tbody")
+
+        let rowCount2 = 7;
+        let colCount2 = 6;
+
+        for (let i = 1; i <= rowCount2; i++) {
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (let j = 1; j <= colCount2; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+                td.setAttribute("id", `table1_${i + 1}_${j}`);
+            }
+        }
+    })
+
+    // 컬럼명
+    window.addEventListener("load", function () {
+        document.querySelector("#table1_1_1").appendChild(document.createTextNode("기준일"))
+        document.querySelector("#table1_1_2").appendChild(document.createTextNode("자재명"))
+        document.querySelector("#table1_1_3").appendChild(document.createTextNode("계획량"))
+        document.querySelector("#table1_1_4").appendChild(document.createTextNode("실생산량"))
+        document.querySelector("#table1_1_5").appendChild(document.createTextNode("달성률"))
+        document.querySelector("#table1_1_6").appendChild(document.createTextNode("불량률"))
+    })
+</script>
+
+<body>
+    <!-- 파일명 production_performance_report.html -->
+
+
+    <!-- header 시작 -->
+    <header>
+        생산계획대비실적현황
+    </header>
+    <!-- header 끝 -->
+
+    <!-- updiv -->
+    <div class="updiv">
+
+
+
+
+
+        <div id="selbox_div">
+            <select name="pcbYear" id="pcb_year">
+                <option value="2022">2022년</option>
+                <option value="2023">2023년</option>
+            </select>
+            <select name="pcbType" id="pcb_type">
+                <option value="1">pcb명</option>
+            </select>
+            <select name="pcbChart" id="pcb_chart">
+                <option value="1">계획량 / 실생산량</option>
+                <option value="1">달성률 / 불량률</option>
+            </select>
+        </div>
+
+        <div id="chartInfo">
+            <div id="chart_num">
+
+            </div>
+            <div id="chart_line">
+
+            </div>
+
+            <div id="bar_month_wrap">
+                <div id="bar_container">
+                    <div class="bar" id="bar1"></div>
+                    <div class="bar" id="bar2"></div>
+                    <div class="bar" id="bar3"></div>
+                    <div class="bar" id="bar4"></div>
+                    <div class="bar" id="bar5"></div>
+                    <div class="bar" id="bar6"></div>
+                    <div class="bar" id="bar7"></div>
+                    <div class="bar" id="bar8"></div>
+                    <div class="bar" id="bar9"></div>
+                    <div class="bar" id="bar10"></div>
+                    <div class="bar" id="bar11"></div>
+                    <div class="bar" id="bar12"></div>
+                </div>
+                <div id="month_container">
+                    <div class="month" id="month1">1월</div>
+                    <div class="month" id="month2">2월</div>
+                    <div class="month" id="month3">3월</div>
+                    <div class="month" id="month4">4월</div>
+                    <div class="month" id="month5">5월</div>
+                    <div class="month" id="month6">6월</div>
+                    <div class="month" id="month7">7월</div>
+                    <div class="month" id="month8">8월</div>
+                    <div class="month" id="month9">9월</div>
+                    <div class="month" id="month10">10월</div>
+                    <div class="month" id="month11">11월</div>
+                    <div class="month" id="month12">12월</div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <!-- updiv 끝 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- 중앙 구분선 -->
+    <div id="center_line">
+    </div>
+    <!-- 중앙 구분선 끝 -->
+
+
+
+
+
+
+
+
+
+    <!-- downdiv -->
+    <div class="downdiv">
+
+
+        <!-- selbox_div -->
+        <div id="selbox_div">
+            <select name="pcbMonth" id="pcb_month">
+                <option value="1">1월</option>
+                <option value="2">2월</option>
+                <option value="3">3월</option>
+                <option value="4">4월</option>
+                <option value="5">5월</option>
+                <option value="6">6월</option>
+                <option value="7">7월</option>
+                <option value="8">8월</option>
+                <option value="9">9월</option>
+                <option value="10">10월</option>
+                <option value="11">11월</option>
+                <option value="12">12월</option>
+            </select>
+        </div>
+        <!-- selbox_div 끝 -->
+
+        <!-- week_info_div -->
+        <div id="week_info">
+
+            <!-- weeks_div -->
+            <div id="weeks">
+                <div class="week" id="week1">1주차</div>
+                <div class="week" id="week2">2주차</div>
+                <div class="week" id="week3">3주차</div>
+                <div class="week" id="week4">4주차</div>
+                <div class="week" id="week5">5주차</div>
+            </div>
+            <!-- week_div 끝 -->
+
+            <!-- info_div -->
+            <div id="info">
+                <!-- info_table -->
+                <table id="info_table">
+                    <!-- info_table_thead -->
+                    <thead id="info_table_thead">
+
+                    </thead>
+
+                    <!-- info_table_tbody -->
+                    <tbody id="info_table_tbody">
+
+                    </tbody>
+                </table>
+                <!-- info_table 끝 -->
+            </div>
+            <!-- info_div -->
+
+        </div>
+        <!-- week_info_div 끝 -->
+
+
+    </div>
+    <!-- downdiv 끝 -->
+
+</body>
+
+</html>
