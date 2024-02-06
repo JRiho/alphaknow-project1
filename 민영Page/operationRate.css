@@ -1,0 +1,565 @@
+body {
+    /* margin: 1; */
+    max-height: 100vh;
+    font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
+    background-color: #FAFAFA;
+}
+
+.main_box {
+    width: 95%;
+    height: auto;
+    border: 1px solid black;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* .left-box {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    box-sizing: border-box;
+} */
+
+
+#header {
+    width: 100%;
+    height: 7vh;
+    border-bottom: 1px solid black;
+}
+
+#header ul {
+    list-style: none;
+    display: flex;
+    height: 100%;
+    margin-top: auto;
+    padding-left: 0;
+}
+
+#li_icon {
+    width: 20%;
+}
+
+#icon {
+    width: 40%;
+    height: 100%;
+}
+
+#li_search {
+    width: 50%;
+
+}
+
+#search {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    border: 2px solid rgb(26, 188, 156);
+    border-radius: 10px;
+    line-height: 380%;
+    margin-top: 1%;
+
+}
+
+
+#search_size {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    display: inline-block;
+
+}
+
+#search_txt {
+    width: 95%;
+    height: 80%;
+    font-size: 25px;
+    /* outline: none: removal of outine of (input type="text") */
+    outline: none;
+    /* border-width: removal border of (input type="text") */
+    border-width: 0;
+    border-radius: 15px;
+}
+
+#search_img {
+    width: 6%;
+    margin-top: 1.2%;
+    margin-right: 1.5%;
+}
+
+#search_img1 {
+    width: 100%;
+    cursor: pointer;
+}
+
+#li_user_icon {
+    width: 30%;
+}
+
+#user_icon {
+    width: 13%;
+    height: 95%;
+    margin-left: 70%;
+}
+
+/* 메뉴보드 */
+#menu_board {
+    width: 100%;
+    height: 6%;
+    display: flex;
+}
+
+
+#menu_board div {
+    cursor: pointer;
+    width: 12.5%;
+    text-align: center;
+    line-height: 350%;
+    /* margin-top: 1.2%; */
+    border-right: 1px solid black;
+    height: 100%;
+}
+
+#menu_board #store {
+    border: none;
+}
+
+#menu_board div a {
+    text-decoration: none;
+    color: black;
+}
+
+/* 메뉴보드 끝 */
+/* 메뉴세부사항 css */
+#monitering {
+
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+
+}
+
+#monitering div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#monitering div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#moniter1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#moniter4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#criteria {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+}
+
+#criteria div {
+    width: 20%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#criteria div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#standard1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#standard5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+}
+
+#planning div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#planning div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#planning1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#planning5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#performing {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+}
+
+#performing div {
+    width: 33%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#performing div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#perform1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#perform2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#perform3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+}
+
+#predicting div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#predicting div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#predicting1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#predicting5 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#invent {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+}
+
+#invent div {
+    width: 33%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+#invent div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#invent1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#invent2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#invent3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing {
+    width: 100%;
+    line-height: 330%;
+    display: flex;
+    position: absolute;
+    display: none;
+    background-color: rgb(26, 188, 156);
+    z-index: 2;
+}
+
+#storing div {
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#storing div a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+#storing1 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing2 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing3 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+#storing4 a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+/* 세부메뉴바의 폰트를 더 진하게 바꿈 end*/
+
+/* @media 600px */
+@media screen and(max-width:600px) {}
+
+#content {
+    width: 95%;
+    height: auto;
+    border: 1px solid black;
+    border-top: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 가동률 정보 */
+#rate_date {
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.arrow1 {
+    max-height: 100%;
+    transform: scaleX(-1);
+    width: 30px;
+    height: 30px;
+}
+
+.arrow2 {
+    max-height: 100%;
+    width: 30px;
+    height: 30px;
+}
+
+#rate_date button {
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+#rate_option {
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    padding: 10px 20px;
+    background-color: #1ed4b0;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1%;
+}
+
+.inactive {
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    border: none;
+    color: white;
+    font-size: 1em;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 1%;
+}
+
+#rate_option button:hover {
+    background-color: #1ed4b0;
+}
+
+#rateTable_day {
+    position: relative;
+    width: 95%;
+    max-height: 592px;
+    overflow-y: auto;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    margin: 2% auto;
+    box-sizing: border-box;
+}
+
+#rateTable_day table {
+    border-collapse: collapse;
+}
+
+#rateTable_day table th,
+td {
+    width: 11%;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    padding: 8px;
+    text-align: center;
+}
+
+#rateTable_day table tr {
+    border-bottom: 1px solid;
+}
+
+#rateChart_week {
+    display: none;
+    position: relative;
+    max-height: 592px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin: 2.7% auto;
+}
+
+#weeklyChart {
+    width: 1150px;
+    height: 600px;
+}
