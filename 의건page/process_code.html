@@ -34,10 +34,6 @@
       /* 버튼 사이의 간격 */
     }
 
-    #process_code_count {
-      /* 필요한 경우 추가 스타일링 */
-    }
-
 
     #process_board {
       width: 95%;
@@ -158,39 +154,139 @@
     window.addEventListener('load', function () {
       let customer_new_register = document.getElementById("process_new_register");
 
-      document.getElementById("new_process").addEventListener("click", function () {
+      document.getElementById("new_process_button").addEventListener("click", function () {
         customer_new_register.style.display = "block"; // pop-up 창을 띄우는 부분
+        document.querySelectorAll('.text').forEach(function (input) { input.value = ''; });
       });
 
       document.getElementById("close").addEventListener("click", function () {
         customer_new_register.style.display = "none"; // pop-up 창을 숨기는 부분
+        document.querySelectorAll('.text').forEach(function (input) { input.value = ''; });
       });
-    });
+      document.getElementById("delete_last_row").addEventListener("click", function () {
+        deleteLastRow();
+      });
 
-    document.getElementById("save").addEventListener("click", function () {
-      let new_row = document.getElementById("new_process").insertRow(-1); // 'new_process' 테이블에 새 행 추가
+      // 'save' 버튼에 대한 이벤트 리스너를 여기로 이동
+      document.getElementById("save").addEventListener("click", function () {
+        let table = document.getElementById("process_board").getElementsByTagName('tbody')[0];
+        let newRow = table.insertRow(-1); // 새 행 추가
 
-      // 정보 입력 셀 추가
-      addTextCell(new_row, "process_name");
-      addTextCell(new_row, "progress_code");
-      addTextCell(new_row, "order_code");
-      addTextCell(new_row, "error_code");
-      addTextCell(new_row, "process_nickname1");
-      addTextCell(new_row, "process_nickname2");
-      addTextCell(new_row, "process_division");
-      addTextCell(new_row, "process_standard");
-      addTextCell(new_row, "st_code");
-      addTextCell(new_row, "bad_code1");
-      addTextCell(new_row, "bad_code2");
-      addTextCell(new_row, "repeat");
+        // 마지막 행의 '순서' 값을 기반으로 새 순서 값을 계산
+        let lastRow = table.rows[table.rows.length - 2]; // 마지막 행 바로 위 행 참조 (-1이 마지막 행이므로, -2는 그 전 행)
+        let lastOrderCell = lastRow ? lastRow.cells[0].textContent : "0"; // 첫 번째 셀이 '순서'를 포함, 행이 없을 경우 '0'으로 시작
+        let newOrder = parseInt(lastOrderCell, 10) + 1; // 순서 값에 1 더하기
+
+        let orderCell = newRow.insertCell(0);
+        orderCell.textContent = newOrder.toString();
+
+        // 정보 입력 셀 추가
+        addTextCell(newRow, "progress_code");
+        addTextCell(newRow, "error_code");
+        addTextCell(newRow, "process_nickname1");
+        addTextCell(newRow, "process_nickname2");
+        addTextCell(newRow, "process_division");
+        addTextCell(newRow, "process_standard");
+        addTextCell(newRow, "st_code");
+        addTextCell(newRow, "bad_code1");
+        addTextCell(newRow, "bad_code2");
+        addTextCell(newRow, "repeat");
+
+        updateCounts();
+        document.querySelectorAll('.text').forEach(function (input) { input.value = ''; });
+      });
+
+      updateCounts();
+
     });
 
     // 텍스트 셀을 추가하는 함수
     function addTextCell(row, inputId) {
-      let cell = row.insertCell(-1); // 새 셀 추가
-      let inputValue = document.getElementById(inputId).value; // 입력값 가져오기
-      cell.textContent = inputValue; // 셀에 텍스트 설정
+      let cell = row.insertCell(-1);
+      let inputValue = document.getElementById(inputId).value;
+      cell.textContent = inputValue;
     }
+
+    function deleteLastRow() {
+      let table = document.getElementById("process_board").getElementsByTagName('tbody')[0];
+      if (table.rows.length > 0) {
+        table.deleteRow(-1);
+      }
+      updateCounts();
+    }
+
+    function updateRowCount() {
+      let table = document.getElementById("process_board").getElementsByTagName('tbody')[0];
+      document.getElementById("process_code_count").value = table.rows.length;
+    }
+
+    function updateSTCount() {
+    let table = document.getElementById("process_board").getElementsByTagName('tbody')[0]; // 'process_board' 테이블의 tbody를 찾음
+    let totalST = 0; // ST 합계 초기화
+
+    // 각 행에 대해 반복
+    for (let i = 0; i < table.rows.length; i++) {
+        let row = table.rows[i];
+        // ST 값과 반복 값을 적절한 셀 인덱스로부터 추출
+        let stValue = parseFloat(row.cells[7].textContent || 0); // 예시에서는 8번째 셀에 ST 값이 있다고 가정
+        let repeatValue = parseFloat(row.cells[10].textContent || 1); // 예시에서는 11번째 셀에 반복 값이 있다고 가정
+
+        // ST 값이 유효한 숫자인지 확인 (NaN 체크)
+        if (!isNaN(stValue) && !isNaN(repeatValue)) {
+            totalST += stValue * repeatValue; // 유효한 경우, ST와 반복 값을 곱하여 합계에 추가
+        }
+    }
+
+    // 결과를 'process_st_count' input 요소에 설정
+    document.getElementById("process_st_count").value = totalST.toFixed(2); // 결과를 소수점 두 자리까지 표시
+}
+
+    function updateCounts() {
+      updateRowCount();
+      updateSTCount();
+    }
+
+    // 팝업 요소 선택
+    var dragPopup = document.getElementById("process_new_register");
+
+    // 드래그 시작 시 좌표와 팝업의 원래 위치
+    var startX, startY, originalX, originalY;
+
+    // 드래그 시작 함수
+    function dragStart(e) {
+      // 드래그 시작 위치 설정
+      startX = e.clientX;
+      startY = e.clientY;
+
+      // 팝업의 원래 위치 가져오기
+      originalX = dragPopup.offsetLeft;
+      originalY = dragPopup.offsetTop;
+
+      // 이동 이벤트와 종료 이벤트 등록
+      document.addEventListener('mousemove', dragMove);
+      document.addEventListener('mouseup', dragEnd);
+    }
+
+    // 드래그 이동 함수
+    function dragMove(e) {
+      // 이동한 거리 계산
+      var moveX = e.clientX - startX;
+      var moveY = e.clientY - startY;
+
+      // 팝업의 새 위치 설정
+      dragPopup.style.left = originalX + moveX + 'px';
+      dragPopup.style.top = originalY + moveY + 'px';
+    }
+
+    // 드래그 종료 함수
+    function dragEnd() {
+      // 이벤트 리스너 제거
+      document.removeEventListener('mousemove', dragMove);
+      document.removeEventListener('mouseup', dragEnd);
+    }
+
+    // 팝업에 드래그 시작 이벤트 리스너 추가
+    dragPopup.addEventListener('mousedown', dragStart);
 
   </script>
 </head>
@@ -295,16 +391,16 @@
           </select>
         </div>
         <div id="process_code_button">
-          <button type="button" class="change_button" id="new_process">추가</button>
+          <button type="button" class="change_button" id="new_process_button">추가</button>
           <button type="button">수정</button>
-          <button type="button">삭제</button>
+          <button type="button" id="delete_last_row">삭제</button>
         </div>
       </div>
-      <div id="process_code_count">
+      <div>
         공정수 :
-        <input type="text">
+        <input type="text" id="process_code_count">
         총 ST :
-        <input type="text">
+        <input type="text" id="process_st_count">
       </div>
     </div>
 
@@ -347,7 +443,7 @@
             <th>AA1</th>
             <th>PCB Loading</th>
             <th>PCB로딩</th>
-            <th>부품마운팅</th>
+            <th>부품 운송</th>
             <th></th>
             <th>0.5</th>
             <th></th>
@@ -355,12 +451,64 @@
             <th>1</th>
           </tr>
           <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
+            <th>2</th>
+            <th>B</th>
+            <th>BB1</th>
+            <th>Solder Printing</th>
+            <th>솔더 프린팅</th>
             <th>부품마운팅</th>
+            <th></th>
+            <th>1</th>
+            <th></th>
+            <th></th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <th>3</th>
+            <th>C</th>
+            <th></th>
+            <th>SPI</th>
+            <th>납도포 검사기</th>
+            <th>부품마운팅</th>
+            <th></th>
+            <th>1.5</th>
+            <th></th>
+            <th></th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <th>4</th>
+            <th>D</th>
+            <th></th>
+            <th>Chip Mounter</th>
+            <th>칩마운터</th>
+            <th>부품마운팅</th>
+            <th></th>
+            <th>1</th>
+            <th></th>
+            <th></th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <th>5</th>
+            <th>E</th>
+            <th></th>
+            <th>Reflow Soldering</th>
+            <th>리플로우납땜</th>
+            <th>납땜 및 경화</th>
+            <th></th>
+            <th>1</th>
+            <th></th>
+            <th></th>
+            <th>1</th>
+          </tr>
+          <tr>
+            <th>6</th>
+            <th>F</th>
+            <th></th>
+            <th>UnLoading</th>
+            <th>PCB언로딩</th>
+            <th>부품 운송</th>
             <th></th>
             <th>0.5</th>
             <th></th>
@@ -368,82 +516,30 @@
             <th>1</th>
           </tr>
           <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
+            <th>7</th>
+            <th>G</th>
             <th></th>
-            <th>0.5</th>
+            <th>AOI</th>
+            <th>자동광학검사</th>
+            <th>검사 및 마무리</th>
+            <th></th>
+            <th>2</th>
             <th></th>
             <th></th>
-            <th>1</th>
+            <th>2</th>
           </tr>
           <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
+            <th>8</th>
+            <th>H</th>
             <th></th>
-            <th>0.5</th>
-            <th></th>
+            <th>작업자 검사</th>
+            <th>작업자 검사</th>
+            <th>검사 및 마무리</th>
             <th></th>
             <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
             <th></th>
             <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
-            <th></th>
-            <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
-            <th></th>
-            <th></th>
-            <th>1</th>
-          </tr>
-          <tr>
-            <th>1</th>
-            <th>A</th>
-            <th>AA1</th>
-            <th>PCB Loading</th>
-            <th>PCB로딩</th>
-            <th>부품마운팅</th>
-            <th></th>
-            <th>0.5</th>
-            <th></th>
-            <th></th>
-            <th>1</th>
+            <th>2</th>
           </tr>
         </tbody>
 
@@ -465,16 +561,8 @@
             <col style="width : 70%" />
           </colgroup>
           <tr>
-            <td>공정명</td>
-            <td><input type="text" class="text" id="process_name" placeholder="공정명"></td>
-          </tr>
-          <tr>
-            <td>진행코드</td>
+            <td>코드</td>
             <td><input type="text" class="text" id="progress_code" placeholder="진행코드"></td>
-          </tr>
-          <tr>
-            <td>순서</td>
-            <td><input type="text" class="text" id="order_code" placeholder="순서"></td>
           </tr>
           <tr>
             <td>에러코드</td>
@@ -494,23 +582,23 @@
           </tr>
           <tr>
             <td>기준공정</td>
-            <td><input type="text" class="text" id="process_standard" placeholder="이메일"></td>
+            <td><input type="text" class="text" id="process_standard" placeholder="기준공정"></td>
           </tr>
           <tr>
             <td>ST</td>
-            <td><input type="text" class="text" id="st_code" placeholder="이메일"></td>
+            <td><input type="text" class="text" id="st_code" placeholder="표준작업시간을 입력"></td>
           </tr>
           <tr>
             <td>가성불량경고</td>
-            <td><input type="text" class="text" id="bad_code1" placeholder="이메일"></td>
+            <td><input type="text" class="text" id="bad_code1"></td>
           </tr>
           <tr>
             <td>진성불량경고</td>
-            <td><input type="text" class="text" id="bad_code2" placeholder="이메일"></td>
+            <td><input type="text" class="text" id="bad_code2"></td>
           </tr>
           <tr>
             <td>반복</td>
-            <td><input type="text" class="text" id="repeat" placeholder="이메일"></td>
+            <td><input type="text" class="text" id="repeat"></td>
           </tr>
 
         </table>
