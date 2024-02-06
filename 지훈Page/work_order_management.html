@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공정별작업지시관리</title>
+</head>
+<style>
+    /* 전체 마진, 폰트 */
+    body {
+        margin: 0px;
+        font-size: 12px;
+    }
+
+    /* 공정별작업지시관리 헤더 */
+    header {
+        border-top: 2px solid gray;
+        border-bottom: 2px solid gray;
+
+        margin-top: 10px;
+        padding: 5px;
+
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+
+    /* 윗칸 div */
+    .updiv {
+        /* border: 1px dotted black; */
+        width: 97%;
+        height: 350px;
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-top: 15px;
+    }
+
+    #task_order_status_header_div {
+        /* border: 1px dotted black; */
+        border: 1px solid #cccccc;
+        background-color: #eaeaea;
+        padding-top: 3px;
+        padding-bottom: 3px;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #task_order_status_header_text {
+        /* border: 1px dotted black; */
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 15px;
+    }
+
+    /* 버튼 묶음 */
+    #btn_wrap {
+        /* border: 1px dotted black; */
+    }
+
+    /* 버튼 모양 */
+    #btn_req_sel,
+    #btn_req_all {
+        background-color: #3498db;
+        border: 0px;
+        border-radius: 5px;
+        color: white;
+
+        margin-right: 10px;
+
+        cursor: pointer;
+    }
+
+    /* 버튼 클릭 */
+    #btn_req_sel:active,
+    #btn_req_all:active {
+        background-color: #346edb;
+    }
+
+    /* task_order_status_div */
+    #task_order_status_div {
+        /* border: 1px dotted black; */
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        width: 100%;
+        height: 92%;
+
+        overflow-y: scroll;
+    }
+
+    /* task_order_status_table 전체,내부 테두리 */
+    #task_order_status_table,
+    #task_order_status_table_thead tr,
+    #task_order_status_table_thead th,
+    #task_order_status_table_tbody tr,
+    #task_order_status_table_tbody td {
+        border: 1px solid #cccccc;
+        border-collapse: collapse;
+    }
+
+
+    /* task_order_status_table */
+    #task_order_status_table {
+        width: 100%;
+        height: 100%;
+    }
+
+    #task_order_status_table_thead {
+        background-color: #eaeaea;
+
+        position: sticky;
+        top: 0;
+    }
+
+    /* 체크박스 넓이 고정 */
+    #table1_1_1 {
+        width: 10px;
+    }
+
+    /* 숫자 외 컬럼명 넓이 고정 */
+    #table1_1_2,
+    #table1_1_3,
+    #table1_1_4 {
+        width: 100px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    /* 중앙구분선 */
+    #center_line {
+        border-top: 1px solid #cccccc;
+
+        margin-top: 15px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /* 아랫칸 div */
+    .downdiv {
+        /* border: 1px dotted black; */
+        width: 97%;
+        height: 350px;
+        margin-left: 1%;
+        margin-right: 1%;
+        margin-top: 15px;
+    }
+
+    #task_order_header_div {
+        border: 1px solid #cccccc;
+        background-color: #eaeaea;
+        padding-top: 3px;
+        padding-bottom: 3px;
+
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #task_order_header_text {
+        /* border: 1px dotted black; */
+        font-size: 14px;
+        font-weight: bold;
+        margin-left: 15px;
+    }
+
+    /* 버튼 묶음 */
+    #btn_wrap_2 {
+        /* border: 1px dotted black; */
+    }
+
+    /* 버튼 모양 */
+    #btn_cancel,
+    #btn_accept,
+    #btn_accept_all {
+        background-color: #3498db;
+        border: 0px;
+        border-radius: 5px;
+        color: white;
+
+        margin-right: 10px;
+
+        cursor: pointer;
+    }
+
+    /* 작업순서변경 버튼 모양 */
+    #btn_up,
+    #btn_down {
+        background-color: #3498db;
+        color: white;
+        border: 0px;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+
+        /* 버튼 중앙 */
+        padding: 0;
+    }
+
+    /* 버튼 클릭 */
+    #btn_cancel:active,
+    #btn_accept:active,
+    #btn_accept_all:active,
+    #btn_up:active,
+    #btn_down:active {
+        background-color: #346edb;
+    }
+
+    /* 작업순서변경 버튼 간격 */
+    #btn_down {
+        margin-right: 15px;
+    }
+
+
+
+    /* task_order_div */
+    #task_order_div {
+        border: 1px solid #cccccc;
+        width: 100% -1px;
+        height: 92%;
+
+        overflow-y: scroll;
+    }
+
+    /* task_order_table 전체,내부 테두리 */
+    #task_order_table,
+    #task_order_table_thead tr,
+    #task_order_table_thead th,
+    #task_order_table_tbody tr,
+    #task_order_table_tbody td {
+        border: 1px solid #cccccc;
+        border-collapse: collapse;
+    }
+
+
+    /* task_order_table */
+    #task_order_table {
+        width: 100%;
+        height: 100%;
+    }
+
+    #task_order_table_thead {
+        background-color: #eaeaea;
+
+        position: sticky;
+        top: 0;
+    }
+
+    /* 컬럼 전체 높이 */
+    #task_order_table_thead th {
+        height: 30px;
+    }
+
+    /* 체크박스 넓이 고정 */
+    #table2_1_1 {
+        width: 10px;
+    }
+
+    #table2_1_2 {
+        width: 60px;
+    }
+</style>
+
+<script>
+    // table1
+
+    // 테이블 생성 이벤트
+    window.addEventListener("load", function () {
+        let thead = document.querySelector("#task_order_status_table_thead");
+
+        let rowCount1 = 1;
+        let colCount1 = 28;
+
+        for (let i = 1; i <= rowCount1; i++) {
+            let tr = document.createElement('tr');
+            thead.appendChild(tr);
+            for (let j = 1; j <= colCount1; j++) {
+                let th = document.createElement('th');
+                tr.appendChild(th);
+                th.setAttribute("id", `table1_1_${j}`);
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        // 시간 숫자 추가, 칸 넓이 고정
+        for (let i = 5; i <= colCount1; i++) {
+            document.querySelector("#table1_1_" + i).appendChild(document.createTextNode(i - 5))
+            document.querySelector("#table1_1_" + i).style.cssText = "width: 25px;"
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        let tbody = document.querySelector("#task_order_status_table_tbody")
+
+        let rowCount2 = 15;
+        let colCount2 = 28;
+
+        for (let i = 1; i <= rowCount2; i++) {
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (let j = 1; j <= colCount2; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+                td.setAttribute("id", `table1_${i + 1}_${j}`);
+            }
+        }
+
+        // 체크박스 추가, 중앙정렬, 순번 번호 추가, 중앙정렬
+        for (let k = 2; k <= rowCount2 + 1; k++) {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.classList.add("table1_chkChild");
+
+            document.querySelector("#table1_" + k + "_1").appendChild(checkbox);
+            // 체크박스 중앙정렬
+            document.querySelector("#table1_" + k + "_1").style.cssText = "text-align: center";
+
+            // // 순번 번호 추가
+            // document.querySelector("#table1_" + k + "_1").appendChild(document.createTextNode(k - 1));
+            // // 순번 번호 중앙정렬
+            // document.querySelector("#table1_" + k + "_1").style.cssText = "text-align: center";
+        }
+
+    })
+
+    // 컬럼명
+    window.addEventListener("load", function () {
+        // document.querySelector("#table1_1_1").appendChild(document.createTextNode("순번"))
+
+        // checkbox 생성
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "table1_chkAll"
+        document.querySelector("#table1_1_1").appendChild(checkbox);
+        document.querySelector("#table1_1_2").appendChild(document.createTextNode("지시번호"))
+        document.querySelector("#table1_1_3").appendChild(document.createTextNode("작업시작시간"))
+        document.querySelector("#table1_1_4").appendChild(document.createTextNode("작업종료시간"))
+        // document.querySelector("#table1_1_6").appendChild(document.createTextNode("장비명"))
+        // document.querySelector("#table1_1_7").appendChild(document.createTextNode("자원명"))
+        // document.querySelector("#table1_1_8").appendChild(document.createTextNode("라인"))
+        // document.querySelector("#table1_1_9").appendChild(document.createTextNode("예상생산량"))
+        // document.querySelector("#table1_1_10").appendChild(document.createTextNode("책임자"))
+    })
+
+    // 전체선택 이벤트
+    window.addEventListener("load", function () {
+        document.querySelector("#table1_chkAll").addEventListener("click", function (e) {
+            if (document.querySelector("#table1_chkAll").checked == true) {
+                document.querySelectorAll(".table1_chkChild").forEach(function (chkChild) {
+                    chkChild.checked = true;
+                })
+            } else {
+                document.querySelectorAll(".table1_chkChild").forEach(function (chkChild) {
+                    chkChild.checked = false;
+                })
+            }
+        })
+    })
+
+    // 선택 추가 이벤트
+    window.addEventListener("load", function () {
+
+        let checkboxes = document.querySelectorAll(".table1_chkChild");
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("click", function (e) {
+                let allbox = checkboxes.length;
+                let nowbox = 0;
+
+                checkboxes.forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        nowbox++;
+                    }
+                });
+
+                if (allbox === nowbox) {
+                    document.querySelector("#table1_chkAll").checked = true;
+                } else {
+                    document.querySelector("#table1_chkAll").checked = false;
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+    // table2
+
+    // 테이블 생성 이벤트
+    window.addEventListener("load", function () {
+        let thead = document.querySelector("#task_order_table_thead");
+
+        let rowCount1 = 1;
+        let colCount1 = 7;
+
+        for (let i = 1; i <= rowCount1; i++) {
+            let tr = document.createElement('tr');
+            thead.appendChild(tr);
+            for (let j = 1; j <= colCount1; j++) {
+                let th = document.createElement('th');
+                tr.appendChild(th);
+                th.setAttribute("id", `table2_1_${j}`);
+            }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        // // 시간 숫자 추가, 칸 넓이 고정
+        // for(let i=5; i<=colCount1; i++){
+        //     document.querySelector("#table2_1_" + i).appendChild(document.createTextNode(i-5))
+        //     document.querySelector("#table2_1_" + i).style.cssText = "width: 25px;"
+        // }
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+        let tbody = document.querySelector("#task_order_table_tbody")
+
+        let rowCount2 = 15;
+        let colCount2 = 7;
+
+        for (let i = 1; i <= rowCount2; i++) {
+            let tr = document.createElement('tr');
+            tbody.appendChild(tr);
+            for (let j = 1; j <= colCount2; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+                td.setAttribute("id", `table2_${i + 1}_${j}`);
+            }
+        }
+
+        // 체크박스 추가, 중앙정렬, 순번 번호 추가, 중앙정렬
+        for (let k = 2; k <= rowCount2 + 1; k++) {
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.classList.add("table2_chkChild");
+
+            document.querySelector("#table2_" + k + "_1").appendChild(checkbox);
+            // 체크박스 중앙정렬
+            document.querySelector("#table2_" + k + "_1").style.cssText = "text-align: center";
+
+            // 순번 번호 추가
+            document.querySelector("#table2_" + k + "_2").appendChild(document.createTextNode(k - 1));
+            // 순번 번호 중앙정렬
+            document.querySelector("#table2_" + k + "_2").style.cssText = "text-align: center";
+        }
+
+    })
+
+    // 컬럼명
+    window.addEventListener("load", function () {
+        // document.querySelector("#table1_1_1").appendChild(document.createTextNode("순번"))
+
+        // checkbox 생성
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = "table2_chkAll"
+        document.querySelector("#table2_1_1").appendChild(checkbox);
+        document.querySelector("#table2_1_2").appendChild(document.createTextNode("작업순서"))
+        document.querySelector("#table2_1_3").appendChild(document.createTextNode("지시번호"))
+        document.querySelector("#table2_1_4").appendChild(document.createTextNode("작업시작시간"))
+        document.querySelector("#table2_1_5").appendChild(document.createTextNode("작업종료시간"))
+        document.querySelector("#table2_1_6").appendChild(document.createTextNode("작업지시시간"))
+        document.querySelector("#table2_1_7").appendChild(document.createTextNode("지시확정시간"))
+        // document.querySelector("#table1_1_9").appendChild(document.createTextNode("예상생산량"))
+        // document.querySelector("#table1_1_10").appendChild(document.createTextNode("책임자"))
+    })
+
+    // 전체선택 이벤트
+    window.addEventListener("load", function () {
+        document.querySelector("#table2_chkAll").addEventListener("click", function (e) {
+            if (document.querySelector("#table2_chkAll").checked == true) {
+                document.querySelectorAll(".table2_chkChild").forEach(function (chkChild) {
+                    chkChild.checked = true;
+                })
+            } else {
+                document.querySelectorAll(".table2_chkChild").forEach(function (chkChild) {
+                    chkChild.checked = false;
+                })
+            }
+        })
+    })
+
+    // 선택 추가 이벤트
+    window.addEventListener("load", function () {
+
+        let checkboxes = document.querySelectorAll(".table2_chkChild");
+
+        checkboxes.forEach(function (checkbox) {
+            checkbox.addEventListener("click", function (e) {
+                let allbox = checkboxes.length;
+                let nowbox = 0;
+
+                checkboxes.forEach(function (checkbox) {
+                    if (checkbox.checked) {
+                        nowbox++;
+                    }
+                });
+
+                if (allbox === nowbox) {
+                    document.querySelector("#table2_chkAll").checked = true;
+                } else {
+                    document.querySelector("#table2_chkAll").checked = false;
+                }
+            });
+        });
+    });
+</script>
+
+<body>
+    <!-- header 시작 -->
+    <header>
+        공정별작업지시관리
+    </header>
+    <!-- header 끝 -->
+
+
+
+
+    <!-- updiv -->
+    <div class="updiv">
+
+
+
+
+
+        <!-- task_order_status_header_div -->
+        <div id="task_order_status_header_div">
+            <!-- task_order_status_header_text -->
+            <div id="task_order_status_header_text">
+                작업지시대기현황
+            </div>
+            <!-- task_order_status_header_text -->
+            <!-- btn_req_div -->
+            <div id="btn_warp">
+                <button type="button" id="btn_req_sel">선택작업 지시</button>
+
+                <button type="button" id="btn_req_all">모든작업 지시</button>
+            </div>
+            <!-- btn_req_div 끝 -->
+        </div>
+        <!-- task_order_status_header_div -->
+
+        <!-- task_order_status_div -->
+        <div id="task_order_status_div">
+            <!-- task_order_status_table -->
+            <table id="task_order_status_table">
+                <!-- thead -->
+                <thead id="task_order_status_table_thead">
+
+                </thead>
+
+                <!-- tbody -->
+                <tbody id="task_order_status_table_tbody">
+
+                </tbody>
+            </table>
+            <!-- task_order_status_table 끝 -->
+        </div>
+        <!-- task_order_status_div 끝 -->
+
+
+
+
+
+
+    </div>
+    <!-- updiv 끝 -->
+
+
+
+
+
+
+    <!-- 중앙 구분선 -->
+    <div id="center_line">
+    </div>
+    <!-- 중앙 구분선 끝 -->
+
+
+
+
+
+
+
+
+
+    <!-- downdiv -->
+    <div class="downdiv">
+
+
+
+
+
+        <!-- task_order_header_div -->
+        <div id="task_order_header_div">
+            <!-- task_order_header_text -->
+            <div id="task_order_header_text">
+                작업지시현황
+            </div>
+            <!-- task_order_header_text -->
+            <!-- btn_warp_2 -->
+            <div id="btn_warp_2">
+                작업순서변경
+                <button type="button" id="btn_up">▲</button>
+                <button type="button" id="btn_down">▼</button>
+                <button type="button" id="btn_cancel">선택작업 취소</button>
+
+                <button type="button" id="btn_accept">선택작업 확정</button>
+
+                <button type="button" id="btn_accept_all">모든작업 지시</button>
+            </div>
+            <!-- btn_warp_2 끝 -->
+        </div>
+        <!-- task_order_header_div -->
+
+        <!-- task_order_div -->
+        <div id="task_order_div">
+            <!-- task_order_table -->
+            <table id="task_order_table">
+                <!-- thead -->
+                <thead id="task_order_table_thead">
+
+                </thead>
+
+                <!-- tbody -->
+                <tbody id="task_order_table_tbody">
+
+                </tbody>
+            </table>
+            <!-- task_order_table 끝 -->
+        </div>
+        <!-- task_orders_div 끝 -->
+
+
+
+
+
+
+    </div>
+    <!-- updiv 끝 -->
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
