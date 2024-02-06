@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- 출하조회 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outgoing List</title>
+    <!-- 팀원 css 및 은별 css -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="star.css">
+
+    <!-- 팀원 js -->
+    <script src="script.js"></script>
+
+    <!-- jQuery 라이브러리를 불러오는 코드 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--  jQuery UI 라이브러리를 불러오는 코드 ex. 달력,드래그 // 압축x버전 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #title_content{
+            text-align : center;
+            background-color:#e9e3e3;;
+            font-size : 2em;
+        }
+        .wrap_toolbar{
+            display: flex;
+            background-color:#e9e3e3;
+            justify-content: space-between;
+            padding : 5px;
+        }
+        .toolbar_left{
+            display : flex;
+            flex-wrap : wrap;
+            align-items : center;
+            align-content: stretch;
+            margin-left : 3%;
+            
+        }
+        .toolbar_right{
+            display : flex;
+            flex-wrap : wrap;
+            align-items : center;
+            align-content: stretch;
+            margin-right : 3%;
+        }
+        #print_date{
+            text-align: right;
+            margin-right : 5%;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <!-- 전체를 감싸는 wrap -->
+
+    <div class="main_box">
+        <!-- <div class="left-box"> -->
+        <div id="header">
+            <ul>
+                <li id="li_icon">
+                    <a href="mainPage.html"><img
+                            src="https://cdn.discordapp.com/attachments/1200318999112720424/1201064896067027005/logo.png?ex=65c875d9&is=65b600d9&hm=55487b27a7ecacb2ffd64c59fe79a41e913f7edeedd13408b63d946d9881f2ef&"
+                            id="icon"></a>
+                </li>
+                <li id="li_search">
+                    <div id="search">
+                        <div id="search_size">
+                            <input type="text" id="search_txt" value="" placeholder="검색어를 입력해 주세요">
+                        </div>
+                        <div id="search_img">
+                            <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&"
+                                id="search_img1">
+                        </div>
+                    </div>
+                </li>
+                <li id="li_user_icon">
+                    <img src="https://cdn.discordapp.com/attachments/1200318999112720424/1201065133032603728/images.png?ex=65c87612&is=65b60112&hm=95076b8a0faabe229206bc26c9526afd452159f8d6f562ba9f7cad7a0d01bfb0&"
+                        id="user_icon">
+                </li>
+            </ul>
+        </div>
+        <div id="menuBoard">
+            <div><a href="#">마이페이지</a></div>
+            <div id="moniter">
+                모니터링
+            </div>
+            <div id="standard">
+                공정기준정보
+            </div>
+            <div id="plan">
+                생산계획관리
+            </div>
+            <div id="performance">
+                생산실적관리
+            </div>
+            <div id="prediction">
+                예측분석관리
+
+            </div>
+            <div id="inventory">재고관리</div>
+            <div id="store">
+                입고관리
+            </div>
+
+        </div>
+        <div id="monitering">
+            <div id="moniter1"><a href="../mainPage/monitering(euqipment)/monitering(equipment).html">모니터링(장비)</a>
+            </div>
+            <div id="moniter2"><a href="#">가동률현황</a></div>
+            <div id="moniter3"><a href="#">원가현황</a></div>
+            <div id="moniter4"><a href="#">불량현황</a></div>
+            <div id="moniter5"><a href="#">비가동현황</a></div>
+        </div>
+        <div id="criteria">
+            <div id="standard1"><a href="#">공정단계</a></div>
+            <div id="standard2"><a href="#">작업지시서</a></div>
+            <div id="standard3"><a href="#">장비정보관리</a></div>
+            <div id="standard4"><a href="#">부품정보관리</a></div>
+            <div id="standard5"><a href="#">기초코드</a></div>
+        </div>
+        <div id="planning">
+            <div id="planning1"><a href="#">생산자재관리</a></div>
+            <div id="planning3"><a href="#">작업자별 일정현황</a></div>
+            <div id="planning2"><a href="#">세부공정생산 계획관리</a></div>
+            <div id="planning4"><a href="#">공정별 작업지시 관리/출력</a></div>
+        </div>
+        <div id="performing">
+            <div id="perform1"><a href="#">생산계획대비 실적현황</a></div>
+            <div id="perform2"><a href="#">작업지시대비 실적현황</a></div>
+            <div id="perform3"><a href="#">장비별 생산실적현황</a></div>
+        </div>
+        <div id="predicting">
+            <div id="predicting1"><a href="#">장비 수명 기준 불량 집계</a></div>
+            <div id="predicting2"><a href="#">제조시간 예측분석</a></div>
+            <div id="predicting3"><a href="#">장비점검주기</a></div>
+            <div id="predicting4"><a href="#">원가관리</a></div>
+        </div>
+        <div id="invent">
+            <div id="invent1"><a href="#">재고현황</a></div>
+            <div id="invent2"><a href="#">출하조회/입력</a></div>
+            <div id="invent3"><a href="#">출하지시서 조회/입력</a></div>
+        </div>
+        <div id="storing">
+            <div id="storing1"><a href="#">구매조회/입력</a></div>
+            <div id="storing2"><a href="#">품목등록</a></div>
+            <div id="storing3"><a href="#">품목별단가조회 및 변경</a></div>
+            <div id="storing4"><a href="#">거래처 관리/등록</a></div>
+        </div>
+        <div id="content">
+
+            <div id="main_header">
+                <div id="list_title"> 출하현황</div>
+                <div id="list_search">
+                    <input type="text" class="list_search_text" value="" placeholder="입력 후 enter">
+                    <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&"
+                        class="list_search_img" alt="검색">
+                </div>
+            </div>
+            <div id = "title_content"> 출하현황 </div>
+            <!-- 메인시작 -->
+            <div class = "wrap_toolbar">
+                <div class = "toolbar_left"> 회사명 : 주식회사 alphaknow</div>
+                <div class = "toolbar_right"> 설정한 조회날짜</div>
+            </div>
+            <div id="main_content">
+                <table id="main_board">
+                    <!-- 테이블 너비 조절 -->
+                    <colgroup>
+                        <col style="width:5%" />
+                        <col style="width:10%" />
+                        <col style="width:20%" />
+                        <col style="width:15%" />
+                        <col style="width:15%" />
+                        <col style="width:15%" />
+                        <col style="width:10%" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th><input type = "checkbox"></th>
+                            <th>일자-No.</th>
+                            <th>거래처명</th>
+                            <th>품목명</th>
+                            <th>수량</th>
+                            <th>입고단가</th>
+                            <th>금액</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <!-- 게시물 추가 예정 -->
+                    </tbody>
+                    <tfoot>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>합계</th>
+                        <th>합계금액</th>
+                    </tfoot>
+
+                </table>
+
+            </div>
+                <div id="print_date">
+                    프린트날짜
+                </div>
+            
+            
+
+
+        <div id="footer">
+            <div id="main_button">
+                <!-- 신규등록 및 수정버튼-->
+                <button id="new_register" class="change_button">인쇄</button>
+                <button id="edit" class="change_button">excel</button>
+            </div>
+            
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- content 끝 div -->
+    </div>
+    
+
+</body>
+
+</html>
