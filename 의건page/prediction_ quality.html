@@ -7,20 +7,18 @@
     <title>부품 불량 관리</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
         body {
             font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
             font-size: 1em;
         }
 
-        #quality_board {
+        .quality_board {
             width: 95%;
+            margin: 0 auto;
+            /* Center the table */
             border-collapse: collapse;
             text-align: center;
-            border: '1';
         }
 
         th,
@@ -30,8 +28,90 @@
         }
 
         #main_content {
+            display: flex;
+            /* Flex 컨테이너로 설정 */
+            justify-content: space-between;
+            /* 요소들 사이에 공간을 균등하게 배분 */
+            align-items: center;
+            /* 요소들을 세로 방향으로 중앙 정렬 */
+        }
+
+        .navButton {
+            background-color: #fff;
+            /* 버튼 배경색 */
+            border: none;
+            /* 테두리 제거 */
+            cursor: pointer;
+            /* 마우스 오버 시 커서 변경 */
+            padding: 5px 10px;
+            /* 버튼 내부 여백 줄임 */
             width: 100%;
-            background-color: #e9e3e3;
+            /* 버튼 너비 설정 */
+            height: 100%;
+            /* 버튼 높이 설정 */
+            display: flex;
+            /* Flexbox를 사용하여 내용을 중앙에 정렬 */
+            justify-content: center;
+            /* 가로 방향으로 내용 중앙 정렬 */
+            align-items: center;
+            /* 세로 방향으로 내용 중앙 정렬 */
+        }
+
+        .button_leftright {
+            width: 5%;
+            height: 500px;
+        }
+
+        .navButton img {
+            max-width: 30px;
+            /* 이미지의 최대 너비를 제한 */
+            max-height: 100px;
+            /* 이미지의 최대 높이를 제한 */
+            object-fit: contain;
+            /* 이미지 비율 유지 */
+        }
+
+        .quality_board {
+            display: none;
+            /* 모든 테이블을 초기에 숨김 */
+            width: 95%;
+            /* 테이블 너비 */
+            margin: 0 auto;
+            /* 테이블 중앙 정렬 */
+            border-collapse: collapse;
+            /* 테두리 겹침 방지 */
+            text-align: center;
+            /* 텍스트 중앙 정렬 */
+        }
+
+        .table_quality {
+            width: 80%;
+        }
+
+        #previousButton {
+            left: 0;
+        }
+
+        #nextButton {
+            right: 0;
+        }
+
+        .quality_board1,
+        .quality_board2,
+        .quality_board3 {
+            display: none;
+            /* 모든 테이블을 초기에 숨깁니다. */
+            /* 기타 테이블 스타일링 */
+        }
+
+        /* 활성화된 테이블을 표시하기 위한 추가 클래스 */
+        .active {
+            display: table;
+        }
+
+        #main_content {
+            width: 100%;
+            background-color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -164,14 +244,19 @@
             <div id="storing3"><a href="#">품목별단가조회 및 변경</a></div>
             <div id="storing4"><a href="#">거래처 관리/등록</a></div>
         </div>
+
         <div id="main_content">
-            <table id="quality_board">
+            <div class="button_leftright">
+                <button id="previousButton" class="navButton" onclick="previousPage()"><img
+                        src="../img/leftbutton.png"></button>
+            </div>
+            <table class="quality_board quality_board1 active">
                 <colgroup>
-                    <col style="width:6.67%" />
-                    <col style="width:6.67%" />
-                    <col style="width:6.67%" />
-                    <col style="width:30%" />
-                    <col style="width:50%" />
+                    <col style="width:3.33%" />
+                    <col style="width:3.33%" />
+                    <col style="width:3.33%" />
+                    <col style="width:35%" />
+                    <col style="width:55%" />
                 </colgroup>
                 <thead>
                     <tr>
@@ -182,52 +267,307 @@
                             불량현상
                         </th>
                         <th>
-                            판정기준    
+                            판정기준
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th colspan="3"></th>
-                        <th></th>
-                        <th></th>
+                        <th colspan="3">short</th>
+                        <th><img src="../img/short.png"></th>
+                        <th>리드와 랜드사이에 납이 연결되어 단락된 상태</th>
                     </tr>
                     <tr>
-                        <th colspan="3"></th>
-                        <th></th>
-                        <th></th>
+                        <th colspan="3">Open</th>
+                        <th><img src="../img/open.png"></th>
+                        <th>
+                            <p>리드의 뜸이나 납량의 과소 등에 의해 리드부와</p>
+                            <p>단자부가 solder에 의해 접속이 되지 않아</p>
+                            <p>전기적으로 도통이 되지 않은 상태</p>
+                            <p>🡪 각 부품별 기준 참고 (미납불량과 관계)</p>
+                        </th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th rowspan="2"></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th rowspan="4">
+                            <p>이</p>
+                            <p>동</p>
+                        </th>
+                        <th rowspan="2">
+                            <p>chip</p>
+                            <p>류</p>
+                        </th>
+                        <th>
+                            <p>가로</p>
+                            <p>&</p>
+                            <p>세로</p>
+                        </th>
+                        <th><img src="../img/chip.png"></th>
+                        <th>
+                            <p>- 가로 : 부품 전극 폭의 1/2이상이 랜드에서</p>
+                            <p>벗어나 치우친 상태</p>
+                            <p>- 세로 : 부품 폭의 1/2이상 벗어나면서 </p>
+                            <p> 전극부가 패드를 벗어난 상태</p>
+                            <p>(다른 전극에 접촉되지 않은 상태)</p>
+                        </th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>
+                            경사
+                        </th>
+                        <th><img src="../img/chip2.png"></th>
+                        <th>- 부품 폭의 1/2이상이 벗어난 상태</th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th rowspan="2"></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th rowspan="2">IC류</th>
+                        <th>
+                            <p>가로</p>
+                            <p>&</p>
+                            <p>세로</p>
+                        </th>
+                        <th><img src="../img/ic.png"></th>
+                        <th>
+                            <p>- 가로 : 리드 폭의 1/2 이상 벗어남</p>
+                            <p>- 세로 : 랜드를 벗어나지 않을 것</p>
+                        </th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th> 경사</th>
+                        <th><img src="../img/ic2.png"></th>
+                        <th>
+                            <p>리드 폭의 1/3이상을 넘지 않으면서 인접 Pad와 </p>
+                            <p>접촉하지 않을 것 </p>
+                        </th>
                     </tr>
-                    
+
                 </tbody>
             </table>
+            <table class="quality_board quality_board2">
+                <colgroup>
+                    <col style="width:3.33%" />
+                    <col style="width:3.33%" />
+                    <col style="width:3.33%" />
+                    <col style="width:35%" />
+                    <col style="width:55%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th colspan="3">
+                            2번임
+                        </th>
+                        <th>
+                            불량현상
+                        </th>
+                        <th>
+                            판정기준
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="3">short</th>
+                        <th><img src="../img/short.png"></th>
+                        <th>리드와 랜드사이에 납이 연결되어 단락된 상태</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">Open</th>
+                        <th><img src="../img/open.png"></th>
+                        <th>
+                            <p>리드의 뜸이나 납량의 과소 등에 의해 리드부와</p>
+                            <p>단자부가 solder에 의해 접속이 되지 않아</p>
+                            <p>전기적으로 도통이 되지 않은 상태</p>
+                            <p>🡪 각 부품별 기준 참고 (미납불량과 관계)</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4">
+                            <p>이</p>
+                            <p>동</p>
+                        </th>
+                        <th rowspan="2">
+                            <p>chip</p>
+                            <p>류</p>
+                        </th>
+                        <th>
+                            <p>가로</p>
+                            <p>&</p>
+                            <p>세로</p>
+                        </th>
+                        <th><img src="../img/chip.png"></th>
+                        <th>
+                            <p>- 가로 : 부품 전극 폭의 1/2이상이 랜드에서</p>
+                            <p>벗어나 치우친 상태</p>
+                            <p>- 세로 : 부품 폭의 1/2이상 벗어나면서 </p>
+                            <p> 전극부가 패드를 벗어난 상태</p>
+                            <p>(다른 전극에 접촉되지 않은 상태)</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            경사
+                        </th>
+                        <th><img src="../img/chip2.png"></th>
+                        <th>- 부품 폭의 1/2이상이 벗어난 상태</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">IC류</th>
+                        <th>
+                            <p>가로</p>
+                            <p>&</p>
+                            <p>세로</p>
+                        </th>
+                        <th><img src="../img/ic.png"></th>
+                        <th>
+                            <p>- 가로 : 리드 폭의 1/2 이상 벗어남</p>
+                            <p>- 세로 : 랜드를 벗어나지 않을 것</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th> 경사</th>
+                        <th><img src="../img/ic2.png"></th>
+                        <th>
+                            <p>리드 폭의 1/3이상을 넘지 않으면서 인접 Pad와 </p>
+                            <p>접촉하지 않을 것 </p>
+                        </th>
+                    </tr>
 
+                </tbody>
+            </table>
+            <table class="quality_board quality_board3">
+                <colgroup>
+                    <col style="width:3.33%" />
+                    <col style="width:3.33%" />
+                    <col style="width:3.33%" />
+                    <col style="width:35%" />
+                    <col style="width:55%" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th colspan="3">
+                            3번임
+                        </th>
+                        <th>
+                            불량현상
+                        </th>
+                        <th>
+                            판정기준
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th colspan="3">short</th>
+                        <th><img src="../img/short.png"></th>
+                        <th>리드와 랜드사이에 납이 연결되어 단락된 상태</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">Open</th>
+                        <th><img src="../img/open.png"></th>
+                        <th>
+                            <p>리드의 뜸이나 납량의 과소 등에 의해 리드부와</p>
+                            <p>단자부가 solder에 의해 접속이 되지 않아</p>
+                            <p>전기적으로 도통이 되지 않은 상태</p>
+                            <p>🡪 각 부품별 기준 참고 (미납불량과 관계)</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th rowspan="4">
+                            <p>이</p>
+                            <p>동</p>
+                        </th>
+                        <th rowspan="2">
+                            <p>chip</p>
+                            <p>류</p>
+                        </th>
+                        <th>
+                            <p>가로</p>
+                            <p>&</p>
+                            <p>세로</p>
+                        </th>
+                        <th><img src="../img/chip.png"></th>
+                        <th>
+                            <p>- 가로 : 부품 전극 폭의 1/2이상이 랜드에서</p>
+                            <p>벗어나 치우친 상태</p>
+                            <p>- 세로 : 부품 폭의 1/2이상 벗어나면서 </p>
+                            <p> 전극부가 패드를 벗어난 상태</p>
+                            <p>(다른 전극에 접촉되지 않은 상태)</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            경사
+                        </th>
+                        <th><img src="../img/chip2.png"></th>
+                        <th>- 부품 폭의 1/2이상이 벗어난 상태</th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2">IC류</th>
+                        <th>
+                            <p>가로</p>
+                            <p>&</p>
+                            <p>세로</p>
+                        </th>
+                        <th><img src="../img/ic.png"></th>
+                        <th>
+                            <p>- 가로 : 리드 폭의 1/2 이상 벗어남</p>
+                            <p>- 세로 : 랜드를 벗어나지 않을 것</p>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th> 경사</th>
+                        <th><img src="../img/ic2.png"></th>
+                        <th>
+                            <p>리드 폭의 1/3이상을 넘지 않으면서 인접 Pad와 </p>
+                            <p>접촉하지 않을 것 </p>
+                        </th>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="button_leftright">
+                <button id="nextButton" class="navButton" onclick="nextPage()"><img
+                        src="../img/rightbutton.png"></button>
+            </div>
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let currentTableIndex = 0;
+                const tables = document.querySelectorAll('.quality_board'); // 모든 테이블 선택
+                const prevButton = document.getElementById('previousButton'); // 이전 버튼 선택
+                const nextButton = document.getElementById('nextButton'); // 다음 버튼 선택
+
+                function showTable(index) {
+                    // 모든 테이블 숨김
+                    tables.forEach(table => {
+                        table.style.display = 'none';
+                    });
+                    // 선택된 테이블만 표시
+                    tables[index].style.display = 'table';
+
+                    // 첫 번째 테이블일 때 이전 버튼 숨김
+                    prevButton.style.display = index === 0 ? 'none' : 'block';
+
+                    // 마지막 테이블일 때 다음 버튼 숨김
+                    nextButton.style.display = index === tables.length - 1 ? 'none' : 'block';
+                }
+
+                window.nextPage = function () {
+                    if (currentTableIndex < tables.length - 1) {
+                        currentTableIndex++;
+                        showTable(currentTableIndex);
+                    }
+                };
+
+                window.previousPage = function () {
+                    if (currentTableIndex > 0) {
+                        currentTableIndex--;
+                        showTable(currentTableIndex);
+                    }
+                };
+
+                showTable(currentTableIndex); // 초기 페이지 로드 시 첫 번째 테이블 활성화
+            });
+
+        </script>
 </body>
 
 </html>
