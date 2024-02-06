@@ -452,7 +452,7 @@ body {
 
 #content {
     width: 95%;
-    height: auto;
+    height: 748px;
     border: 1px solid black;
     border-top: 0;
     margin: 0 auto;
@@ -494,15 +494,64 @@ body {
     background-color: #1ed4b0;
 }
 
-.element {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s, transform 0.5s ease-in-out;
-    transform: translateY(-50px);
+#downtime_info {
+    position: relative;
 }
 
-.element.show {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
+#downtime_info span {
+    float: left;
+    font-size: 2em;
+}
+
+#downtime_info select {
+    float: right;
+    border: 1px solid;
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    background-color: #dddddd;
+    border-radius: 5px;
+}
+
+#downtime_chart {
+    display: inline-block;
+    width: 100%;
+}
+
+#downtime_pie {
+    margin: 3%;
+}
+
+#operationStats {
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    border: 2px solid #acacac;
+    border-radius: 20px 20px 0 0;
+    left: 55%;
+    bottom: 40%;
+    font-size: 1em;
+}
+
+#operationStats p {
+    margin-left: 5%;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#downtime_reason {
+    position: absolute;
+    width: 500px;
+    height: 250px;
+    border: 2px solid #acacac;
+    border-radius: 0 0 20px 20px;
+    left: 55%;
+    bottom: 6.3%;
+    font-size: 1em;
+}
+
+#downtime_reason p {
+    margin-left: 5%;
+    font-size: 25px;
+    font-weight: bold;
 }
