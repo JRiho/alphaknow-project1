@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2024-02-06T17:05:30.111Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="xIVaDYXZNAuVIWWDbRjD" version="23.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2024-02-07T00:51:24.600Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="FFQrKOEB8Cs_9u2p0hVx" version="23.1.1" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
-    <mxGraphModel dx="8505" dy="4678" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="9385" dy="5163" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -214,42 +214,6 @@
             <mxPoint x="679" y="233.00000000000045" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-448" value="" style="group;strokeWidth=4;fontStyle=1;fontSize=51;" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="4260" y="3690" width="1360" height="670" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-16" value="입고 관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="rdi_FOHlSSDE4guylNng-448" vertex="1">
-          <mxGeometry y="255" width="400" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-26" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;거래처 &lt;br style=&quot;font-size: 51px;&quot;&gt;관리/등록&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="rdi_FOHlSSDE4guylNng-448" vertex="1">
-          <mxGeometry x="960" y="520" width="400" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-27" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;품목등록&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="rdi_FOHlSSDE4guylNng-448" vertex="1">
-          <mxGeometry x="960" y="170" width="400" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-28" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;품목별단가조회 및 변경&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="rdi_FOHlSSDE4guylNng-448" vertex="1">
-          <mxGeometry x="960" y="340" width="400" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-30" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;구매조회/입력&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="rdi_FOHlSSDE4guylNng-448" vertex="1">
-          <mxGeometry x="960" width="400" height="150" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-179" value="" style="group;strokeWidth=4;fontStyle=1;fontSize=51;" parent="rdi_FOHlSSDE4guylNng-448" vertex="1" connectable="0">
-          <mxGeometry x="400" y="70" width="560" height="520" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-171" value="" style="strokeWidth=4;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;direction=east;fontStyle=1;fontSize=51;" parent="rdi_FOHlSSDE4guylNng-179" vertex="1">
-          <mxGeometry width="560" height="520" as="geometry" />
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-172" value="" style="endArrow=none;html=1;rounded=0;entryX=1.001;entryY=0.797;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=4;fontStyle=1;fontSize=51;" parent="rdi_FOHlSSDE4guylNng-179" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="560" y="344" as="sourcePoint" />
-            <mxPoint x="279" y="344" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-173" value="" style="endArrow=none;html=1;rounded=0;entryX=1.001;entryY=0.797;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=4;fontStyle=1;fontSize=51;" parent="rdi_FOHlSSDE4guylNng-179" edge="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="560" y="174" as="sourcePoint" />
-            <mxPoint x="279" y="174" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="rdi_FOHlSSDE4guylNng-568" value="비밀번호&lt;br&gt;찾기" style="rounded=0;whiteSpace=wrap;html=1;fontSize=100;strokeWidth=10;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="-3400" y="-700" width="700" height="500" as="geometry" />
         </mxCell>
@@ -271,7 +235,7 @@
         <mxCell id="rdi_FOHlSSDE4guylNng-583" value="QR 로그인" style="rounded=0;whiteSpace=wrap;html=1;fontSize=100;strokeWidth=10;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="-1460" y="-420" width="700" height="500" as="geometry" />
         </mxCell>
-        <mxCell id="eTKUbhVQHwIKgwuzvPxM-18" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="eTKUbhVQHwIKgwuzvPxM-18" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="4260" y="4460" width="1360" height="650" as="geometry" />
         </mxCell>
         <mxCell id="yiQyodVWs_H40nuC7oee-11" value="부품 결함예측" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="eTKUbhVQHwIKgwuzvPxM-18" vertex="1">
@@ -304,7 +268,7 @@
             <mxPoint x="679" y="239" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="eTKUbhVQHwIKgwuzvPxM-19" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="eTKUbhVQHwIKgwuzvPxM-19" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="4260" y="5180" width="1360" height="535" as="geometry" />
         </mxCell>
         <mxCell id="rdi_FOHlSSDE4guylNng-536" value="그룹웨어" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="eTKUbhVQHwIKgwuzvPxM-19" vertex="1">
@@ -328,7 +292,7 @@
             <mxPoint x="679" y="259.3299999999999" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="eTKUbhVQHwIKgwuzvPxM-20" value="" style="group" vertex="1" connectable="0" parent="1">
+        <mxCell id="eTKUbhVQHwIKgwuzvPxM-20" value="" style="group" parent="1" vertex="1" connectable="0">
           <mxGeometry x="4260" y="2410" width="1360" height="610" as="geometry" />
         </mxCell>
         <mxCell id="rdi_FOHlSSDE4guylNng-62" value="생산계획대비&lt;br&gt;실적현황" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="eTKUbhVQHwIKgwuzvPxM-20" vertex="1">
@@ -359,6 +323,30 @@
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="691" y="302.5" as="sourcePoint" />
             <mxPoint x="410" y="302.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-16" value="입고 관리" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="4260" y="3890" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-26" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;거래처 &lt;br style=&quot;font-size: 51px;&quot;&gt;관리/등록&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="5230" y="4110" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-28" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;품목별단가조회 및 변경&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="5220" y="3890" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-30" value="&lt;span style=&quot;font-size: 51px;&quot;&gt;구매조회/입력&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=51;strokeWidth=4;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="5220" y="3690" width="400" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-179" value="" style="group;strokeWidth=4;fontStyle=1;fontSize=51;" parent="1" vertex="1" connectable="0">
+          <mxGeometry x="4660" y="3760" width="560" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-171" value="" style="strokeWidth=4;html=1;shape=mxgraph.flowchart.annotation_2;align=left;labelPosition=right;pointerEvents=1;direction=east;fontStyle=1;fontSize=51;" parent="rdi_FOHlSSDE4guylNng-179" vertex="1">
+          <mxGeometry width="560" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="rdi_FOHlSSDE4guylNng-172" value="" style="endArrow=none;html=1;rounded=0;entryX=1.001;entryY=0.797;entryDx=0;entryDy=0;entryPerimeter=0;strokeWidth=4;fontStyle=1;fontSize=51;" parent="rdi_FOHlSSDE4guylNng-179" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="551" y="207.49615384615387" as="sourcePoint" />
+            <mxPoint x="270" y="207.49615384615387" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
