@@ -1,18 +1,18 @@
 /* 전체 마진, 폰트 */
 body {
     margin: 0px;
-    font-size: 12px;
+    font-size: 1em;
 }
 
 /* 작업자별일정현황 헤더 */
-header {
+#headerj {
     border-top: 2px solid gray;
     border-bottom: 2px solid gray;
 
     margin-top: 10px;
     padding: 5px;
 
-    font-size: 14px;
+    font-size: 1em;
     font-weight: bold;
 }
 
@@ -24,6 +24,7 @@ header {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 15px;
+    font-size: 0.8em;
 }
 
 
@@ -215,6 +216,7 @@ header {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 15px;
+    font-size: 0.8em;
 }
 
 /* month table header 제어 */
