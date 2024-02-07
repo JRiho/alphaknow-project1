@@ -13,10 +13,10 @@ window.addEventListener('load', function () {
             menu.classList.add('search_menu');
 
             let items = [
-                { text: '모니터링(장비)', link: 'equipment.html' },
-                { text: '가동률 현황', link: 'reflow.html' },
-                { text: '비가동률 현황', link: 'reflow.html' },
-                { text: '리플로우(온도)', link: 'reflow.html' }
+                { text: '모니터링(장비)', link: '../monitoring/monitoring_equipment.html' },
+                { text: '가동률 현황', link: '#' },
+                { text: '비가동률 현황', link: '#' },
+                { text: '리플로우(온도)', link: '../monitoring/monitoring_reflow.html' }
             ];
 
             items.forEach(function (item) {
@@ -31,8 +31,8 @@ window.addEventListener('load', function () {
             engine.appendChild(menu);
         } else {
             let directLinks = {
-                '모니터링(장비)': 'equipment.html',
-                '리플로우(온도)': 'reflow.html',
+                '모니터링(장비)': '../monitoring/monitoring_equipment.html',
+                '리플로우(온도)': '../monitoring/monitoring_reflow.html',
                 '가동률현황': '#',
                 '비가동현황': '#'
             };

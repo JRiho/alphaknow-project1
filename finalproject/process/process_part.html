@@ -8,31 +8,43 @@
     <link rel="stylesheet" href="../css/styles.css">
     <script src="../js/script.js"></script>
     <style>
-        a{
-            text-decoration-line:none;
+        a {
+            text-decoration-line: none;
         }
-        .center{
+
+        .center {
             text-align: center;
             font-weight: bold;
         }
+
         .day {
             border: 1px solid red;
             width: 100%;
             margin: 0 auto;
         }
-  #list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4개의 열 생성 */
-        grid-auto-rows: auto; /* 행 높이 자동 조정 */
-        grid-gap: 10px; /* 그리드 간격 */
-    }
-    #list li {
-        list-style-type: none; /* 리스트 스타일 제거 */
-    }
-    #list li a img {
-        width: 100%; /* 이미지 너비를 부모 요소에 맞춤 */
-        height: auto; /* 이미지 높이를 자동으로 조정 */
-    }
+
+        #list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4개의 열 생성 */
+            grid-auto-rows: auto;
+            /* 행 높이 자동 조정 */
+            grid-gap: 10px;
+            /* 그리드 간격 */
+        }
+
+        #list li {
+            list-style-type: none;
+            /* 리스트 스타일 제거 */
+        }
+
+        #list li a img {
+            width: 100%;
+            /* 이미지 너비를 부모 요소에 맞춤 */
+            height: auto;
+            /* 이미지 높이를 자동으로 조정 */
+        }
+
         #main_content {
             width: 100%;
             background-color: #e9e3e3;
@@ -101,7 +113,7 @@
             </ul>
         </div>
         <div id="menu_board">
-            <div><a href="#">그룹웨어</a></div>
+            <div><a href="../group/project_calendar.html">그룹웨어</a></div>
             <div id="moniter">
                 모니터링
             </div>
@@ -126,8 +138,8 @@
         </div>
         <div id="monitering">
             <div id="moniter1"><a href="../monitoring/monitoring_equipment.html">모니터링(장비)</a></div>
-            <div id="moniter2"><a href="#">가동률현황</a></div>
-            <div id="moniter3"><a href="#">비가동현황</a></div>
+            <div id="moniter2"><a href="../monitoring/project_operationRate.html">가동률현황</a></div>
+            <div id="moniter3"><a href="../monitoring/project_downtimeRate.html">비가동현황</a></div>
             <div id="moniter4"><a href="../monitoring/monitoring_reflow.html">리플로우(온도)</a></div>
         </div>
         <div id="criteria">
@@ -145,7 +157,8 @@
         <div id="performing">
             <div id="perform1"><a href="../productionperf/production_performance_chart.html">생산계획대비 실적현황</a></div>
             <div id="perform2"><a href="../productionperf/work_order_performance_chart.html">작업지시대비 실적현황</a></div>
-            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a></div>
+            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a>
+            </div>
         </div>
         <div id="predicting">
             <div id="predicting1"><a href="../prediction/prediction_producting.html">생산량 예측분석</a></div>
@@ -163,41 +176,41 @@
             <div id="storing3"><a href="../ibgogwanli/customerList.html">거래처 관리/등록</a></div>
         </div>
         <div class="day">
-        <ul id="list">
-            <!-- 항목이 여기에 동적으로 추가됩니다. -->
-        </ul>
-    </div>
-    <script>
-        let listproduce = [];
-        let produce = [
-               //  html 추가하기
-            ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457723464060988/DALLE_2024-02-01_12.36.30_-_1._PCB_Loading__An_image_showing_the_process_of_aligning_PCB_boards_and_loading_them_into_an_automatic_feeder._The_scene_includes_a_worker_placing_a_P.png?ex=65cd8705&is=65bb1205&hm=7ce4a29083c4279d12c2071151c6975db6dfbbbefc5993f77a91d4f974c3e43e&", 
-                "PCB Loading", "yourPage1.html"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722839367751/DALLE_2024-02-01_12.36.32_-_2._Solder_Printing__An_image_depicting_the_application_of_solder_paste_onto_a_PCB_through_a_stencil._The_scene_shows_a_stencil_machine_over_a_PCB_boar.png?ex=65cd8705&is=65bb1205&hm=01607640c3b8265d111df014ada08ae6053c84aa57e879d5f24272225ae0556b&", 
-                "Solder Printing", "yourPage2.html"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722218356796/DALLE_2024-02-01_12.36.33_-_3._SPI_Solder_Paste_Inspection__An_image_showing_a_specialized_SPI_machine_inspecting_the_applied_solder_paste_on_a_PCB_for_height_shape_and_thick.png?ex=65cd8705&is=65bb1205&hm=9ceb2687fd3ea5a3876aeb15030fa1b52cfc8a818b7b351f4c93523f3780a1f2&",
-             "SPI(납 도포도 검사기)","#"] 
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721753047141/DALLE_2024-02-01_12.36.35_-_4._Chip_Mounter__An_image_illustrating_an_electronic_component_being_precisely_placed_onto_a_PCB_by_a_chip_mounter._The_scene_shows_a_chip_mounter_mac.png?ex=65cd8705&is=65bb1205&hm=82b1a57a95bc92c5fcceba128e1f1794e0ca3db93c818ae91ab77f1ae276a9d0&", 
-            "Chip Mounter(칩마운터)","#"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721153134592/DALLE_2024-02-01_12.36.36_-_5._Reflow_Soldering__An_image_showing_a_PCB_board_passing_through_a_reflow_oven_where_the_solder_is_melted_to_permanently_attach_the_components_to_the.png?ex=65cd8705&is=65bb1205&hm=b092f853674a05251b341932a9b9e411caa5add14c6f0da638793ee2063c8859&", 
-            "Reflow Soldering","#"]
-            ,["https://cdn.discordapp.com/attachments/1202457622167425074/1202457720213471232/DALLE_2024-02-01_12.36.37_-_6._AOI_Automated_Optical_Inspection__An_image_depicting_an_AOI_machine_scanning_a_PCB_for_any_soldering_or_component_placement_defects._The_scene_sh.png?ex=65cd8705&is=65bb1205&hm=e94424f24215f10483e243b0db431a3e25702a114dec2caaa3f76c60d80994fb&", 
-            "AOI","#"]
-        
-        ];
-        listproduce.push(...produce);
-    
-        let list = document.querySelector("#list");
-    
-        listproduce.forEach(function(item) {
-            let li = document.createElement('li');
-            let a = document.createElement('a');
-            a.href = item[2]; // 이동할 페이지의 URL
-            a.innerHTML = `<img src="${item[0]}"><br><span>${item[1]}</span>`;
-            li.appendChild(a);
-            list.appendChild(li);
-        });
-    </script>
+            <ul id="list">
+                <!-- 항목이 여기에 동적으로 추가됩니다. -->
+            </ul>
+        </div>
+        <script>
+            let listproduce = [];
+            let produce = [
+                //  html 추가하기
+                ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457723464060988/DALLE_2024-02-01_12.36.30_-_1._PCB_Loading__An_image_showing_the_process_of_aligning_PCB_boards_and_loading_them_into_an_automatic_feeder._The_scene_includes_a_worker_placing_a_P.png?ex=65cd8705&is=65bb1205&hm=7ce4a29083c4279d12c2071151c6975db6dfbbbefc5993f77a91d4f974c3e43e&",
+                    "PCB Loading", "yourPage1.html"]
+                , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722839367751/DALLE_2024-02-01_12.36.32_-_2._Solder_Printing__An_image_depicting_the_application_of_solder_paste_onto_a_PCB_through_a_stencil._The_scene_shows_a_stencil_machine_over_a_PCB_boar.png?ex=65cd8705&is=65bb1205&hm=01607640c3b8265d111df014ada08ae6053c84aa57e879d5f24272225ae0556b&",
+                    "Solder Printing", "yourPage2.html"]
+                , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457722218356796/DALLE_2024-02-01_12.36.33_-_3._SPI_Solder_Paste_Inspection__An_image_showing_a_specialized_SPI_machine_inspecting_the_applied_solder_paste_on_a_PCB_for_height_shape_and_thick.png?ex=65cd8705&is=65bb1205&hm=9ceb2687fd3ea5a3876aeb15030fa1b52cfc8a818b7b351f4c93523f3780a1f2&",
+                    "SPI(납 도포도 검사기)", "#"]
+                , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721753047141/DALLE_2024-02-01_12.36.35_-_4._Chip_Mounter__An_image_illustrating_an_electronic_component_being_precisely_placed_onto_a_PCB_by_a_chip_mounter._The_scene_shows_a_chip_mounter_mac.png?ex=65cd8705&is=65bb1205&hm=82b1a57a95bc92c5fcceba128e1f1794e0ca3db93c818ae91ab77f1ae276a9d0&",
+                    "Chip Mounter(칩마운터)", "#"]
+                , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457721153134592/DALLE_2024-02-01_12.36.36_-_5._Reflow_Soldering__An_image_showing_a_PCB_board_passing_through_a_reflow_oven_where_the_solder_is_melted_to_permanently_attach_the_components_to_the.png?ex=65cd8705&is=65bb1205&hm=b092f853674a05251b341932a9b9e411caa5add14c6f0da638793ee2063c8859&",
+                    "Reflow Soldering", "#"]
+                , ["https://cdn.discordapp.com/attachments/1202457622167425074/1202457720213471232/DALLE_2024-02-01_12.36.37_-_6._AOI_Automated_Optical_Inspection__An_image_depicting_an_AOI_machine_scanning_a_PCB_for_any_soldering_or_component_placement_defects._The_scene_sh.png?ex=65cd8705&is=65bb1205&hm=e94424f24215f10483e243b0db431a3e25702a114dec2caaa3f76c60d80994fb&",
+                    "AOI", "#"]
+
+            ];
+            listproduce.push(...produce);
+
+            let list = document.querySelector("#list");
+
+            listproduce.forEach(function (item) {
+                let li = document.createElement('li');
+                let a = document.createElement('a');
+                a.href = item[2]; // 이동할 페이지의 URL
+                a.innerHTML = `<img src="${item[0]}"><br><span>${item[1]}</span>`;
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+        </script>
     </div>
 
 </body>
