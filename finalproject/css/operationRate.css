@@ -99,9 +99,10 @@ td {
 
 #rateChart_week {
     display: none;
-    position: relative;
+    width: 100%;
     max-height: 592px;
     overflow-y: auto;
     box-sizing: border-box;
-    margin: 2.7% auto;
+    margin: 0 auto;
+    text-align: center;
 }
