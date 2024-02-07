@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         rateTable_day.style.display = 'none';
-        rateChart_week.style.display = 'block';
+        rateChart_week.style.display = 'flex';
     });
 });
 
