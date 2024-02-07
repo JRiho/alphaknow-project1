@@ -10,7 +10,7 @@ body {
     /* height: 90%; */
     background-color: #e9e3e3;
     display: flex;
-    justify-content: space-between;
+justify-content : space-between;
 }
 
 /* 메인 메뉴 타이틀*/
@@ -20,43 +20,33 @@ body {
 
 }
 
-
 /* 헤더부분 검색 */
 #list_search {
-    display: flex;
+display: flex;
 
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 25px;
-    padding: 10px;
-    /* width: 20%; */
+align-items: center;
+border: 1px solid #ddd;
+border-radius: 25px;
+padding: 10px;
+width: 20%;
 
 
 }
 
 .list_search_text {
-    /* position: absolute;
-    border: none;
-    flex-grow: 1;
-    padding: 5px;
-    outline: none; */
-}
-
-#searchImg{
-    width:20px;
-    height:20px;
-    position: absolute;
-    margin-left: 149px;
+position : absolute;
+border: none;
+flex-grow: 1;
+padding: 5px;
+outline: none;  
 }
 
 .list_search_img {
-    /* position: relative; */
-    /* margin-left: 60%; */
-    width: 20px;
-    /* height: 20px; */
-    cursor: pointer;
-
-    margin-bottom: 15px;
+position : relative;
+margin-left : 60%;
+width: 20px;
+height: 20px;
+cursor: pointer;
 }
 
 /* content 사이즈 조절 */
@@ -144,20 +134,9 @@ td {
 
 
 /* input 창 hover */
-        input {
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 5px;
-        }
-        
-       input:hover {
-            outline: 1px solid rgb(50, 50, 230);
-        }
-
-       
-      input:focus {
-            outline: 1px solid rgb(50, 50, 230);
-        }
-
+#new_registration .text:focus {
+    outline: 1px solid rgb(50, 50, 230);
+}
 
 /*  팝업 테이블 선 없애기 */
 #new_registration td,
@@ -242,9 +221,7 @@ border: 1px solid rgb(50, 50, 230);
 }
 
 /* alert 팝업 div */
-#alert_div,
-#confirm_div{
-
+#alert_div {
 
     width: 35%;
     height: 30%;
@@ -258,8 +235,7 @@ border: 1px solid rgb(50, 50, 230);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-#alert_title,
-#confirm_title {
+#alert_title {
     width: 100%;
     padding: 10px 0;
     background-color: #4169E1;
@@ -272,19 +248,16 @@ border: 1px solid rgb(50, 50, 230);
     display: flex;
 }
 
-.alert_content,
-.confirm_content {
+.alert_content {
     width: 100%;
     margin: 3% 0 10% 5%;
     text-align: left;
     display: flex;
 }
 
-#alert_button,
-#confirm_button{
+#alert_button{
      border: 1px solid rgb(217, 217, 236);
      border-radius: 5px;
      text-align : center;
     cursor: pointer;
-    
  }
