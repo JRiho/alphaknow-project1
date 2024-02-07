@@ -39,12 +39,16 @@ function login() {
     let userAccount = { id: 'user', pass: '1234' };
 
     if (id == adminAccount.id && pass == adminAccount.pass) {
-        window.location.href = '../팀프깃/구민page/지능화된 생산관리 솔루션 프로젝트/mainPage.html'
+        window.location.href = '../구민page/지능화된 생산관리 솔루션 프로젝트/mainPage.html'
         alert('어서오세요 관리자님');
     } else if (id == userAccount.id && pass == userAccount.pass) {
-        window.location.href = '../팀프깃/구민page/지능화된 생산관리 솔루션 프로젝트/mainPage.html'
+        window.location.href = '../구민page/지능화된 생산관리 솔루션 프로젝트/mainPage.html'
         alert('어서오세요 user님')
     } else {
         alert('아이디와 비밀번호를 확인해주세요.');
     }
+}
+
+function openPopup() {
+    window.open('project_findPass.html', '비밀번호 찾기', 'width=850, height=400');
 }

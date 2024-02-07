@@ -120,10 +120,14 @@
         margin-top: 50px;
     }
 
-    .find_pass {
-        margin-left: 30%;
+    #findPass {
+        border: 0;
+        background-color: white;
+        margin-left: 29%;
         text-decoration: none;
-        color: #aaaaaa
+        color: #aaaaaa;
+        cursor: pointer;
+        font-size: 1em;
     }
 
     .id_container {
@@ -195,7 +199,7 @@
                 <!-- id저장 -->
                 <input type="checkbox" name="save" value="id저장">ID저장
                 <!-- 비밀번호 찾기 -->
-                <a href="" class="find_pass">비밀번호 찾기</a>
+                <button type="button" id="findPass" onclick="openPopup()">비밀번호 찾기</button>
             </div>
         </div>
 
