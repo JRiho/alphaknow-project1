@@ -81,7 +81,8 @@
         <div id="performing">
             <div id="perform1"><a href="../productionperf/production_performance_chart.html">생산계획대비 실적현황</a></div>
             <div id="perform2"><a href="../productionperf/work_order_performance_chart.html">작업지시대비 실적현황</a></div>
-            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a></div>
+            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a>
+            </div>
         </div>
         <div id="predicting">
             <div id="predicting1"><a href="../prediction/prediction_producting.html">생산량 예측분석</a></div>
@@ -100,30 +101,26 @@
         </div>
     </div>
 
-    <div id="content">
-        <div id="info">
-            <div id="full_frame">
-                <div id="rate_option">
-                    <button type="button" id="option_btn1">일간별 가동률현황</button>
-                    <button type="button" id="option_btn2">주간별 가동률현황</button>
-                </div>
+    <div id="operation_content">
+        <div id="rate_option">
+            <button type="button" id="option_btn1">일간별 가동률현황</button>
+            <button type="button" id="option_btn2">주간별 가동률현황</button>
+        </div>
 
-                <div id="rate_date">
-                    <button type="button" id="prevMonth">
-                        <img src="../img/arrow_icon.png" class="arrow1">
-                    </button>
-                    <div id="currentDate"></div>
-                    <button type="button" id="nextMonth">
-                        <img src="../img/arrow_icon.png" class="arrow2">
-                    </button>
-                </div>
+        <div id="rate_date">
+            <button type="button" id="prevMonth">
+                <img src="../img/arrow_icon.png" class="arrow1">
+            </button>
+            <div id="currentDate"></div>
+            <button type="button" id="nextMonth">
+                <img src="../img/arrow_icon.png" class="arrow2">
+            </button>
+        </div>
 
-                <div id="rateTable_day"></div>
+        <div id="rateTable_day"></div>
 
-                <div id="rateChart_week">
-                    <canvas id="weeklyChart" width="1150"></canvas>
-                </div>
-            </div>
+        <div id="rateChart_week">
+            <canvas id="weeklyChart" width="1150" style="margin-left: 1%;"></canvas>
         </div>
     </div>
 
