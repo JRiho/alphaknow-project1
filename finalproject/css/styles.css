@@ -79,6 +79,9 @@ body {
     display: inline-block;
     box-sizing: border-box;
     /* border: 1px solid red; */
+
+    display: flex;
+    align-items: center;
 }
 
 #search_txt {
@@ -95,21 +98,22 @@ body {
 }
 
 #search_img {
-    width: 10%;
+    width: 7%;
     /* border:1px solid blue; */
-    box-sizing: border-box;
-    position: relative;
+    /* box-sizing: border-box; */
+    /* position: relative; */
 }
 
 #search_img1 {
     width: 100%;
     cursor: pointer;
-    height: 50%;
+    height: 100%;
 }
 #search_img2{
     width: 100%;
     box-sizing: border-box;
     position: relative;
+    height: 100%;
 }
 .search_menu{
     width: 100%;
