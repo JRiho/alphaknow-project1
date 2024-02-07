@@ -1,11 +1,10 @@
-.date-select-container{
-    display: flex;
 
-}
 /* 날짜 선택 컨테이너와 관련된 스타일 */
 .date-select-container {
     margin: 20px;
     display: flex;
+    justify-content: flex-end;
+    margin-right : 5%;
 }
 /* 날짜 선택 드롭다운 스타일 */
 .date-select {

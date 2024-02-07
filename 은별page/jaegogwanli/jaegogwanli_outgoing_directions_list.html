@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="star.css">
     <link rel="stylesheet" href="calendar.css">
     <!-- 달력 jquery -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- 팀원 js -->
     <script src="script.js"></script>
@@ -33,6 +33,7 @@
 
         #nav {
             width: 100%;
+            height: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,7 +42,6 @@
         #nav ul {
             display: flex;
             list-style: none;
-            width: 50%;
         }
 
         #nav ul li {
@@ -60,11 +60,6 @@
             color: #fff;
         }
 
-        /* 클릭되었을 때의 스타일 */
-        #nav_ul li:active {
-            background-color: #6495ED;
-            color: #fff;
-        }
 
         /* 선택된 항목의 스타일 */
         #nav_ul li.selected {
@@ -72,10 +67,13 @@
             color: #fff;
         }
 
-        /* 메인창 달력 */
+        #nav_ul,
         #date_search {
             width: 50%;
         }
+
+
+        /* 메인창 달력 */
 
         #start-date-select {
             display: flex;
@@ -87,49 +85,57 @@
 
         /* 출하지시서 pop*/
 
-        #registration_pop_div_wrap {
-            display: flex;
+        #registration_pop_div_wrap .ul_wrap {
             width: 90%;
+            list-style: none;
             background-color: #fff;
             margin: 0 auto;
-        }
-
-
-        /*  출하지시서 작성 nav 부모 요소 너비의 50%를 차지하도록 설정 */
-        #registration_pop_div_wrap_left,
-        #registration_pop_div_wrap_right {
-            flex: 0.5;
-        }
-
-        #registration_pop_div_wrap input[type=text] {
-            width: 100%;
-            box-sizing: border-box;
-            border: 1px solid rgb(217, 217, 236);
+            padding: 0;
             border-radius: 5px;
+
         }
 
-        #registration_pop ul {
-            list-style: none;
-            padding: 5px;
-        }
 
-        #registration_pop li {
-            list-style: none;
-        }
-
-        #registration_pop_div ul,
-        li {
+        #basic_date,
+        #empolyee_code,
+        #cust,
+        #outgoing_date {
             display: flex;
-            align-items: center;
-        }
-
-        .title {
-            width: 30%;
         }
 
         .form {
             display: flex;
             align-items: center;
+            width: 80%;
+        }
+
+        .title {
+            width: 15%;
+            padding: 5px;
+        }
+
+        .nav_search_button {
+            width: 8%;
+            display: flex;
+        }
+
+        input {
+            border: 1px solid rgb(217, 217, 236);
+        }
+
+        input:focus {
+            outline: 1px solid rgb(50, 50, 230);
+        }
+
+        /* 중간에 발주,재고불러오기 버튼 */
+        #registration_pop_table_button {
+            height: 10%;
+            margin: 1% 0 1% 5%;
+        }
+
+        #new_registration {
+            border-spacing: 0;
+            border-collapse: collapse;
         }
 
         /* 출하지시서 재고 불러오기 */
@@ -151,6 +157,12 @@
     </style>
 
     <script>
+
+        window.addEventListener('load', function () {
+            document.getElementById("new_register").addEventListener("click", function () {
+                registration_pop.style.display = "block";
+            });
+        })
         // 출하지시서 등록 pop-up 이벤트
         window.addEventListener('load', function () {
             // 품목코드 입력시 자동으로 input row가 자동생성됨
@@ -215,59 +227,59 @@
             });
         });
 
-        // // 품목 더블클릭하면 품목검색창 div 생성
-        // window.addEventListener('load', function () {
-        //     let item_search_pop = document.getElementById("item_search_pop");
-        //     function addEventListenerToItemCodeInputs() {
-        //         let itemCodeInputs = document.querySelectorAll('#new_registration tbody td:nth-child(2) input[type="text"]');
-        //         itemCodeInputs.forEach(function (input) {
-        //             // 품목코드 입력 필드에 더블 클릭 이벤트 리스너 추가
-        //             input.addEventListener("dblclick", function () {
-        //                 item_search_pop.style.display = "block";
-        //             });
-        //         });
-        //     }
+        // 품목 더블클릭하면 품목검색창 div 생성
+        window.addEventListener('load', function () {
+            let item_search_pop = document.getElementById("item_search_pop");
+            function addEventListenerToItemCodeInputs() {
+                let itemCodeInputs = document.querySelectorAll('#new_registration tbody td:nth-child(2) input[type="text"]');
+                itemCodeInputs.forEach(function (input) {
+                    // 품목코드 입력 필드에 더블 클릭 이벤트 리스너 추가
+                    input.addEventListener("dblclick", function () {
+                        item_search_pop.style.display = "block";
+                    });
+                });
+            }
 
-        //     // 초기 실행
-        //     addEventListenerToItemCodeInputs();
+            // 초기 실행
+            addEventListenerToItemCodeInputs();
 
-        //     // 추가된 새행의 품목코드를 클릭해도 품목등록 div 뜨게 설정
-        //     document.querySelector('#new_registration').addEventListener('DOMNodeInserted', function (e) {
-        //         if (e.target.tagName === 'TR') {
-        //             addEventListenerToItemCodeInputs();
-        //         }
-        //     });
+            // 추가된 새행의 품목코드를 클릭해도 품목등록 div 뜨게 설정
+            document.querySelector('#new_registration').addEventListener('DOMNodeInserted', function (e) {
+                if (e.target.tagName === 'TR') {
+                    addEventListenerToItemCodeInputs();
+                }
+            });
 
-        //     document.getElementById("item_search_pop_close").addEventListener("click", function () {
-        //         item_search_pop.style.display = "none";
-        //     });
-        // });
+            document.getElementById("item_search_pop_close").addEventListener("click", function () {
+                item_search_pop.style.display = "none";
+            });
+        });
 
-        // // empolyee 사원검색 pop 관련
-        // window.addEventListener('load', function () {
-        //     // 열기
-        //     document.getElementById("registration_pop_empolyee_code_search").addEventListener("click", function () {
-        //         employee_search_pop.style.display = "block";
-        //     });
+        // empolyee 사원검색 pop 관련
+        window.addEventListener('load', function () {
+            // 열기
+            document.getElementById("registration_pop_empolyee_code_search").addEventListener("click", function () {
+                employee_search_pop.style.display = "block";
+            });
 
-        //     //닫기
-        //     document.getElementById("employee_search_pop_close").addEventListener("click", function () {
-        //         employee_search_pop.style.display = "none";
-        //     });
-        // });
+            //닫기
+            document.getElementById("employee_search_pop_close").addEventListener("click", function () {
+                employee_search_pop.style.display = "none";
+            });
+        });
 
-        // // new_empolyee pop 신규사원 관련
-        // window.addEventListener('load', function () {
-        //     // 열기
-        //     document.getElementById("new_employee_register_register_button").addEventListener("click", function () {
-        //         new_employee_pop.style.display = "block";
-        //     });
+        // new_empolyee pop 신규사원 관련
+        window.addEventListener('load', function () {
+            // 열기
+            document.getElementById("new_employee_register_register_button").addEventListener("click", function () {
+                new_employee_pop.style.display = "block";
+            });
 
-        //     //닫기
-        //     document.getElementById("new_employee_pop_close").addEventListener("click", function () {
-        //         new_employee_pop.style.display = "none";
-        //     });
-        // });
+            //닫기
+            document.getElementById("new_employee_pop_close").addEventListener("click", function () {
+                new_employee_pop.style.display = "none";
+            });
+        });
 
 
 
@@ -438,27 +450,26 @@
                         <li>확인</li>
                     </ul>
                     <div id="date_search">
-
                         <div class="date-select-container">
                             <div id="start-date-select">
-
-                                <select class="date-select" id="start-year"></select>/
-                                <select class="date-select" id="start-month"></select>/
+                                <select class="date-select" id="start-year"></select>
+                                <select class="date-select" id="start-month"></select>
                                 <select class="date-select" id="start-day"></select>
-                                <!-- <span class="calendar-button" id="start-calendar">📅</span> -->
+                                <span class="calendar-button" id="start-calendar">📅</span>
                             </div>
                             ~
                             <div id="end-date-select">
-                                <select class="date-select" id="end-year"></select>/
-                                <select class="date-select" id="end-month"></select>/
+                                <select class="date-select" id="end-year"></select>
+                                <select class="date-select" id="end-month"></select>
                                 <select class="date-select" id="end-day"></select>
                                 <span class="calendar-button" id="end-calendar">📅</span>
-
                             </div>
+
                             <!-- 숨겨진 날짜 선택기 입력 필드 -->
                             <input type='text' id='hidden-start-datepicker' />
                             <input type='text' id='hidden-end-datepicker' />
-                            <button type="button" class="button_basic"> 검색 </button>
+
+
                         </div>
                     </div>
                 </div>
@@ -508,68 +519,58 @@
                 <div id="registration_pop_title"> 출하지시서입력
                 </div>
                 <div id="pop_title">출하지시서입력</div>
-                <!-- 출하지시서 입력 div-pop-->
-                <!-- 출하지시서 title~ nav -->
                 <div id="registration_pop_div_wrap">
-                    <div id="registration_pop_div_wrap_left">
-                        <ul>
-                            <li id="empolyee_code">
-                                <div class="title">담당자</div>
-                                <div class="form">
-                                    <div>
-                                        <input type="text" placeholder="사원번호">
-                                    </div>
-                                    <div>
-                                        <input type="text" placeholder="사원이름">
-                                    </div>
-                                    <div class="search_manager">
-                                        <button id="registration_pop_empolyee_code_search"
-                                            class="button_basic">검색</button>
+                    <ul class="ul_wrap">
+                        <li id="basic_date">
+                            <div class="title">일자</div>
+                            <div class="form">
+                                <div class="control_set">
+                                    <div class="date_picker">
+                                        <input type='text' class='datepicker' readonly />
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                            </li>
-                            <li id="basic_date">
-                                <div class="title">작성일자</div>
-                                <div class="form">
-                                    <div class="control_set">
-                                        <div class="date_picker">
-                                            <input type='text' class='datepicker' readonly />
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        </div>
+                            </div>
+                        </li>
+                        <!-- 검색 클릭시 거래처 div pop이랑 사원 pop 뜨게 할 예정 -->
+                        <li id="cust">
+                            <div class="title">거래처</div>
+                            <div class="form">
+                                <div class="customer_code">
+                                    <input type="text" placeholder="거래처no">
+                                </div>
+                                <div class="nav_search_button">
+                                    <button id="registration_pop_cust_code_search" class="button_basic">검색</button>
+                                </div>
+                                <input type="text" placeholder="거래처명">
+                            </div>
+                        </li>
+                        <li id="empolyee_code">
+                            <div class="title">담당자</div>
+                            <div class="form">
+                                <div>
+                                    <input type="text" placeholder="사원번호">
+                                </div>
+                                <div class="nav_search_button">
+                                    <button id="registration_pop_empolyee_code_search" class="button_basic">검색</button>
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="사원이름">
+                                </div>
+                            </div>
+                        </li>
+                        <li id="outgoing_date">
+                            <div class="title">일자</div>
+                            <div class="form">
+                                <div class="control_set">
+                                    <div class="date_picker">
+                                        <input type='text' class='datepicker' readonly />
+                                        <i class="fa fa-calendar" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                            </li>
-
-
-                        </ul>
-                    </div>
-                    <div id="registration_pop_div_wrap_right">
-                        <ul>
-                            <!-- 검색 클릭시 거래처 div pop이랑 사원 pop 뜨게 할 예정 -->
-                            <li id="cust">
-                                <div class="title">거래처</div>
-
-                                <div class="form">
-                                    <div class="customer_code"><input type="text" placeholder="거래처no"></div>
-                                    <div><input type="text" placeholder="거래처명"></div>
-                                    <div class="search_customer">
-                                        <button id="registration_pop_cust_code_search" class="button_basic">검색</button>
-                                    </div>
-                            </li>
-                            <li id="outgoing_date">
-                                <div class="title">출하예정일</div>
-                                <div class="form">
-                                    <div class="control_set">
-                                        <div class="date_picker">
-                                            <input type='text' class='datepicker' readonly />
-                                            <i class="fa fa-calendar" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <div id="registration_pop_table_button">
                     <button type="button" class="button_basic"> 재고불러오기 </button>

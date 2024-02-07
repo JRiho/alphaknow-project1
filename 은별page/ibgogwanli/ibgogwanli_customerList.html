@@ -21,11 +21,13 @@
     <!-- 우편번호검색 -->
     <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
+    <!-- 나중에 ajax로 뺄 파일,, pop이랑 script기능 -->
     <style>
         .hide_column{
             display : none;
         }
          
+        
     </style>
 
     <script>
@@ -277,12 +279,6 @@
 
                 
             });
-
-
-
-
-
-          
 
             // 삭제하기
             document.getElementById("delete").addEventListener("click", function () {
@@ -562,17 +558,7 @@
                 </div>
                 </div>
 
-            <div id="footer">
-                <!-- 페이지 넘버 , 페이지네이션 추가예정, 1차는 기본 박스로 -->
-                <div id="pagination">
-                    <ul class="page-box">
-                        <li>
-                            << </li>
-                        <li>1</li>
-                        <li>>></li>
-                    </ul>
-                </div>
-            </div>
+            
             <!-- alert div -->
 
             <div id="alert_div" class="div_pop">
@@ -584,15 +570,38 @@
 
                 </div>
                 <div id="alert_button">
-                    <button id="alert_close" class="button_basic">확인</button>
+                    <button id="alert_close" class="button_basic">취소</button>
                 </div>
             </div>
+<!-- 
+            <div id="confirm_div" class="div_pop">
+                <div id="confirm_title" class="confirm_hidden">
+                    알림
+                </div>
+                <div class="confirm_content" id="confirm_message">
+                    내용
+
+                </div>
+                <div id="alert_button">
+                    <button id="alert_close" class="button_basic">취소</button>
+                </div>
+            </div> -->
 
 
-
+            
         </div>
-
-    </div>
+        <div id="footer">
+            <!-- 페이지 넘버 , 페이지네이션 추가예정, 1차는 기본 박스로 -->
+            <div id="pagination">
+                <ul class="page-box">
+                    <li>
+                        << </li>
+                    <li>1</li>
+                    <li>>></li>
+                </ul>
+            </div>
+        </div>
+    
 </body>
 
 </html>
