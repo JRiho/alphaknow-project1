@@ -15,7 +15,7 @@ body {
 .main_box {
     width: 95%;
     height: auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 0 auto;
     box-sizing: border-box;
     position: relative;
@@ -59,7 +59,7 @@ body {
 #li_search {
     width: 50%;
     position: relative;
-    border: 1px solid;
+    /* border: 1px solid; */
 }
 
 #search {

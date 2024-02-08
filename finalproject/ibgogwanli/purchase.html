@@ -211,7 +211,7 @@
 
         /* 신규사원 등록 pop */
         #new_employee_pop {
-            /* display: none; */
+            display: none;
             width: 60%;
             height: 48%;
             background-color: #e0dcdc;
@@ -561,7 +561,7 @@
                 onSelect: function (selectedDate) {
                     let today = new Date();
                     if (new Date(selectedDate) > today) {
-                        showAlert('선택하신 날짜는 오늘보다 미래입니다. 다시 선택해주세요!');
+                        showAlert('금일 이후의 날짜는 설정할 수 없습니다');
                         $(".datepicker").val('');
                     }
                 }
