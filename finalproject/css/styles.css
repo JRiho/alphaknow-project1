@@ -59,7 +59,10 @@ body {
 #li_search {
     width: 50%;
     position: relative;
+<<<<<<< HEAD
     /* border: 1px solid; */
+=======
+>>>>>>> 4a7ed1be8a884b254fc6e3364a5f948faf112471
 }
 
 #search {
@@ -104,7 +107,7 @@ body {
     width: 7%;
     /* border:1px solid blue; */
     /* box-sizing: border-box; */
-    /* position: relative; */
+    position:inherit;
 }
 
 #search_img1 {
@@ -640,7 +643,6 @@ body {
     margin-top: 3%;
     margin-left: 5%;
     margin-right: 8%;
-    position: relative;
 }
 
 #iframe {

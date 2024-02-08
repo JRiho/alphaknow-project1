@@ -281,6 +281,16 @@ window.addEventListener('load', function () {
         store.style.fontWeight = "400";
         storing.style.display = 'none';
     })
+    document.querySelector('body').addEventListener('mouseenter', function () {
+        predicting.style.display = 'none';
+        monitering.style.display = 'none';
+        criteria.style.display = 'none';
+        planning.style.display = 'none';
+        performing.style.display = 'none';
+        invent.style.display = 'none';
+        storing.style.display = 'none';
+
+    })
 })
 /////////////////////////////공동 javascript 끝/////////////////////////////////////////////////////
 
@@ -631,10 +641,10 @@ window.addEventListener('load', function () {
                 need.textContent = "필요한 개수:" + n;
 
             }
-        let end = new Date();
-        work.textContent = (end - start);
+            let end = new Date();
+            work.textContent = (end - start);
 
-        
+
 
             let degree = per * 3.6;
             percentage.textContent = "가동률:" + per.toFixed(2) + "%";
@@ -661,6 +671,6 @@ window.addEventListener('load', function () {
             }
         }, 1000);
     })
-    
+
 
 });
