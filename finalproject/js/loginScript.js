@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     let loginType_id = document.getElementById('loginType_id');
     let loginType_qr = document.getElementById('loginType_qr');
@@ -29,11 +30,36 @@ document.addEventListener('DOMContentLoaded', function () {
         qr_login.style.display = 'block';
         id_login.style.display = 'none';
     });
+
+    document.getElementById('id').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            login(); // login 함수 호출
+        }
+    });
+
+    document.getElementById('pass').addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+            login(); // login 함수 호출
+        }
+    });
 });
 
 function login() {
     let id = document.getElementById('id').value;
     let pass = document.getElementById('pass').value;
+
+    if (!id) {
+        alert('아이디를 입력해주세요.');
+        document.getElementById('id').focus(); // 아이디 입력란에 포커스
+        return; // 함수 종료
+    }
+
+    // 비밀번호 입력 검사
+    if (!pass) {
+        alert('비밀번호를 입력해주세요.');
+        document.getElementById('pass').focus(); // 비밀번호 입력란에 포커스
+        return; // 함수 종료
+    }
 
     let adminAccount = { id: 'admin', pass: '0000' };
     let userAccount = { id: 'user', pass: '1234' };
@@ -45,7 +71,7 @@ function login() {
         window.location.href = 'mainPage.html'
         alert('어서오세요 user님')
     } else {
-        alert('아이디와 비밀번호를 확인해주세요.');
+        alert('아이디나 비밀번호가 일치하지 않습니다.');
     }
 }
 
