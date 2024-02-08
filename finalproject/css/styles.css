@@ -1,12 +1,15 @@
 body {
     /* margin: 1; */
-    min-height: 100vh;
+    max-height: 100vh;
     font-family: 'Malgun Gothic', 'Nanum Gothic', 'Gothic', sans-serif;
     background-color: #FAFAFA;
     /* background-image: url(../img/background.webp); */
     z-index: -1;
     background-color: lightgray;
+<<<<<<< HEAD
+=======
     font-size: 1em;
+>>>>>>> 2c8d91cd69b2ce420d51a4bd9570bd63d579ba15
 }
 
 .main_box {

@@ -24,59 +24,76 @@
    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
     
-        #content_main_wrap {
+    #content_main_wrap {
             width: 95%;
-            background-color: #e0dcdc;
-            margin : 2% auto 0 auto;
+            background-color: #fff;
+            margin: 2% auto 0 auto;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         #status_search {
             list-style: none;
-            width : 100%;
+            width: 100%;
             padding: 0;
             margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
         }
-       
+        .form {
+            width: 90%;
+        }
         #status_search li {
-            /* background: #fff; */
             display: flex;
             align-items: center;
+            width: 100%;
+        }
+
+        .search_wrap{
+            display : flex;
             width : 100%;
         }
-        /* 달력 */
-        #start-date-select {
-           
-            display: flex;
+        .search_wrap input{
+            /* display : flex; */
+            width : 40%;
+            /* height : 100%; */
         }
-
-        #end-date-select {
-            display: flex;
-        }
-        .title{
+        .search_wrap .search_button{
             width : 20%;
-            margin : 2%;
-        }
-        .form{
-            width : 90%;
         }
 
-        #cust,
-        #item_code,
-        #manager,
-        #status{
-            display : flex;
+        .title {
+            width: 20%;
+            margin: 2%;
         }
 
-        input {
-            border: 1px solid rgb(217, 217, 236);
+        .search_wrap input,
+        .date-select {
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 5px;
         }
-
-        input:focus {
+        
+        .search_wrap input:hover,
+        .date-select:hover {
             outline: 1px solid rgb(50, 50, 230);
+        }
+
+        .search_wrap input:focus,
+        .date-select:focus {
+            outline: 1px solid rgb(50, 50, 230);
+        }
+        
+        .search_wrap button{
+            /* width:50%; */
+            margin-left: 10px;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        a:active{
+            color : #000;
         }
 
     </style>
@@ -109,7 +126,7 @@
             </ul>
         </div>
         <div id="menu_board">
-            <div><a href="#">그룹웨어</a></div>
+            <div><a href="../group/project_calendar.html">그룹웨어</a></div>
             <div id="moniter">
                 모니터링
             </div>
@@ -134,8 +151,8 @@
         </div>
         <div id="monitering">
             <div id="moniter1"><a href="../monitoring/monitoring_equipment.html">모니터링(장비)</a></div>
-            <div id="moniter2"><a href="#">가동률현황</a></div>
-            <div id="moniter3"><a href="#">비가동현황</a></div>
+            <div id="moniter2"><a href="../monitoring/project_operationRate.html">가동률현황</a></div>
+            <div id="moniter3"><a href="../monitoring/project_downtimeRate.html">비가동현황</a></div>
             <div id="moniter4"><a href="../monitoring/monitoring_reflow.html">리플로우(온도)</a></div>
         </div>
         <div id="criteria">
@@ -180,9 +197,10 @@
                 <ul id="status_search">
                     <li id="base_date">
                         <div class="title">일자</div>
-                        <div id="date_search">
-                            <div class = "form">
-                            <div class="date-select-container">
+
+                        <div class="form">
+                            <div class = "search_wrap">
+                            <!-- <div class="date-select-container"> -->
                                 <div id="start-date-select">
                                     <select class="date-select" id="start-year"></select>
                                     <select class="date-select" id="start-month"></select>
@@ -196,20 +214,20 @@
                                     <select class="date-select" id="end-day"></select>
                                     <span class="calendar-button" id="end-calendar">📅</span>
                                 </div>
-                                
+
                                 <!-- 숨겨진 날짜 선택기 입력 필드 -->
                                 <input type='text' id='hidden-start-datepicker' />
                                 <input type='text' id='hidden-end-datepicker' />
                             </div>
-                        </div>
-                        </div>
+                        <!-- </div> -->
+                    </div>
                     </li>
                     <li id="cust">
                         <div class="title">거래처</div>
                         <div class="form">
                             <div class="search_wrap">
+                                <input type="text" placeholder="거래처검색">
                                 <div class="search_button">
-                                    <input type="text" placeholder="검색">
                                     <button type="button" class="button_basic">검색</button>
                                 </div>
                             </div>
@@ -219,13 +237,14 @@
                         <div class="title">품목코드</div>
                         <div class="form">
                             <div class="search_wrap">
+                                <input type="text" placeholder="품목코드">
                                 <div class="search_button">
-                                    <input type="text" placeholder="품목코드">
                                     <button type="button" class="button_basic">검색</button>
                                 </div>
                             </div>
                     </li>
-                    
+                   
+
                 </ul>
             </div>
 
@@ -234,7 +253,7 @@
         <footer>
             <div id="main_button">
                 <!-- 신규등록 및 수정버튼-->
-                <button id="outgoing_search" class="change_button">검색</button>
+                <button id="outgoing_search" class="change_button"><a href = "outgoing_list.html">검색</a></button>
 
             </div>
         </footer>

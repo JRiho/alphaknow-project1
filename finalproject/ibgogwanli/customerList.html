@@ -62,6 +62,8 @@
             }
         });;
 
+
+        // 알림창 div pop
         window.addEventListener('load', function () {
             // alert pop-up
             let alertDiv = document.getElementById('alert_div');
@@ -75,6 +77,23 @@
             alertClose.addEventListener('click', function () {
                 alertDiv.style.display = "none";
             });
+
+            // confirm pop-up
+            // let confirmDiv = document.getElementById('confirm_div');
+            // let confirmMessage = document.getElementByI('confirm_message');
+            // let confirmClose = document.getElementById('confirm_close');
+            // function showConfrim(message) {
+            //     confirmMessage.textContent = message;
+            //     confirmDiv.style.display = "block";
+            // }
+
+            // confirmClose.addEventListener('click', function () {
+            //     confirmDiv.style.display = "none";
+            // });
+       
+
+        // 거래처 등록 div
+       
             // 거래처 등록 및 수정 div pop-up 보여지고 닫기 누르면 꺼짐
             let registration_pop = document.getElementById("registration_pop");
             document.getElementById("new_register").addEventListener("click", function () {
@@ -356,7 +375,7 @@
             </ul>
         </div>
         <div id="menu_board">
-            <div><a href="#">그룹웨어</a></div>
+            <div><a href="../group/project_calendar.html">그룹웨어</a></div>
             <div id="moniter">
                 모니터링
             </div>
@@ -381,8 +400,8 @@
         </div>
         <div id="monitering">
             <div id="moniter1"><a href="../monitoring/monitoring_equipment.html">모니터링(장비)</a></div>
-            <div id="moniter2"><a href="#">가동률현황</a></div>
-            <div id="moniter3"><a href="#">비가동현황</a></div>
+            <div id="moniter2"><a href="../monitoring/project_operationRate.html">가동률현황</a></div>
+            <div id="moniter3"><a href="../monitoring/project_downtimeRate.html">비가동현황</a></div>
             <div id="moniter4"><a href="../monitoring/monitoring_reflow.html">리플로우(온도)</a></div>
         </div>
         <div id="criteria">
@@ -424,8 +443,10 @@
                 <div id="list_title"> 거래처 리스트 </div>
                 <div id="list_search">
                     <input type="text" class="list_search_text" value="" placeholder="입력 후 enter">
-                    <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&"
-                        class="list_search_img" alt="검색">
+                    <div id="searchImg">
+                        <img src="https://cdn-icons-png.freepik.com/512/2311/2311526.png?ga=GA1.1.1347059133.1702859932&"
+                             class="list_search_img" alt="검색">
+                    </div>
                 </div>
             </div>
             <!-- 메인시작 -->
@@ -564,8 +585,9 @@
                     <button id="alert_close" class="button_basic">취소</button>
                 </div>
             </div>
-<!-- 
-            <div id="confirm_div" class="div_pop">
+
+            <!-- confirm div -->
+            <!-- <div id="confirm_div" class="div_pop">
                 <div id="confirm_title" class="confirm_hidden">
                     알림
                 </div>
@@ -573,13 +595,13 @@
                     내용
 
                 </div>
-                <div id="alert_button">
-                    <button id="alert_close" class="button_basic">취소</button>
+                <div id="confirm_button">
+                    <button id="confirm_save" class="button_basic">확인</button>
+                    <button id="confirm_close" class="button_basic">취소</button>
                 </div>
-            </div> -->
+            </div>  -->
 
 
-            
         </div>
         <div id="footer">
             <!-- 페이지 넘버 , 페이지네이션 추가예정, 1차는 기본 박스로 -->

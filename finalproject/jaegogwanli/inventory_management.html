@@ -6,83 +6,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Management</title>
-  <!-- 팀원 css 및 은별 css -->
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/star.css">
-  <link rel="stylesheet" href="../css/calendar.css">
-  <!-- 달력 jquery -->
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- 팀원 css 및 은별 css -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/star.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+    <!-- 달력 jquery -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-  <!-- 팀원 js -->
-  <script src="../js/script.js"></script>
-  <!-- 달력 js -->
-  <script src="../js/calendar.js"></script>
+    <!-- 팀원 js -->
+    <script src="../js/script.js"></script>
+    <!-- 달력 js -->
+    <script src="../js/calendar.js"></script>
 
-  <!-- jQuery 라이브러리를 불러오는 코드 -->
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <!--  jQuery UI 라이브러리를 불러오는 코드 ex. 달력,드래그 // 압축x버전 -->
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- jQuery 라이브러리를 불러오는 코드 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <!--  jQuery UI 라이브러리를 불러오는 코드 ex. 달력,드래그 // 압축x버전 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
-    
         #content_main_wrap {
             width: 95%;
-            background-color: #e0dcdc;
-            margin : 2% auto 0 auto;
+            background-color: #fff;
+            margin: 2% auto 0 auto;
             border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         #status_search {
             list-style: none;
-            width : 100%;
+            width: 100%;
             padding: 0;
             margin: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
         }
-       
+        .form {
+            width: 90%;
+        }
         #status_search li {
-            /* background: #fff; */
             display: flex;
             align-items: center;
+            width: 100%;
+        }
+
+        .search_wrap{
+            display : flex;
             width : 100%;
         }
-        /* 달력 */
-        #start-date-select {
-           
-            display: flex;
+        .search_wrap input{
+            /* display : flex; */
+            width : 40%;
+            height : 100%;
         }
-
-        #end-date-select {
-            display: flex;
-        }
-        .title{
+        .search_wrap .search_button{
             width : 20%;
-            margin : 2%;
-        }
-        .form{
-            width : 90%;
         }
 
-        #basic_date,
-        #item,
-        #etc {
-            display : flex;
+        .title {
+            width: 20%;
+            margin: 2%;
         }
 
-        input {
-            border: 1px solid rgb(217, 217, 236);
-        }
+       
+    
 
-        input:focus {
+        .search_wrap input,
+        .date-select {
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        
+        .search_wrap input:hover,
+        .date-select:hover {
             outline: 1px solid rgb(50, 50, 230);
         }
 
+        .search_wrap input:focus,
+        .date-select:focus {
+            outline: 1px solid rgb(50, 50, 230);
+        }
+        
+        .search_wrap button{
+            /* width:50%; */
+            margin-left: 10px;
+        }
+
+        a{
+            text-decoration: none;
+        }
+        a:active{
+            color : #000;
+        }
     </style>
-<script>
-    $( function() {
-  $( ".datepicker" ).datepicker();
-} );
+    <script>
+        $(function () {
+            $(".datepicker").datepicker();
+        });
 
         // // 알림 보여주기 함수
         // // 페이지 로딩 완료 후 실행
@@ -115,9 +134,9 @@
         //         }
         //     });
         // });
-</script>
+    </script>
 
-   
+
 </head>
 
 <body>
@@ -146,7 +165,7 @@
             </ul>
         </div>
         <div id="menu_board">
-            <div><a href="#">그룹웨어</a></div>
+            <div><a href="../group/project_calendar.html">그룹웨어</a></div>
             <div id="moniter">
                 모니터링
             </div>
@@ -171,8 +190,8 @@
         </div>
         <div id="monitering">
             <div id="moniter1"><a href="../monitoring/monitoring_equipment.html">모니터링(장비)</a></div>
-            <div id="moniter2"><a href="#">가동률현황</a></div>
-            <div id="moniter3"><a href="#">비가동현황</a></div>
+            <div id="moniter2"><a href="../monitoring/project_operationRate.html">가동률현황</a></div>
+            <div id="moniter3"><a href="../monitoring/project_downtimeRate.html">비가동현황</a></div>
             <div id="moniter4"><a href="../monitoring/monitoring_reflow.html">리플로우(온도)</a></div>
         </div>
         <div id="criteria">
@@ -190,7 +209,8 @@
         <div id="performing">
             <div id="perform1"><a href="../productionperf/production_performance_chart.html">생산계획대비 실적현황</a></div>
             <div id="perform2"><a href="../productionperf/work_order_performance_chart.html">작업지시대비 실적현황</a></div>
-            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a></div>
+            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a>
+            </div>
         </div>
         <div id="predicting">
             <div id="predicting1"><a href="../prediction/prediction_producting.html">생산량 예측분석</a></div>
@@ -210,49 +230,47 @@
         <div id="content">
 
             <div id="main_header">
-                <div id="list_title"> 출하지시서현황 </div>
+                <div id="list_title"> 재고현황 </div>
             </div>
             <div id="content_main_wrap">
                 <!-- 현황조회 box -->
                 <ul id="status_search">
-                    <li id="basic_date">
+                    <li id="base_date">
                         <div class="title">일자</div>
-                            
-                            <div class="form">
-                                <div class="control_set">
-                                    <div class="date_picker">
-                                        <input type='text' class='datepicker' readonly />
-                                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                                    </div>
+
+                        <div class="form">
+                            <div class="search_wrap">
+                                <!-- <div class="date_picker"> -->
+                                    <input type='text' class='datepicker' readonly />
+                                    <i class="fa fa-calendar" aria-hidden="true"></i>
                                 </div>
-                            </div>
-                        </li>
-                            
-                        
-                       
+                            <!-- </div> -->
+                        </div>
                     </li>
-           
                     <li id="item">
                         <div class="title">품목</div>
                         <div class="form">
                             <div class="search_wrap">
+                                <input type="text" placeholder="품목코드">
                                 <div class="search_button">
-                                    <input type="text" placeholder="품목코드">
                                     <button type="button" class="button_basic">검색</button>
                                 </div>
                             </div>
+                        </div>
                     </li>
-                 
-                    <li id = "etc">
+
+                    <li id="etc">
                         <div class="title">기타</div>
                         <div class="form">
-                            <div class="search_wrap">
-                                <div class="search_button">
-                                    <div id = "status_check">
-                                    <input type = "radio" name = "notusable"> 사용중단품목포함
-                                </div>
-                                </div>
-                            </div>
+                            <!-- <div class="search_wrap"> -->
+                                <!-- <div class="search_button"> -->
+                                    <div id="status_check">
+                                        <input type="radio" name="notusable"> 사용중단품목포함
+                                    </div>
+                                <!-- </div> -->
+                            <!-- </div> -->
+                        </div>
+
                     </li>
 
                 </ul>
@@ -263,7 +281,7 @@
         <footer>
             <div id="main_button">
                 <!-- 신규등록 및 수정버튼-->
-                <button id="outgoing_search" class="change_button">검색</button>
+                <button id="outgoing_search" class="change_button"><a href="inventory_management_list.html">검색</a></button>
 
             </div>
         </footer>

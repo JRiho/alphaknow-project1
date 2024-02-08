@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../css/downtimeRate.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/script.js"></script>
     <script src="../js/downtimeRate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -36,7 +37,7 @@
             </ul>
         </div>
         <div id="menu_board">
-            <div><a href="#">그룹웨어</a></div>
+            <div><a href="../group/project_calendar.html">그룹웨어</a></div>
             <div id="moniter">
                 모니터링
             </div>
@@ -80,7 +81,8 @@
         <div id="performing">
             <div id="perform1"><a href="../productionperf/production_performance_chart.html">생산계획대비 실적현황</a></div>
             <div id="perform2"><a href="../productionperf/work_order_performance_chart.html">작업지시대비 실적현황</a></div>
-            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a></div>
+            <div id="perform3"><a href="../productionperf/equipment_production_performance_chart.html">장비별 생산실적현황</a>
+            </div>
         </div>
         <div id="predicting">
             <div id="predicting1"><a href="../prediction/prediction_producting.html">생산량 예측분석</a></div>
@@ -97,66 +99,58 @@
             <div id="storing2"><a href="../ibgogwanli/item_registration.html">품목별단가조회 및 변경</a></div>
             <div id="storing3"><a href="../ibgogwanli/customerList.html">거래처 관리/등록</a></div>
         </div>
-    </div>
 
-    <div id="content">
-        <div id="info">
-            <div id="full_frame">
+        <div id="downtime_content">
+            <div id="downtime_menu">
+                <button type="button" class="toggleButton" data-target="PCB 로더">
+                    PCB 로더
+                </button>
+                <button type="button" class="toggleButton" data-target="솔더 프린팅">
+                    솔더 프린팅
+                </button>
+                <button type="button" class="toggleButton" data-target="SPI (솔더 페이스트 검사기)">
+                    SPI
+                </button>
+                <button type="button" class="toggleButton" data-target="칩 마운터">
+                    칩 마운터
+                </button>
+                <button type="button" class="toggleButton" data-target="리플로우 솔더링">
+                    리플로우 솔더링
+                </button>
+                <button type="button" class="toggleButton" data-target="자동광학검사">
+                    자동광학검사
+                </button>
+                <button type="button" class="toggleButton" data-target="PCB 언로더">
+                    PCB 언로더
+                </button>
+            </div>
 
-                <div id="downtime_menu">
-                    <button type="button" class="toggleButton" data-target="PCB 로더">
-                        PCB 로더
-                    </button>
-                    <button type="button" class="toggleButton" data-target="솔더 프린팅">
-                        솔더 프린팅
-                    </button>
-                    <button type="button" class="toggleButton" data-target="SPI (솔더 페이스트 검사기)">
-                        SPI
-                    </button>
-                    <button type="button" class="toggleButton" data-target="칩 마운터">
-                        칩 마운터
-                    </button>
-                    <button type="button" class="toggleButton" data-target="리플로우 솔더링">
-                        리플로우 솔더링
-                    </button>
-                    <button type="button" class="toggleButton" data-target="자동광학검사">
-                        자동광학검사
-                    </button>
-                    <button type="button" class="toggleButton" data-target="PCB 언로더">
-                        PCB 언로더
-                    </button>
+            <div id="equip_downtime">
+
+                <div id="downtime_info">
+                    <select id="downtime_date">
+                        <option value="통계 날짜">통계 날짜</option>
+                    </select>
                 </div>
 
-                <div id="equip_downtime">
-
-                    <div id="downtime_info">
-                        <select id="downtime_date">
-                            <option value="통계 날짜">통계 날짜</option>
-                        </select>
-                    </div>
-
-                    <div id="downtime_chart">
-                        <canvas id="downtime_pie" width="500" height="581"></canvas>
-                    </div>
-
-                    <div id="operationStats">
-                        <p>가동률: <span id="operatingRate"></span></p>
-                        <p>비가동률: <span id="downtimeRate"></span></p>
-                        <p>총 작동시간: <span id="totalOperationTime"></span></p>
-                    </div>
-
-                    <div id="downtime_reason">
-                        <p>준비시간 99.0%</p>
-                        <p>장비고장 0.1%</p>
-                        <p>청소(계획/비계획) 0.5%</p>
-                        <p>이상대기 0.4%</p>
-                    </div>
-
+                <div id="downtime_chart">
+                    <canvas id="downtime_pie" width="500" height="581"></canvas>
                 </div>
 
+                <div id="operationStats">
+                    <p>가동률: <span id="operatingRate"></span></p>
+                    <p>비가동률: <span id="downtimeRate"></span></p>
+                    <p>총 작동시간: <span id="totalOperationTime"></span></p>
+                </div>
+
+                <div id="downtime_reason">
+                    <p>준비시간 99.0%</p>
+                    <p>장비고장 0.1%</p>
+                    <p>청소(계획/비계획) 0.5%</p>
+                    <p>이상대기 0.4%</p>
+                </div>
             </div>
         </div>
-    </div>
 
 </body>
 
