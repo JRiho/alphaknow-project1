@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="main_board">
+        <colgroup>
+            <col style="width:5%" />
+            <col style="width:10%" />
+            <col style="width:30%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+            <col style="width:15%" />
+            <col style="width:10%" />
+        </colgroup>
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>거래처코드</th>
+                <th>거래처명</th>
+                <th>대표자명</th>
+                <th>전화</th>
+                <th>담당자 번호</th>
+                <th>사용구분</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 게시물 추가 예정 -->
+        </tbody>
+    </table>
+    <div id="nav"></div>
+    
+    <script>
+    var rowsShown = 15;
+    var rowsTotal = document.querySelectorAll('#main_board tbody tr').length;
+    var numPages = Math.ceil(rowsTotal/rowsShown);
+    
+    for (i = 0; i < numPages; i++) {
+        var pageNum = i + 1;
+        var node = document.createElement('a');
+        node.href = "#";
+        node.className = "nav";
+        node.innerHTML = pageNum;
+        document.getElementById('nav').appendChild(node);
+    }
+    
+    var rows = document.querySelectorAll('#main_board tbody tr');
+    for (i = 0; i < rows.length; i++) {
+        rows[i].style.display = 'none';
+    }
+    
+    for (i = 0; i < rowsShown; i++) {
+        if (rows[i]) rows[i].style.display = 'table-row';
+    }
+    
+    document.querySelector('#nav a:first-child').classList.add('active');
+    
+    var nav = document.querySelectorAll('#nav a');
+    for (i = 0; i < nav.length; i++) {
+        nav[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('#nav a.active').classList.remove('active');
+            this.classList.add('active');
+            var currentPage = Number(this.innerHTML);
+            var startItem = (currentPage - 1) * rowsShown;
+            var endItem = startItem + rowsShown;
+            for (i = 0; i < rows.length; i++) {
+                rows[i].style.display = 'none';
+            }
+            for (i = startItem; i < endItem; i++) {
+                if (rows[i]) rows[i].style.display = 'table-row';
+            }
+        });
+    }
+    </script>
+    
+</body>
+</html>
