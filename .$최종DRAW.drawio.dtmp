@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-25T01:33:39.727Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="G_jWi22eW_Hrx2WwIs01" version="24.0.5" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-26T00:05:34.011Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="d6AuPieHr3uJtMIolX0E" version="24.0.5" type="github">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
     <mxGraphModel dx="9295" dy="4458" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -19,7 +19,7 @@
         <mxCell id="rdi_FOHlSSDE4guylNng-20" value="&lt;span style=&quot;font-size: 100px;&quot;&gt;모니터링&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=100;strokeWidth=5;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="2840" y="100" width="730" height="420" as="geometry" />
         </mxCell>
-        <mxCell id="rdi_FOHlSSDE4guylNng-22" value="구민 : 메인 , 모니터링&lt;br style=&quot;font-size: 200px;&quot;&gt;민영 : 프로필 , 로그인 , 모니터링&lt;br style=&quot;font-size: 200px;&quot;&gt;은별 : 재고 , 입고&lt;br style=&quot;font-size: 200px;&quot;&gt;의건 : 공정, 예측&lt;br style=&quot;font-size: 200px;&quot;&gt;지훈 : 생산계획, 생산실적&lt;br style=&quot;font-size: 200px;&quot;&gt;" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fontSize=200;" parent="1" vertex="1">
+        <mxCell id="rdi_FOHlSSDE4guylNng-22" value="&lt;br style=&quot;font-size: 200px;&quot;&gt;민영 : 프로필 , 로그인 , 모니터링&lt;br style=&quot;font-size: 200px;&quot;&gt;은별 : 재고 , 입고&lt;br style=&quot;font-size: 200px;&quot;&gt;의건 : 공정, 예측&lt;br style=&quot;font-size: 200px;&quot;&gt;지훈 : 생산계획, 생산실적" style="shape=document;whiteSpace=wrap;html=1;boundedLbl=1;fontSize=200;" parent="1" vertex="1">
           <mxGeometry x="658" y="-1510" width="3032" height="1880" as="geometry" />
         </mxCell>
         <mxCell id="rdi_FOHlSSDE4guylNng-193" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=12;fontStyle=1" parent="1" source="rdi_FOHlSSDE4guylNng-83" target="rdi_FOHlSSDE4guylNng-14" edge="1">
